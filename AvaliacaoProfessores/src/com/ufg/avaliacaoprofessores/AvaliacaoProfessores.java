@@ -6,6 +6,9 @@ package com.ufg.avaliacaoprofessores;
 
 import com.ufg.avaliacaoprofessores.bean.Professor;
 import com.ufg.avaliacaoprofessores.dao.ProfessorDAO;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 /**
  *
@@ -23,6 +26,6 @@ public class AvaliacaoProfessores {
         
         ProfessorDAO professorDAO = new ProfessorDAO();
         professorDAO.salvar(prof);
-        
+            
     }
 }

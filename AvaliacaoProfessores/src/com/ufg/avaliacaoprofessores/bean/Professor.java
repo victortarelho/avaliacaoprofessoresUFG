@@ -24,6 +24,8 @@ public class Professor implements Serializable {
     @Column(name = "nome", nullable = false)
     private String nome;
 
+    private long matricula;
+    
     public Long getId() {
         return id;
     }
@@ -40,6 +42,14 @@ public class Professor implements Serializable {
         this.nome = nome;
     }
 
+    public long getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(long matricula) {
+        this.matricula = matricula;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 0;
