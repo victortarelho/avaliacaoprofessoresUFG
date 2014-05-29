@@ -11,7 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import org.hibernate.annotations.Generated;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -28,7 +28,8 @@ public class ItemAvaliacao implements Serializable {
     
     private float pontos;
     
-    private Atividade atividade;
+    @ManyToOne
+    private TipoAtividade atividade;
     
     private int has;
 
@@ -56,11 +57,11 @@ public class ItemAvaliacao implements Serializable {
         this.pontos = pontos;
     }
 
-    public Atividade getAtividade() {
+    public TipoAtividade getAtividade() {
         return atividade;
     }
 
-    public void setAtividade(Atividade atividade) {
+    public void setAtividade(TipoAtividade atividade) {
         this.atividade = atividade;
     }
 

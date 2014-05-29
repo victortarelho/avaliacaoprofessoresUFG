@@ -7,11 +7,16 @@
 package com.ufg.avaliacaoprofessores.bean;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -24,10 +29,16 @@ public class Avaliacao implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
-    private List itensAvaliacao;
+    @OneToMany()
+    private List<ItemAvaliacao> itensAvaliacao;
     
-    
+    @ManyToOne
     private Professor professor;
+    
+    private float pontuacaoTotal;
+    
+    @Temporal(TemporalType.TIMESTAMP)
+    private Calendar dataAvaliacao;
 
     public Long getId() {
         return id;
@@ -52,6 +63,21 @@ public class Avaliacao implements Serializable {
     public void setProfessor(Professor professor) {
         this.professor = professor;
     }
-    
-    
+
+    public float getPontuacaoTotal() {
+        return pontuacaoTotal;
+    }
+
+    public void setPontuacaoTotal(float pontuacaoTotal) {
+        this.pontuacaoTotal = pontuacaoTotal;
+    }
+
+    public Calendar getDataAvaliacao() {
+        return dataAvaliacao;
+    }
+
+    public void setDataAvaliacao(Calendar dataAvaliacao) {
+        this.dataAvaliacao = dataAvaliacao;
+    }
+  
 }

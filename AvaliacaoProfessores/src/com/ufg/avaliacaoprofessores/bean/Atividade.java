@@ -11,7 +11,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import org.hibernate.annotations.Generated;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -22,10 +23,12 @@ public class Atividade implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
     private String codigo;
+    private float pontos;
+    private String descricao;
     
-    private float valor;
+    @ManyToOne()
+    private TipoAtividade tipoAtividade;
 
     public Long getId() {
         return id;
@@ -43,14 +46,28 @@ public class Atividade implements Serializable{
         this.codigo = codigo;
     }
 
-    public float getValor() {
-        return valor;
+    public float getPontos() {
+        return pontos;
     }
 
-    public void setValor(float valor) {
-        this.valor = valor;
+    public void setPontos(float pontos) {
+        this.pontos = pontos;
     }
-    
-    
-    
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public TipoAtividade getTipoAtividade() {
+        return tipoAtividade;
+    }
+
+    public void setTipoAtividade(TipoAtividade tipoAtividade) {
+        this.tipoAtividade = tipoAtividade;
+    }
+ 
 }
