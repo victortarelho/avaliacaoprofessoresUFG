@@ -19,8 +19,9 @@ public class GerarTabelas {
         
         EntityManagerFactory factoryProf = Persistence.createEntityManagerFactory("AvaliacaoProfessoresPU");
         EntityManager manager = factoryProf.createEntityManager();
-        manager.close();
         manager.clear();
+        manager.close();
+        
     }
     
 }

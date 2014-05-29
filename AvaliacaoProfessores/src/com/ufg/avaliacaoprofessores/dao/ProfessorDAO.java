@@ -5,6 +5,7 @@
 package com.ufg.avaliacaoprofessores.dao;
 
 import com.ufg.avaliacaoprofessores.bean.Professor;
+import com.ufg.avaliacaoprofessores.exception.DaoException;
 import com.ufg.avaliacaoprofessores.persistence.GenericDao;
 
 /**
@@ -16,7 +17,7 @@ public class ProfessorDAO extends GenericDao{
     public void salvar(Professor professor) {
         try {
             super.salvar(professor);
-        } catch (Exception e) {
+        } catch (DaoException e) {
             e.printStackTrace();
         }
     }

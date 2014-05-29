@@ -1,5 +1,6 @@
 package com.ufg.avaliacaoprofessores.persistence;
 
+import com.ufg.avaliacaoprofessores.exception.DaoException;
 import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.Iterator;
@@ -16,7 +17,7 @@ import org.hibernate.exception.ConstraintViolationException;
  */
 public class GenericDao implements Serializable {
 
-    public void salvar(Object object) throws Exception, SQLException, ConstraintViolationException {
+    public void salvar(Object object) throws DaoException{
 
         Session session = HibernateFactory.getSession();
         Transaction transaction = session.beginTransaction();
@@ -26,13 +27,13 @@ public class GenericDao implements Serializable {
             transaction.commit();
         } catch (Exception e) {
             transaction.rollback();
-            throw new Exception("Houve erros: " + e.getMessage());
+            throw new DaoException("Problema ao armazenar dado.");
         } finally {
             session.close();
         }
     }
 
-    public Object consultar(Class entidade, Long id) throws Exception, SQLException, ConstraintViolationException {
+    public Object consultar(Class entidade, Long id) throws DaoException {
         Session session = HibernateFactory.getSession();
         Transaction transaction = session.beginTransaction();
         Object result = null;
@@ -40,7 +41,7 @@ public class GenericDao implements Serializable {
             result = session.load(entidade, id);
         } catch (Exception e) {
             transaction.rollback();
-            throw new Exception("Houve erros: " + e.getMessage());
+            throw new DaoException("Problema ao armazenar dado.");
         }
         
         return result;
