@@ -22,4 +22,11 @@ public class ProfessorDAO extends GenericDao{
         }
     }
     
+    public void deletar(Professor professor) {
+        try {
+            super.excluir(professor);
+        } catch (DaoException e) {
+            e.printStackTrace();
+        }
+    }
 }

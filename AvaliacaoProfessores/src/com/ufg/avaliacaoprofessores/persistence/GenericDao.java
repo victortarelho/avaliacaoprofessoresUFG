@@ -85,4 +85,20 @@ public class GenericDao implements Serializable {
         session.close();
         return objts;
     }
+    
+    public void excluir(Object object) throws DaoException{
+
+        Session session = HibernateFactory.getSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+            session.delete(object);
+            session.flush();
+            transaction.commit();
+        } catch (Exception e) {
+            transaction.rollback();
+            throw new DaoException("Problema ao armazenar dado.");
+        } finally {
+            session.close();
+        }
+    }
 }
