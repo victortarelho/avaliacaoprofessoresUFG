@@ -4,8 +4,8 @@
  */
 package com.ufg.avaliacaoprofessores;
 
-import com.ufg.avaliacaoprofessores.bean.Professor;
-import com.ufg.avaliacaoprofessores.dao.ProfessorDAO;
+import com.ufg.avaliacaoprofessores.bean.Docente;
+import com.ufg.avaliacaoprofessores.dao.DocenteDAO;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -21,10 +21,10 @@ public class AvaliacaoProfessores {
      */
     public static void main(String[] args) {
         
-        Professor prof = new Professor();
+        Docente prof = new Docente();
         prof.setNome("Professor Teste");
         
-        ProfessorDAO professorDAO = new ProfessorDAO();
+        DocenteDAO professorDAO = new DocenteDAO();
         professorDAO.salvar(prof);
             
     }

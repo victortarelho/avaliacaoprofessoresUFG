@@ -1,6 +1,6 @@
 package com.ufg.avaliacaoprofessores.persistence;
 
-import com.ufg.avaliacaoprofessores.bean.Professor;
+import com.ufg.avaliacaoprofessores.bean.Docente;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
@@ -15,7 +15,7 @@ public class HibernateFactory {
         AnnotationConfiguration cfg = new AnnotationConfiguration();
         cfg.configure();
         
-        cfg.addAnnotatedClass(Professor.class);
+        cfg.addAnnotatedClass(Docente.class);
         
         factory = cfg.buildSessionFactory();
     }

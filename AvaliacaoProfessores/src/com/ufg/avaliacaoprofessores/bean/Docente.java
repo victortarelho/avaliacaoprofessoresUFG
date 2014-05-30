@@ -15,7 +15,7 @@ import javax.persistence.Id;
  * @author italogustavomirandamelo
  */
 @Entity
-public class Professor implements Serializable {
+public class Docente implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -60,10 +60,10 @@ public class Professor implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Professor)) {
+        if (!(object instanceof Docente)) {
             return false;
         }
-        Professor other = (Professor) object;
+        Docente other = (Docente) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
