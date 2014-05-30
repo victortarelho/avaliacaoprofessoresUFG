@@ -26,9 +26,27 @@ public class Docente implements Serializable {
 
     @Column(name = "matricula", nullable = false)
     private long matricula;
+    private String regime;
+    private String unidade;
     
     public Long getId() {
         return id;
+    }
+
+    public String getRegime() {
+        return regime;
+    }
+
+    public void setRegime(String regime) {
+        this.regime = regime;
+    }
+
+    public String getUnidade() {
+        return unidade;
+    }
+
+    public void setUnidade(String unidade) {
+        this.unidade = unidade;
     }
 
     public void setId(Long id) {
