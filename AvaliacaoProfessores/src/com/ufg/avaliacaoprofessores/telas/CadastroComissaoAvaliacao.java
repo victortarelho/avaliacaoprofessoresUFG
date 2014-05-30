@@ -43,16 +43,16 @@ public class CadastroComissaoAvaliacao extends javax.swing.JFrame {
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Diretor");
-        jLabel2.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        jLabel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Membro 1");
-        jLabel3.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        jLabel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Membro 2");
         jLabel4.setToolTipText("");
-        jLabel4.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        jLabel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jButton1.setText("Salvar");
 
@@ -137,7 +137,9 @@ public class CadastroComissaoAvaliacao extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastroComissaoAvaliacao().setVisible(true);
+                CadastroComissaoAvaliacao cadastroComissaoAvaliacao = new CadastroComissaoAvaliacao();
+                cadastroComissaoAvaliacao.setVisible(true);
+                cadastroComissaoAvaliacao.setLocationRelativeTo(null);
             }
         });
     }
