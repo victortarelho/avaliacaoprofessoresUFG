@@ -24,6 +24,7 @@ public class Docente implements Serializable {
     @Column(name = "nome", nullable = false)
     private String nome;
 
+    @Column(name = "matricula", nullable = false)
     private long matricula;
     
     public Long getId() {
