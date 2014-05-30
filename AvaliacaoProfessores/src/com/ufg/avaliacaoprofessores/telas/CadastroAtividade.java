@@ -134,7 +134,9 @@ public class CadastroAtividade extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastroAtividade().setVisible(true);
+                CadastroAtividade cadastroAtividade = new CadastroAtividade();
+                cadastroAtividade.setVisible(true);
+                cadastroAtividade.setLocationRelativeTo(null);
             }
         });
     }
