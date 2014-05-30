@@ -33,7 +33,23 @@ public class Avaliacao implements Serializable {
     private List<ItemAvaliacao> itensAvaliacao;
     
     @ManyToOne
-    private Professor professor;
+    private Docente docente;
+
+    public List<ItemAvaliacao> getItensAvaliacao() {
+        return itensAvaliacao;
+    }
+
+    public void setItensAvaliacao(List<ItemAvaliacao> itensAvaliacao) {
+        this.itensAvaliacao = itensAvaliacao;
+    }
+
+    public Docente getDocente() {
+        return docente;
+    }
+
+    public void setDocente(Docente docente) {
+        this.docente = docente;
+    }
     
     private float pontuacaoTotal;
     
@@ -46,22 +62,6 @@ public class Avaliacao implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public List getItensAvaliacao() {
-        return itensAvaliacao;
-    }
-
-    public void setItensAvaliacao(List itensAvaliacao) {
-        this.itensAvaliacao = itensAvaliacao;
-    }
-
-    public Professor getProfessor() {
-        return professor;
-    }
-
-    public void setProfessor(Professor professor) {
-        this.professor = professor;
     }
 
     public float getPontuacaoTotal() {
