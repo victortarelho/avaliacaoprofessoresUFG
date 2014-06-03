@@ -21,12 +21,16 @@ public class Docente implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
-    @Column(name = "nome", nullable = false)
+    @Column(name = "nome", nullable = false, length=100)
     private String nome;
 
     @Column(name = "matricula", nullable = false)
     private long matricula;
+
+    @Column(name = "regime", nullable = false, length=100)
     private String regime;
+
+    @Column(name = "unidade", nullable = false, length=100)
     private String unidade;
     
     public Long getId() {

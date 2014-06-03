@@ -3,36 +3,37 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.ufg.avaliacaoprofessores.bean;
 
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
- *
  * @author Mario
  */
 @Entity
 public class Avaliacao implements Serializable {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
-    @OneToMany()
+    @OneToMany(mappedBy = "avaliacao", cascade = {CascadeType.REMOVE})
     private List<ItemAvaliacao> itensAvaliacao;
     
     @ManyToOne
+    @JoinColumn(name = "id_docente", nullable = false)
     private Docente docente;
 
     public List<ItemAvaliacao> getItensAvaliacao() {
@@ -50,9 +51,7 @@ public class Avaliacao implements Serializable {
     public void setDocente(Docente docente) {
         this.docente = docente;
     }
-    
     private float pontuacaoTotal;
-    
     @Temporal(TemporalType.TIMESTAMP)
     private Calendar dataAvaliacao;
 
@@ -79,5 +78,4 @@ public class Avaliacao implements Serializable {
     public void setDataAvaliacao(Calendar dataAvaliacao) {
         this.dataAvaliacao = dataAvaliacao;
     }
-  
 }

@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package com.ufg.avaliacaoprofessores.bean;
 
 import java.io.Serializable;
@@ -11,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 /**
@@ -19,19 +14,21 @@ import javax.persistence.ManyToOne;
  */
 @Entity
 public class ItemAvaliacao implements Serializable {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
     private String nome;
-    
     private float pontos;
-    
-    @ManyToOne
-    private TipoAtividade atividade;
-    
     private int has;
+
+    @ManyToOne
+    @JoinColumn(name = "id_tipo_atividade", nullable = false)
+    private TipoAtividade tipoAtividade;
+
+    @ManyToOne
+    @JoinColumn(name = "id_avaliacao", nullable = false)
+    private Avaliacao avaliacao;
 
     public Long getId() {
         return id;
@@ -39,6 +36,14 @@ public class ItemAvaliacao implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Avaliacao getAvaliacao() {
+        return avaliacao;
+    }
+
+    public void setAvaliacao(Avaliacao avaliacao) {
+        this.avaliacao = avaliacao;
     }
 
     public String getNome() {
@@ -57,14 +62,6 @@ public class ItemAvaliacao implements Serializable {
         this.pontos = pontos;
     }
 
-    public TipoAtividade getAtividade() {
-        return atividade;
-    }
-
-    public void setAtividade(TipoAtividade atividade) {
-        this.atividade = atividade;
-    }
-
     public int getHas() {
         return has;
     }
@@ -72,8 +69,12 @@ public class ItemAvaliacao implements Serializable {
     public void setHas(int has) {
         this.has = has;
     }
-    
-    
-    
-    
+
+    public TipoAtividade getTipoAtividade() {
+        return tipoAtividade;
+    }
+
+    public void setTipoAtividade(TipoAtividade tipoAtividade) {
+        this.tipoAtividade = tipoAtividade;
+    }
 }
