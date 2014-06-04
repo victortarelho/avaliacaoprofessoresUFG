@@ -6,9 +6,6 @@ package com.ufg.avaliacaoprofessores;
 
 import com.ufg.avaliacaoprofessores.bean.Docente;
 import com.ufg.avaliacaoprofessores.dao.DocenteDAO;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 /**
  *
