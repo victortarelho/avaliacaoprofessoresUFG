@@ -21,17 +21,15 @@ public class TipoAtividade implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
     
     private String nome;
-    
     
     private String codigo;
 
     public Long getId() {
         return id;
     }
-
+    
     public void setId(Long id) {
         this.id = id;
     }
@@ -51,7 +49,5 @@ public class TipoAtividade implements Serializable{
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
-    
-    
-    
+      
 }
