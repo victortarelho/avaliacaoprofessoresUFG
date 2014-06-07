@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package com.ufg.avaliacaoprofessores.bean;
 
 import java.io.Serializable;
@@ -11,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -25,6 +21,10 @@ public class TipoAtividade implements Serializable{
     private String nome;
     
     private String codigo;
+
+    @ManyToOne
+    @JoinColumn(name = "id_tipo_pai", nullable = false)
+    private TipoAtividade tipoAtividadePai;
 
     public Long getId() {
         return id;
@@ -49,5 +49,12 @@ public class TipoAtividade implements Serializable{
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
-      
+    
+    public TipoAtividade getTipoAtividadePai() {
+        return tipoAtividadePai;
+    }
+
+    public void setTipoAtividadePai(TipoAtividade tipoAtividadePai) {
+        this.tipoAtividadePai = tipoAtividadePai;
+    } 
 }

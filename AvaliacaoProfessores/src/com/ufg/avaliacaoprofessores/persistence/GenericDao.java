@@ -15,7 +15,7 @@ import org.hibernate.exception.ConstraintViolationException;
 /**
  * @author italogustavomirandamelo
  */
-public class GenericDao implements Serializable {
+public abstract class GenericDao implements Serializable, DataAccessObject {
 
     public void salvar(Object object) throws DaoException{
 

@@ -23,8 +23,8 @@ public class ItemAvaliacao implements Serializable {
     private int has;
 
     @ManyToOne
-    @JoinColumn(name = "id_tipo_atividade", nullable = false)
-    private TipoAtividade tipoAtividade;
+    @JoinColumn(name = "id_atividade", nullable = false)
+    private Atividade atividade;
 
     @ManyToOne
     @JoinColumn(name = "id_avaliacao", nullable = false)
@@ -70,11 +70,11 @@ public class ItemAvaliacao implements Serializable {
         this.has = has;
     }
 
-    public TipoAtividade getTipoAtividade() {
-        return tipoAtividade;
+    public Atividade getAtividade() {
+        return atividade;
     }
 
-    public void setTipoAtividade(TipoAtividade tipoAtividade) {
-        this.tipoAtividade = tipoAtividade;
+    public void setAtividade(Atividade atividade) {
+        this.atividade = atividade;
     }
 }
