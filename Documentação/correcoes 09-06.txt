@@ -1,0 +1,19 @@
+atualizar versão do documento de requisitos
+atualizar documento de requisitos para PDF
+
+interface não é prioridade, foco na persistência e na concorrência
+
+filtros para visualizar avaliação
+
+colocar requisito de desempenho
+restringir quantidade de dados
+
+adicionar aos requisitos o software em Java
+
+inverter cardinalidade entre itemAvaliação e cardinalidade
+
+inserir versionamento de avaliação de acordo com resolução ou colocar nos requisitos que não possui versionamento
+
+multiplicador has deve estar no banco de dados, tirar de item e colocar em atividade
+
+relacionar avaliação a um novo item "resolução"
