@@ -1,6 +1,7 @@
 package com.ufg.avaliacaoprofessores.bean;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -8,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * @author italogustavomirandamelo
@@ -23,7 +26,11 @@ public class Avaliacao implements Serializable {
     
     @OneToMany(mappedBy = "avaliacao",cascade = { CascadeType.ALL })
     private List<AvaliacaoDocente> avaliacoesDocentes;
-
+    
+    private float pontuacaoTotal;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Calendar dataAvaliacao;
+    
     public Long getId() {
         return id;
     }
@@ -47,8 +54,20 @@ public class Avaliacao implements Serializable {
     public void setAvaliacoesDocentes(List<AvaliacaoDocente> avaliacoesDocentes) {
         this.avaliacoesDocentes = avaliacoesDocentes;
     }
-    
-    
-    
-    
+
+    public float getPontuacaoTotal() {
+        return pontuacaoTotal;
+    }
+
+    public void setPontuacaoTotal(float pontuacaoTotal) {
+        this.pontuacaoTotal = pontuacaoTotal;
+    }
+
+    public Calendar getDataAvaliacao() {
+        return dataAvaliacao;
+    }
+
+    public void setDataAvaliacao(Calendar dataAvaliacao) {
+        this.dataAvaliacao = dataAvaliacao;
+    }
 }
