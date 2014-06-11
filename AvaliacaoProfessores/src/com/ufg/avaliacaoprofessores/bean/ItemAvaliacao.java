@@ -28,7 +28,7 @@ public class ItemAvaliacao implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "id_avaliacao", nullable = false)
-    private Avaliacao avaliacao;
+    private AvaliacaoDocente avaliacao;
 
     public Long getId() {
         return id;
@@ -38,11 +38,11 @@ public class ItemAvaliacao implements Serializable {
         this.id = id;
     }
 
-    public Avaliacao getAvaliacao() {
+    public AvaliacaoDocente getAvaliacao() {
         return avaliacao;
     }
 
-    public void setAvaliacao(Avaliacao avaliacao) {
+    public void setAvaliacao(AvaliacaoDocente avaliacao) {
         this.avaliacao = avaliacao;
     }
 
