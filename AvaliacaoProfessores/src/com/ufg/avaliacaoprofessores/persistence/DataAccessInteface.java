@@ -6,7 +6,7 @@
 
 package com.ufg.avaliacaoprofessores.persistence;
 
-import com.ufg.avaliacaoprofessores.exception.DaoException;
+import com.ufg.avaliacaoprofessores.exception.AvaliacaoDaoException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
@@ -16,11 +16,11 @@ import org.hibernate.exception.ConstraintViolationException;
  *
  * @author italogustavomirandamelo
  */
-public interface DataAccessObject {
+public interface DataAccessInteface {
     
-    public void salvar(Object object) throws DaoException;
-    Object consultar(Class entidade, Long id) throws DaoException;
+    public void salvar(Object object) throws AvaliacaoDaoException;
+    Object consultar(Class entidade, Long id) throws AvaliacaoDaoException;
     List listarFiltroHql(Class classeEntidade, Map parametros, String hql);
     List listar(Class clazz) throws Exception, SQLException, ConstraintViolationException;
-    void excluir(Object object) throws DaoException;
+    void excluir(Object object) throws AvaliacaoDaoException;
 }

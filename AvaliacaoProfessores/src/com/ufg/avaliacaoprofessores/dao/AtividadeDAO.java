@@ -7,7 +7,7 @@
 package com.ufg.avaliacaoprofessores.dao;
 
 import com.ufg.avaliacaoprofessores.bean.Atividade;
-import com.ufg.avaliacaoprofessores.exception.DaoException;
+import com.ufg.avaliacaoprofessores.exception.AvaliacaoDaoException;
 import com.ufg.avaliacaoprofessores.persistence.GenericDao;
 
 /**
@@ -19,7 +19,7 @@ public class AtividadeDAO extends GenericDao{
     public void salvar(Atividade atividade) {
         try {
             super.salvar(atividade);
-        } catch (DaoException e) {
+        } catch (AvaliacaoDaoException e) {
             e.printStackTrace();
         }
     }
@@ -27,7 +27,7 @@ public class AtividadeDAO extends GenericDao{
     public void deletar(Atividade atividade) {
         try {
             super.excluir(atividade);
-        } catch (DaoException e) {
+        } catch (AvaliacaoDaoException e) {
             e.printStackTrace();
         }
     }

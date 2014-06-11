@@ -1,6 +1,6 @@
 package com.ufg.avaliacaoprofessores.persistence;
 
-import com.ufg.avaliacaoprofessores.exception.DaoException;
+import com.ufg.avaliacaoprofessores.exception.AvaliacaoDaoException;
 import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.Iterator;
@@ -15,9 +15,9 @@ import org.hibernate.exception.ConstraintViolationException;
 /**
  * @author italogustavomirandamelo
  */
-public abstract class GenericDao implements Serializable, DataAccessObject {
+public abstract class GenericDao implements Serializable, DataAccessInteface {
 
-    public void salvar(Object object) throws DaoException{
+    public void salvar(Object object) throws AvaliacaoDaoException{
 
         Session session = HibernateFactory.getSession();
         Transaction transaction = session.beginTransaction();
@@ -27,13 +27,13 @@ public abstract class GenericDao implements Serializable, DataAccessObject {
             transaction.commit();
         } catch (Exception e) {
             transaction.rollback();
-            throw new DaoException("Problema ao armazenar dado.");
+            throw new AvaliacaoDaoException("Problema ao armazenar dado.");
         } finally {
             session.close();
         }
     }
 
-    public Object consultar(Class entidade, Long id) throws DaoException {
+    public Object consultar(Class entidade, Long id) throws AvaliacaoDaoException {
         Session session = HibernateFactory.getSession();
         Transaction transaction = session.beginTransaction();
         Object result = null;
@@ -41,7 +41,7 @@ public abstract class GenericDao implements Serializable, DataAccessObject {
             result = session.load(entidade, id);
         } catch (Exception e) {
             transaction.rollback();
-            throw new DaoException("Problema ao armazenar dado.");
+            throw new AvaliacaoDaoException("Problema ao armazenar dado.");
         }
         
         return result;
@@ -86,7 +86,7 @@ public abstract class GenericDao implements Serializable, DataAccessObject {
         return objts;
     }
     
-    public void excluir(Object object) throws DaoException{
+    public void excluir(Object object) throws AvaliacaoDaoException{
 
         Session session = HibernateFactory.getSession();
         Transaction transaction = session.beginTransaction();
@@ -96,7 +96,7 @@ public abstract class GenericDao implements Serializable, DataAccessObject {
             transaction.commit();
         } catch (Exception e) {
             transaction.rollback();
-            throw new DaoException("Problema ao armazenar dado.");
+            throw new AvaliacaoDaoException("Problema ao armazenar dado.");
         } finally {
             session.close();
         }

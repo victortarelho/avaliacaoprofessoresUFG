@@ -23,7 +23,7 @@ public class TipoAtividade implements Serializable{
     private String codigo;
 
     @ManyToOne
-    @JoinColumn(name = "id_tipo_pai", nullable = false)
+    @JoinColumn(name = "id_tipo_pai", nullable = true)
     private TipoAtividade tipoAtividadePai;
 
     public Long getId() {

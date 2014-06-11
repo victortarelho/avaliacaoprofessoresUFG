@@ -10,9 +10,9 @@ package com.ufg.avaliacaoprofessores.exception;
  *
  * @author Bruno
  */
-public class DaoException extends Exception{
+public class AvaliacaoDaoException extends Exception{
 
-    public DaoException(String message) {
+    public AvaliacaoDaoException(String message) {
         super(message);
     }
  
