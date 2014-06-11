@@ -6,7 +6,7 @@
 
 package com.ufg.avaliacaoprofessores.controller;
 
-import java.util.List;
+import javax.swing.JFrame;
 
 /**
  *
@@ -15,9 +15,8 @@ import java.util.List;
 public class AvaliacaoController extends GenericController{
 
     @Override
-    public void validaCadastro(List<String> dados) {
+    public void validaCadastro(JFrame viewCadastro) {
         //implementar validacao dos campos
         throw new UnsupportedOperationException("Not supported yet.");
     }
-    
 }

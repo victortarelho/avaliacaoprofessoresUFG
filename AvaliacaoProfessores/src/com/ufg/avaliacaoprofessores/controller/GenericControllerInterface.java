@@ -6,12 +6,12 @@
 
 package com.ufg.avaliacaoprofessores.controller;
 
-import java.util.List;
+import javax.swing.JFrame;
 
 /**
  *
  * @author Bruno
  */
 public interface GenericControllerInterface {
-    public void validaCadastro(List<String> dados);
+    public void validaCadastro(JFrame janela);
 }

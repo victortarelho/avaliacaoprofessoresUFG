@@ -4,16 +4,21 @@
  */
 package com.ufg.avaliacaoprofessores.telas;
 
+import com.ufg.avaliacaoprofessores.controller.AvaliacaoController;
+
 /**
  *
  * @author Victor
  */
 public class CadastroAvaliacao extends javax.swing.JFrame {
 
+    private AvaliacaoController controller;
+    
     /**
      * Creates new form CadastroAvaliacao
      */
     public CadastroAvaliacao() {
+        controller = new AvaliacaoController();
         initComponents();
     }
 
@@ -40,7 +45,7 @@ public class CadastroAvaliacao extends javax.swing.JFrame {
         nome_doc_aval_lbl9 = new javax.swing.JLabel();
         processoField = new javax.swing.JTextField();
         regimeField = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        realizarAvaliacaoBtn = new javax.swing.JButton();
         nome_doc_aval_lbl10 = new javax.swing.JLabel();
         resolucaoField = new javax.swing.JTextField();
         caminhoArquivoLabel = new javax.swing.JLabel();
@@ -90,7 +95,12 @@ public class CadastroAvaliacao extends javax.swing.JFrame {
         regimeField.setEditable(false);
         regimeField.setFocusable(false);
 
-        jButton1.setText("Realizar avaliação");
+        realizarAvaliacaoBtn.setText("Realizar avaliação");
+        realizarAvaliacaoBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                realizarAvaliacaoBtnActionPerformed(evt);
+            }
+        });
 
         nome_doc_aval_lbl10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         nome_doc_aval_lbl10.setText("Resolução");
@@ -141,7 +151,7 @@ public class CadastroAvaliacao extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(realizarAvaliacaoBtn)
                 .addGap(173, 173, 173))
             .addGroup(layout.createSequentialGroup()
                 .addGap(211, 211, 211)
@@ -184,12 +194,16 @@ public class CadastroAvaliacao extends javax.swing.JFrame {
                         .addComponent(caminhoArquivoLabel)
                         .addComponent(caminhoArquivoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(realizarAvaliacaoBtn)
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void realizarAvaliacaoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_realizarAvaliacaoBtnActionPerformed
+        controller.validaCadastro(this);
+    }//GEN-LAST:event_realizarAvaliacaoBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -232,7 +246,6 @@ public class CadastroAvaliacao extends javax.swing.JFrame {
     private javax.swing.JLabel docenteLabel;
     private javax.swing.JTextField dptoField;
     private javax.swing.JLabel dptoLabel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField matriculaField;
@@ -243,6 +256,7 @@ public class CadastroAvaliacao extends javax.swing.JFrame {
     private javax.swing.JLabel periodoLabel;
     private javax.swing.JTextField processoField;
     private javax.swing.JLabel processoLabel;
+    private javax.swing.JButton realizarAvaliacaoBtn;
     private javax.swing.JTextField regimeField;
     private javax.swing.JTextField resolucaoField;
     // End of variables declaration//GEN-END:variables
