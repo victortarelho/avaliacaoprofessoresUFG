@@ -5,6 +5,9 @@
 package com.ufg.avaliacaoprofessores.telas;
 
 import com.ufg.avaliacaoprofessores.controller.AvaliacaoController;
+import java.io.File;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -49,7 +52,7 @@ public class CadastroAvaliacao extends javax.swing.JFrame {
         nome_doc_aval_lbl10 = new javax.swing.JLabel();
         resolucaoField = new javax.swing.JTextField();
         caminhoArquivoLabel = new javax.swing.JLabel();
-        caminhoArquivoField = new javax.swing.JTextField();
+        buscar_arq_bt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -113,8 +116,12 @@ public class CadastroAvaliacao extends javax.swing.JFrame {
         caminhoArquivoLabel.setText("Caminho do arquivo");
         caminhoArquivoLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        caminhoArquivoField.setEditable(false);
-        caminhoArquivoField.setFocusable(false);
+        buscar_arq_bt.setText("Buscar Arquivo");
+        buscar_arq_bt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscar_arq_btActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -130,23 +137,24 @@ public class CadastroAvaliacao extends javax.swing.JFrame {
                     .addComponent(processoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(nome_doc_aval_lbl10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(caminhoArquivoField)
-                    .addComponent(docenteField)
-                    .addComponent(dptoField)
-                    .addComponent(periodoField)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(resolucaoField, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(matriculaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(matriculaField, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(processoField, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(nome_doc_aval_lbl9, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(regimeField)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(docenteField)
+                        .addComponent(dptoField)
+                        .addComponent(periodoField)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(resolucaoField, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(matriculaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(matriculaField, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(processoField, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(nome_doc_aval_lbl9, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(regimeField)))
+                    .addComponent(buscar_arq_bt))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -192,10 +200,10 @@ public class CadastroAvaliacao extends javax.swing.JFrame {
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(caminhoArquivoLabel)
-                        .addComponent(caminhoArquivoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(buscar_arq_bt)))
                 .addGap(18, 18, 18)
                 .addComponent(realizarAvaliacaoBtn)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         pack();
@@ -204,6 +212,19 @@ public class CadastroAvaliacao extends javax.swing.JFrame {
     private void realizarAvaliacaoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_realizarAvaliacaoBtnActionPerformed
         controller.validaCadastro(this);
     }//GEN-LAST:event_realizarAvaliacaoBtnActionPerformed
+
+    private void buscar_arq_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscar_arq_btActionPerformed
+        JFileChooser fc = new JFileChooser();
+        int res = fc.showOpenDialog(null);
+                    
+                    if(res == JFileChooser.APPROVE_OPTION){
+                        File arquivo = fc.getSelectedFile();  
+                        JOptionPane.showMessageDialog(null, "Voce escolheu o arquivo: " + arquivo.getName());
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "Voce nao selecionou nenhum arquivo."); 
+                }
+    }//GEN-LAST:event_buscar_arq_btActionPerformed
 
     /**
      * @param args the command line arguments
@@ -240,7 +261,7 @@ public class CadastroAvaliacao extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField caminhoArquivoField;
+    private javax.swing.JButton buscar_arq_bt;
     private javax.swing.JLabel caminhoArquivoLabel;
     private javax.swing.JTextField docenteField;
     private javax.swing.JLabel docenteLabel;

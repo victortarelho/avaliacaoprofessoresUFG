@@ -35,25 +35,27 @@
                   <Component id="nome_doc_aval_lbl10" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="caminhoArquivoField" max="32767" attributes="0"/>
-                  <Component id="docenteField" alignment="0" max="32767" attributes="0"/>
-                  <Component id="dptoField" alignment="0" max="32767" attributes="0"/>
-                  <Component id="periodoField" alignment="0" max="32767" attributes="0"/>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="resolucaoField" min="-2" pref="110" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="matriculaLabel" min="-2" pref="77" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="matriculaField" min="-2" pref="120" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="docenteField" alignment="0" max="32767" attributes="0"/>
+                      <Component id="dptoField" alignment="0" max="32767" attributes="0"/>
+                      <Component id="periodoField" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="resolucaoField" min="-2" pref="110" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="matriculaLabel" min="-2" pref="77" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="matriculaField" min="-2" pref="120" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="processoField" min="-2" pref="105" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="nome_doc_aval_lbl9" min="-2" pref="71" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="regimeField" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="processoField" min="-2" pref="105" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="nome_doc_aval_lbl9" min="-2" pref="71" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="regimeField" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="buscar_arq_bt" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jSeparator1" pref="29" max="32767" attributes="0"/>
@@ -109,12 +111,12 @@
                   <Component id="jSeparator1" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="caminhoArquivoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="caminhoArquivoField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="buscar_arq_bt" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="realizarAvaliacaoBtn" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="19" max="32767" attributes="0"/>
+              <EmptySpace pref="16" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -261,11 +263,13 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="caminhoArquivoField">
+    <Component class="javax.swing.JButton" name="buscar_arq_bt">
       <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-        <Property name="focusable" type="boolean" value="false"/>
+        <Property name="text" type="java.lang.String" value="Buscar Arquivo"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buscar_arq_btActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
