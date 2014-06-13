@@ -1,6 +1,7 @@
 package com.ufg.avaliacaoprofessores.bean;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,7 +23,14 @@ public class TipoAtividade implements Serializable{
     
     private String codigo;
 
-    @ManyToOne
+    public TipoAtividade(){}
+    
+    public TipoAtividade(String nome, String codigo){
+        this.nome = nome;
+        this.codigo = codigo;
+    }
+    
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "id_tipo_pai", nullable = true)
     private TipoAtividade tipoAtividadePai;
 

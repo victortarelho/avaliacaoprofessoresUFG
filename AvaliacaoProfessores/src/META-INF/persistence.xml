@@ -3,6 +3,11 @@
   <persistence-unit name="AvaliacaoProfessoresPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
     <class>com.ufg.avaliacaoprofessores.bean.Docente</class>
+    <class>com.ufg.avaliacaoprofessores.bean.Atividade</class>
+    <class>com.ufg.avaliacaoprofessores.bean.AvaliacaoDocente</class>
+    <class>com.ufg.avaliacaoprofessores.bean.Avaliacao</class>
+    <class>com.ufg.avaliacaoprofessores.bean.ItemAvaliacao</class>
+    <class>com.ufg.avaliacaoprofessores.bean.TipoAtividade</class>
     <properties>
       <property name="hibernate.connection.username" value="postgres"/>
       <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>

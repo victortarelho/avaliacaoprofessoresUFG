@@ -7,6 +7,12 @@
     <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/avaliacaoProfessores</property>
     <property name="hibernate.connection.username">postgres</property>
     <property name="hibernate.connection.password">root</property>
-    <mapping class="com.ufg.avaliacaoprofessores.bean.Professor"/>
+    
+    <mapping class="com.ufg.avaliacaoprofessores.bean.Docente"/>
+    <mapping class="com.ufg.avaliacaoprofessores.bean.Atividade"/>
+    <mapping class="com.ufg.avaliacaoprofessores.bean.AvaliacaoDocente"/>
+    <mapping class="com.ufg.avaliacaoprofessores.bean.Avaliacao"/>
+    <mapping class="com.ufg.avaliacaoprofessores.bean.ItemAvaliacao"/>
+    <mapping class="com.ufg.avaliacaoprofessores.bean.TipoAtividade"/>
   </session-factory>
 </hibernate-configuration>

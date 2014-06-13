@@ -5,6 +5,7 @@ import java.util.Calendar;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,6 +16,7 @@ import javax.persistence.TemporalType;
 /**
  * @author italogustavomirandamelo
  */
+@Entity
 public class Avaliacao implements Serializable {
     
     @Id
