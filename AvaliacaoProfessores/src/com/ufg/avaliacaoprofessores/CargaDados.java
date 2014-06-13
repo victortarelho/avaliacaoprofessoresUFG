@@ -5,7 +5,9 @@
  */
 package com.ufg.avaliacaoprofessores;
 
+import com.ufg.avaliacaoprofessores.bean.Atividade;
 import com.ufg.avaliacaoprofessores.bean.TipoAtividade;
+import com.ufg.avaliacaoprofessores.dao.AtividadeDAO;
 import com.ufg.avaliacaoprofessores.dao.TipoAtividadeDAO;
 
 /**
@@ -18,29 +20,36 @@ public class CargaDados {
         insereDadosTeste();
     }
     public static void insereDadosTeste() {
+        GerarTabelas.geraTabelas();
         
         TipoAtividadeDAO tipoAtividadeDAO = new TipoAtividadeDAO();
+        AtividadeDAO atividadeDAO = new AtividadeDAO();
         
-        insereTipoAtividadeEnsino(tipoAtividadeDAO);
-        insereTipoProducaoIntelectual(tipoAtividadeDAO);
-        insereTipoAtividadePesquisaExtensao(tipoAtividadeDAO);
-        insereTipoAtividadesAdministrativasEDeRepresentacao(tipoAtividadeDAO);
-        insereTipoOutrasAtividades(tipoAtividadeDAO);
+        insereTipoAtividadeEnsino(tipoAtividadeDAO, atividadeDAO);
+        insereTipoProducaoIntelectual(tipoAtividadeDAO, atividadeDAO);
+        insereTipoAtividadePesquisaExtensao(tipoAtividadeDAO, atividadeDAO);
+        insereTipoAtividadesAdministrativasEDeRepresentacao(tipoAtividadeDAO, atividadeDAO);
+        insereTipoOutrasAtividades(tipoAtividadeDAO, atividadeDAO);
     }
 
-    public static void insereTipoAtividadeEnsino(TipoAtividadeDAO tipoAtividadeDAO) {
+    public static void insereTipoAtividadeEnsino(TipoAtividadeDAO tipoAtividadeDAO, AtividadeDAO atividadeDAO) {
         TipoAtividade atividadeEnsino = new TipoAtividade("ATIVIDADES DE ENSINO", "I");
-
+        tipoAtividadeDAO.salvar(atividadeEnsino);
+        
         TipoAtividade graduacao = new TipoAtividade("Graduação", "I-1");
         graduacao.setTipoAtividadePai(atividadeEnsino);
         tipoAtividadeDAO.salvar(graduacao);
                 
         TipoAtividade posGraduacaoStrictu = new TipoAtividade("Pós-Graduação stricto e lato sensu ", "I-2");
         posGraduacaoStrictu.setTipoAtividadePai(atividadeEnsino);
-        tipoAtividadeDAO.salvar(graduacao);
+        tipoAtividadeDAO.salvar(posGraduacaoStrictu);
+        
+        Atividade ativI11 = new Atividade("Aulas presenciais na graduação*", "1", 10, graduacao);
+        atividadeDAO.salvar(ativI11);
+        
     }
-
-    public static void insereTipoProducaoIntelectual(TipoAtividadeDAO tipoAtividadeDAO) {
+    
+    public static void insereTipoProducaoIntelectual(TipoAtividadeDAO tipoAtividadeDAO, AtividadeDAO atividadeDAO) {
         TipoAtividade producaoIntelectual = new TipoAtividade("PRODUÇÃO INTELECTUAL", "II");
 
         TipoAtividade producacaoCientifica = new TipoAtividade("Produção Científica", "II-1");
@@ -56,7 +65,7 @@ public class CargaDados {
         outroTipoProducao.setTipoAtividadePai(producaoIntelectual);
     }
 
-    public static void insereTipoAtividadePesquisaExtensao(TipoAtividadeDAO tipoAtividadeDAO) {
+    public static void insereTipoAtividadePesquisaExtensao(TipoAtividadeDAO tipoAtividadeDAO, AtividadeDAO atividadeDAO) {
         TipoAtividade atividadePesquisaExtensao = new TipoAtividade("ATIVIDADES DE PESQUISA E EXTENSÃO", "III");
 
         TipoAtividade atividadeDeCoordenacaoDePesquisa = new TipoAtividade("Atividades de Coordenação de Pesquisa", "III-1");
@@ -66,7 +75,7 @@ public class CargaDados {
         atividadeDeExtensao.setTipoAtividadePai(atividadePesquisaExtensao);
     }
 
-    public static void insereTipoAtividadesAdministrativasEDeRepresentacao(TipoAtividadeDAO tipoAtividadeDAO) {
+    public static void insereTipoAtividadesAdministrativasEDeRepresentacao(TipoAtividadeDAO tipoAtividadeDAO, AtividadeDAO atividadeDAO) {
         TipoAtividade atividadesAdministrativasEDeRepresentacao = new TipoAtividade("ATIVIDADES ADMINISTRATIVAS E DE REPRESENTAÇÃO", "IV");
 
         TipoAtividade direcaoEFuncaoGratificada = new TipoAtividade("Direção e Função Gratificada", "IV-1");
@@ -82,7 +91,7 @@ public class CargaDados {
         atividadesDeRepresentacaoForaDaUFG.setTipoAtividadePai(atividadesAdministrativasEDeRepresentacao);
     }
 
-    public static void insereTipoOutrasAtividades(TipoAtividadeDAO tipoAtividadeDAO) {
+    public static void insereTipoOutrasAtividades(TipoAtividadeDAO tipoAtividadeDAO, AtividadeDAO atividadeDAO) {
         TipoAtividade outrasAtividades = new TipoAtividade("OUTRAS ATIVIDADES", "V");
 
         TipoAtividade atividadesAcademicasOrientacao = new TipoAtividade("Atividades Acadêmicas - Orientação", "V-1");

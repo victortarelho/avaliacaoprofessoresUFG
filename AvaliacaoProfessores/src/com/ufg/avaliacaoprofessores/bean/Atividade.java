@@ -32,6 +32,15 @@ public class Atividade implements Serializable{
     @JoinColumn(name = "id_tipo_atividade",nullable = false)
     private TipoAtividade tipoAtividade;
 
+    public Atividade(){}
+    
+    public Atividade(String descricao, String codigo, float pontos, TipoAtividade tipoAtividade){
+        this.descricao = descricao;
+        this.codigo = codigo;
+        this.pontos = pontos;
+        this.tipoAtividade = tipoAtividade;
+    }
+    
     public Long getId() {
         return id;
     }
