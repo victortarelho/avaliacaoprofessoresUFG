@@ -35,22 +35,7 @@ public class CadastroAvaliacao extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        docenteLabel = new javax.swing.JLabel();
-        matriculaLabel = new javax.swing.JLabel();
-        dptoLabel = new javax.swing.JLabel();
-        periodoLabel = new javax.swing.JLabel();
-        docenteField = new javax.swing.JTextField();
-        matriculaField = new javax.swing.JTextField();
-        dptoField = new javax.swing.JTextField();
-        periodoField = new javax.swing.JTextField();
-        processoLabel = new javax.swing.JLabel();
-        nome_doc_aval_lbl9 = new javax.swing.JLabel();
-        processoField = new javax.swing.JTextField();
-        regimeField = new javax.swing.JTextField();
         realizarAvaliacaoBtn = new javax.swing.JButton();
-        nome_doc_aval_lbl10 = new javax.swing.JLabel();
-        resolucaoField = new javax.swing.JTextField();
         caminhoArquivoLabel = new javax.swing.JLabel();
         buscar_arq_bt = new javax.swing.JButton();
 
@@ -59,58 +44,12 @@ public class CadastroAvaliacao extends javax.swing.JFrame {
 
         jLabel1.setText("Realizar Avaliação");
 
-        docenteLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        docenteLabel.setText("Docente");
-        docenteLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        matriculaLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        matriculaLabel.setText("Matrícula");
-        matriculaLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        dptoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        dptoLabel.setText("Unid/Depto");
-        dptoLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        periodoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        periodoLabel.setText("Período");
-        periodoLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        docenteField.setEditable(false);
-        docenteField.setFocusable(false);
-
-        dptoField.setEditable(false);
-        dptoField.setFocusable(false);
-
-        periodoField.setEditable(false);
-        periodoField.setFocusable(false);
-
-        processoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        processoLabel.setText("Processo");
-        processoLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        nome_doc_aval_lbl9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        nome_doc_aval_lbl9.setText("Regime");
-        nome_doc_aval_lbl9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        processoField.setEditable(false);
-        processoField.setFocusable(false);
-
-        regimeField.setEditable(false);
-        regimeField.setFocusable(false);
-
         realizarAvaliacaoBtn.setText("Realizar avaliação");
         realizarAvaliacaoBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 realizarAvaliacaoBtnActionPerformed(evt);
             }
         });
-
-        nome_doc_aval_lbl10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        nome_doc_aval_lbl10.setText("Resolução");
-        nome_doc_aval_lbl10.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        resolucaoField.setEditable(false);
-        resolucaoField.setFocusable(false);
 
         caminhoArquivoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         caminhoArquivoLabel.setText("Caminho do arquivo");
@@ -127,83 +66,29 @@ public class CadastroAvaliacao extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(docenteLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(periodoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(dptoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(caminhoArquivoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(processoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(nome_doc_aval_lbl10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(caminhoArquivoLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(docenteField)
-                        .addComponent(dptoField)
-                        .addComponent(periodoField)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(resolucaoField, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(matriculaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(matriculaField, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(processoField, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(nome_doc_aval_lbl9, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(regimeField)))
+                    .addComponent(realizarAvaliacaoBtn)
                     .addComponent(buscar_arq_bt))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(realizarAvaliacaoBtn)
-                .addGap(173, 173, 173))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(211, 211, 211)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(112, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(matriculaLabel)
-                    .addComponent(matriculaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nome_doc_aval_lbl10)
-                    .addComponent(resolucaoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(7, 7, 7)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(docenteLabel)
-                    .addComponent(docenteField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(processoLabel)
-                    .addComponent(processoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nome_doc_aval_lbl9)
-                    .addComponent(regimeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dptoLabel)
-                    .addComponent(dptoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(periodoLabel)
-                    .addComponent(periodoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(caminhoArquivoLabel)
-                        .addComponent(buscar_arq_bt)))
+                    .addComponent(caminhoArquivoLabel)
+                    .addComponent(buscar_arq_bt))
                 .addGap(18, 18, 18)
                 .addComponent(realizarAvaliacaoBtn)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -263,22 +148,7 @@ public class CadastroAvaliacao extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buscar_arq_bt;
     private javax.swing.JLabel caminhoArquivoLabel;
-    private javax.swing.JTextField docenteField;
-    private javax.swing.JLabel docenteLabel;
-    private javax.swing.JTextField dptoField;
-    private javax.swing.JLabel dptoLabel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField matriculaField;
-    private javax.swing.JLabel matriculaLabel;
-    private javax.swing.JLabel nome_doc_aval_lbl10;
-    private javax.swing.JLabel nome_doc_aval_lbl9;
-    private javax.swing.JTextField periodoField;
-    private javax.swing.JLabel periodoLabel;
-    private javax.swing.JTextField processoField;
-    private javax.swing.JLabel processoLabel;
     private javax.swing.JButton realizarAvaliacaoBtn;
-    private javax.swing.JTextField regimeField;
-    private javax.swing.JTextField resolucaoField;
     // End of variables declaration//GEN-END:variables
 }
