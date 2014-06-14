@@ -44,9 +44,7 @@ public class CargaDados {
         posGraduacaoStrictu.setTipoAtividadePai(atividadeEnsino);
         tipoAtividadeDAO.salvar(posGraduacaoStrictu);
         
-        Atividade ativI11 = new Atividade("Aulas presenciais na graduação*", "1", 10, graduacao);
-        atividadeDAO.salvar(ativI11);
-        
+        insereAtividade("Aulas presenciais na graduação*", "1", 10, graduacao, atividadeDAO);
     }
     
     public static void insereTipoProducaoIntelectual(TipoAtividadeDAO tipoAtividadeDAO, AtividadeDAO atividadeDAO) {
@@ -214,5 +212,10 @@ public class CargaDados {
 
         TipoAtividade atividadesDeAprendizadoEAperfeicoamento = new TipoAtividade("Atividades de Aprendizado e Aperfeiçoamento", "V-3");
         atividadesDeAprendizadoEAperfeicoamento.setTipoAtividadePai(outrasAtividades);
+    }
+    
+    public static void insereAtividade(String nome, String codigo, float pontuacao, TipoAtividade tipo, AtividadeDAO atividadeDAO){
+        Atividade ativ = new Atividade(nome,codigo, pontuacao, tipo);
+        atividadeDAO.salvar(ativ);
     }
 }
