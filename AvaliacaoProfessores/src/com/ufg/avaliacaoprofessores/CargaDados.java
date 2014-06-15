@@ -50,17 +50,102 @@ public class CargaDados {
     public static void insereTipoProducaoIntelectual(TipoAtividadeDAO tipoAtividadeDAO, AtividadeDAO atividadeDAO) {
         TipoAtividade producaoIntelectual = new TipoAtividade("PRODUÇÃO INTELECTUAL", "II");
 
-        TipoAtividade producacaoCientifica = new TipoAtividade("Produção Científica", "II-1");
-        producacaoCientifica.setTipoAtividadePai(producaoIntelectual);
+        TipoAtividade producaoCientifica = new TipoAtividade("Produção Científica", "II-1");
+        producaoCientifica.setTipoAtividadePai(producaoIntelectual);
+        
+        insereAtividade("Artigo completo ou texto literário publicado em periódico Com classificação no Qualis/CAPES ","1.1", 20, producaoCientifica, atividadeDAO);
+        insereAtividade("Artigo completo ou texto literário publicado em periódico Não sujeito à classificação no Qualis/CAPES ","1.2", 10, producaoCientifica, atividadeDAO);
+        insereAtividade("Resumo de artigo em periódicos especializados nacional ou internacional com corpo editorial ","2", 5, producaoCientifica, atividadeDAO);
+        insereAtividade("Artigos ou textos literários em repositórios de publicação eletrônica ligados a editoras ou universidades ","3", 5, producaoCientifica, atividadeDAO);
+        insereAtividade("Resumo expandido publicado em anais de congresso Internacional ","4.1", 8, producaoCientifica, atividadeDAO);
+        insereAtividade("Resumo expandido publicado em anais de congresso Nacional ","4.2", 6, producaoCientifica, atividadeDAO);
+        insereAtividade("Resumo expandido publicado em anais de congresso Regional ou Local ","4.3", 4, producaoCientifica, atividadeDAO);
+        insereAtividade("Resumo simples publicado em anais de congresso Internacional ","5.1", 4, producaoCientifica, atividadeDAO);
+        insereAtividade("Resumo simples publicado em anais de congresso Nacional ","5.2", 3, producaoCientifica, atividadeDAO);
+        insereAtividade("Resumo simples publicado em anais de congresso Regional ou Local ","5.3", 2, producaoCientifica, atividadeDAO);
+        insereAtividade("Trabalho completo publicado em anais de congresso cientifico ","6", 10, producaoCientifica, atividadeDAO);
+        insereAtividade("Editor ou Coordenador editorial de livro publicado com selo de editora que possua corpo editorial ","7", 20, producaoCientifica, atividadeDAO);
+        insereAtividade("Livro publicado com selo de editora que possua corpo editorial ","8", 40, producaoCientifica, atividadeDAO);
+        insereAtividade("Livro publicado com selo de editora que não possua corpo editorial ","9", 10, producaoCientifica, atividadeDAO);
+        insereAtividade("Capítulo de livro publicado com selo de editora que possua corpo editorial ","10", 10, producaoCientifica, atividadeDAO);
+        insereAtividade("Edição ou organização de livro (coletânea) publicado com selo de editora que possua corpo editorial ","11", 12, producaoCientifica, atividadeDAO);
+        insereAtividade("Capítulo traduzido de livro publicado com selo de editora que possua corpo editorial ","12", 5, producaoCientifica, atividadeDAO);
+        insereAtividade("Tradução ou revisão científica de livro traduzido e publicado com selo de editora que possua corpo editorial ","13", 10, producaoCientifica, atividadeDAO);
+        insereAtividade("Resenhas, prefácios ou verbetes ","14", 10, producaoCientifica, atividadeDAO);
+        insereAtividade("Livro didático desenvolvido para projetos institucionais/governamentais ","15", 10, producaoCientifica, atividadeDAO);
+        insereAtividade("Editor de periódicos especializados indexados com corpo editorial ","16", 20, producaoCientifica, atividadeDAO);
+        insereAtividade("Editor de jornais ou revistas com distribuição Local ou regional ","17.1", 15, producaoCientifica, atividadeDAO);
+        insereAtividade("Editor de jornais ou revistas com distribuição Nacional ","17.2", 20, producaoCientifica, atividadeDAO);
+        insereAtividade("Editor de jornais ou revistas com distribuição Internacional ","17.3", 20, producaoCientifica, atividadeDAO);
+        insereAtividade("Dissertação de Mestrado defendida de aprovada (sendo o docente o autor da dissertação) ","18", 10, producaoCientifica, atividadeDAO);
+        insereAtividade("Tese de Doutorado defendida e aprovada (sendo o docente o autor da tese) ","19", 15, producaoCientifica, atividadeDAO);
+
 
         TipoAtividade producaoArtistica = new TipoAtividade("Produção Artística e Cultural", "II-2");
         producaoArtistica.setTipoAtividadePai(producaoIntelectual);
+        
+        insereAtividade("Criação, produção e direção de filmes, vídeos, discos, audiovisuais, coreografias, peças teatrais, óperas ou musicais, ou musicais apresentados em eventos Locais ou regionais ","1.1", 10, producaoArtistica, atividadeDAO);
+        insereAtividade("Criação, produção e direção de filmes, vídeos, discos, audiovisuais, coreografias, peças teatrais, óperas ou musicais, ou musicais apresentados em eventos Nacionais ","1.2", 15, producaoArtistica, atividadeDAO);
+        insereAtividade("Criação, produção e direção de filmes, vídeos, discos, audiovisuais, coreografias, peças teatrais, óperas ou musicais, ou musicais apresentados em eventos Internacionais ","1.3", 20, producaoArtistica, atividadeDAO);
+        insereAtividade("Criação e produção do projeto gráfico de livros: concepção gráfica (mancha gráfica, diagramação, escolha de fonte) ","2", 10, producaoArtistica, atividadeDAO);
+        insereAtividade("Design (gráfico, de luz, de figurino e formas animadas, cenográfico e similares) ","3", 5, producaoArtistica, atividadeDAO);
+        insereAtividade("Design de impressos por peça ","4", 1, producaoArtistica, atividadeDAO);
+        insereAtividade("Design de interfaces digitais ","5", 10, producaoArtistica, atividadeDAO);
+        insereAtividade("Design de interfaces digitais ou produtos com inovação tecnológica ","6", 20, producaoArtistica, atividadeDAO);
+        insereAtividade("Exposições e apresentações artísticas locais ou regionais Participação individual, camerista, solista ou ator principal ","5.1", 16, producaoArtistica, atividadeDAO);
+        insereAtividade("Exposições e apresentações artísticas locais ou regionais Participação coletiva ou coadjuvante ","5.2", 5, producaoArtistica, atividadeDAO);
+        insereAtividade("Exposições e apresentações artísticas nacionais Participação individual, camerista, solista ou ator principal ","6.1", 20, producaoArtistica, atividadeDAO);
+        insereAtividade("Exposições e apresentações artísticas nacionais Participação coletiva ou coadjuvante ","6.2", 10, producaoArtistica, atividadeDAO);
+        insereAtividade("Exposições e apresentações artísticas internacionais Participação individual, camerista, solista ou ator principal ","7.1", 20, producaoCientifica, atividadeDAO);
+        insereAtividade("Exposições e apresentações artísticas internacionais Participação coletiva ou coadjuvante ","7.2", 15, producaoCientifica, atividadeDAO);
+        insereAtividade("Composições musicais Editadas ","8.1", 20, producaoCientifica, atividadeDAO);
+        insereAtividade("Composições musicais Publicadas em revistas científicas ","8.2", 20, producaoCientifica, atividadeDAO);
+        insereAtividade("Composições musicais Gravadas ","8.3", 15, producaoCientifica, atividadeDAO);
+        insereAtividade("Composições musicais Executadas em apresentações públicas ","8.4", 15, producaoCientifica, atividadeDAO);
+        insereAtividade("Produção artística, arquitetônica ou de design premiada em evento Local ou regional ","9.1", 5, producaoCientifica, atividadeDAO);
+        insereAtividade("Produção artística, arquitetônica ou de design premiada em evento Nacional ","9.2", 10, producaoCientifica, atividadeDAO);
+        insereAtividade("Produção artística, arquitetônica ou de design premiada em evento Internacional ","9.3", 15, producaoCientifica, atividadeDAO);
+        insereAtividade("Arranjos musicais (canto, coral e orquestral) ","10", 5, producaoCientifica, atividadeDAO);
+        insereAtividade("Apresentação artística ou cultural em rádio ou TV ","11", 5, producaoCientifica, atividadeDAO);
+        insereAtividade("Sonoplastia (cinema, música, rádio, televisão, teatro) ","12", 3, producaoCientifica, atividadeDAO);
 
         TipoAtividade producaoTecnica = new TipoAtividade("Produção Técnica e Tecnológica ", "II-3");
         producaoTecnica.setTipoAtividadePai(producaoIntelectual);
+        
+        insereAtividade("Desenvolvimento de programa de computador (software) com registro no INPI ou com ampla disponibilização em ambientes de software livre ","1", 20, producaoTecnica, atividadeDAO);
+        insereAtividade("Desenvolvimento de software com divulgação em periódicos indexados e com corpo editorial ou em anais de congresso científico ","2", 10, producaoTecnica, atividadeDAO);
+        insereAtividade("Desenvolvimento de software para uso institucional ","3", 5, producaoTecnica, atividadeDAO);
+        insereAtividade("Desenvolvimento e registro no INPI de topografia de circuito integrado ","4", 20, producaoTecnica, atividadeDAO);
+        insereAtividade("Desenvolvimento de produto, processo ou técnica com registro de patente no INPI ou modelo de utilidade ","5", 20, producaoTecnica, atividadeDAO);
+        insereAtividade("Desenvolvimento e registro no INPI de desenho industrial ","6", 20, producaoTecnica, atividadeDAO);
+        insereAtividade("Desenvolvimento e registro no INPI de processo de indicação geográfica ","7", 20, producaoTecnica, atividadeDAO);
+        insereAtividade("Desenvolvimento e registro no INPI de marcas ","8", 5, producaoTecnica, atividadeDAO);
+        insereAtividade("Participação em comitê editorial de periódicos especializados indexados e de editoras universitárias ","9", 10, producaoTecnica, atividadeDAO);
+        insereAtividade("Parecer de consultoria ad hoc em comitês de avaliação de concursos e editais de publicação de livros de editoras com corpo editorial ","10", 3, producaoTecnica, atividadeDAO);
+        insereAtividade("Parecer de consultoria ad hoc para periódicos especializados com corpo editorial ou para instituições de fomento à pesquisa ou para livros de editoras com corpo editorial ","11", 3, producaoTecnica, atividadeDAO);
+        insereAtividade("Projeto, parecer ou relatório técnico realizado em consultoria ou assessoria oficializada por convite, convênio, contrato ou designação Parecer com anotação de responsabilidade técnica (ART) ou registro de responsabilidade técnica (RRT) ","12.1", 10, producaoTecnica, atividadeDAO);
+        insereAtividade("Projeto, parecer ou relatório técnico realizado em consultoria ou assessoria oficializada por convite, convênio, contrato ou designação Parecer sem anotação de responsabilidade técnica (ART) ou registro de responsabilidade técnica (RRT) ","12.2", 5, producaoTecnica, atividadeDAO);
+        insereAtividade("Projeto, parecer ou relatório técnico realizado em consultoria ou assessoria oficializada por convite, convênio, contrato ou designação Projeto ou Relatório Técnico com anotação de responsabilidade técnica (ART) ou registro de responsabilidade técnica (RRT) ","12.3", 20, producaoTecnica, atividadeDAO);
+        insereAtividade("Projeto, parecer ou relatório técnico realizado em consultoria ou assessoria oficializada por convite, convênio, contrato ou designação Projeto ou Relatório Técnico sem anotação de responsabilidade técnica (ART) ou registro de responsabilidade técnica (RRT) ","12.4", 10, producaoTecnica, atividadeDAO);
+        insereAtividade("Anais, Manuais, catálogos, boletins, com ficha bibliográfica (organizador / redator) ","13", 5, producaoTecnica, atividadeDAO);
+        insereAtividade("Produção e publicação de mapas, cartas ou similares ","14", 10, producaoTecnica, atividadeDAO);
+        insereAtividade("Desenvolvimento de maquete ","15", 5, producaoTecnica, atividadeDAO);
+        insereAtividade("Manutenção de obra artística Restauração de obra artística ","16.1", 20, producaoTecnica, atividadeDAO);
+        insereAtividade("Manutenção de obra artística Conservação de obra artística ","16.2", 10, producaoTecnica, atividadeDAO);
+        insereAtividade("Curadoria de exposições ","17", 5, producaoTecnica, atividadeDAO);
+        insereAtividade("Produção de cinema, vídeo, rádio, TV ou mídias digitais Editor ","18.1", 20, producaoTecnica, atividadeDAO);
+        insereAtividade("Produção de cinema, vídeo, rádio, TV ou mídias digitais Participante ","18.2", 3, producaoTecnica, atividadeDAO);
 
         TipoAtividade outroTipoProducao = new TipoAtividade("Outro Tipo de Produção ", "II-4");
         outroTipoProducao.setTipoAtividadePai(producaoIntelectual);
+        
+        insereAtividade("Artigos de opinião veiculados em jornais e revistas (eletrônico ou impresso) ","1", 1, outroTipoProducao, atividadeDAO);
+        insereAtividade("Texto ou material didático para uso institucional (não fracionados e com ampla divulgação) ","2", 2, outroTipoProducao, atividadeDAO);
+        insereAtividade("Artigos de divulgação científica, tecnológica e artística veiculados em jornais e revistas (eletrônico ou impresso) ","3", 3, outroTipoProducao, atividadeDAO);
+        insereAtividade("Apresentação oral de trabalho publicado em anais de congresso científico ","4", 3, outroTipoProducao, atividadeDAO);
+        insereAtividade("Apresentação em painel de trabalho publicado em anais de congresso científico ","5", 1, outroTipoProducao, atividadeDAO);
+        insereAtividade("Trabalho premiado em evento científico nacional ou internacional ","6", 5, outroTipoProducao, atividadeDAO);
+        insereAtividade("Tese, dissertação e trabalho de iniciação científica premiados por instituições de fomento (sendo o docente o autor ou orientador do produto) ","7", 8, outroTipoProducao, atividadeDAO);
     }
 
     public static void insereTipoAtividadePesquisaExtensao(TipoAtividadeDAO tipoAtividadeDAO, AtividadeDAO atividadeDAO) {
