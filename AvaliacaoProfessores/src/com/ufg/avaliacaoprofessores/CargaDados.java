@@ -153,9 +153,33 @@ public class CargaDados {
 
         TipoAtividade atividadeDeCoordenacaoDePesquisa = new TipoAtividade("Atividades de Coordenação de Pesquisa", "III-1");
         atividadeDeCoordenacaoDePesquisa.setTipoAtividadePai(atividadePesquisaExtensao);
+        
+        insereAtividade("Coordenador de projeto conjuntos de pesquisa e cooperação científica (tipo PRODOC, PROCAD, PNPD, entre outros) e de cursos MINTER e DINTER aprovados por órgãos oficiais de fomento ","1", 10, atividadeDeCoordenacaoDePesquisa, atividadeDAO);
+        insereAtividade("Coordenador de projeto de pesquisa aprovado com comprovação de financiamento (exceto bolsas) ","2", 10, atividadeDeCoordenacaoDePesquisa, atividadeDAO);
+        insereAtividade("Coordenador de projeto de pesquisa aprovado sem financiamento (total máximo a ser considerado neste item são 10 pontos) ","3", 5, atividadeDeCoordenacaoDePesquisa, atividadeDAO);
 
         TipoAtividade atividadeDeExtensao = new TipoAtividade("Atividades de Extensão", "III-2");
         atividadeDeExtensao.setTipoAtividadePai(atividadePesquisaExtensao);
+        
+        insereAtividade("Coordenador de projeto de extensão aprovado com comprovação de financiamento (exceto bolsas) ","1", 10, atividadeDeExtensao, atividadeDAO);
+        insereAtividade("Coordenador de projeto ou programa de extensão/cultura cadastrado na PROEC (total máximo a ser considerado neste item são 15 pontos) ","2", 5, atividadeDeExtensao, atividadeDAO);
+        insereAtividade("Coordenador de contratos e de convênios de cooperação institucional internacional ","3", 5, atividadeDeExtensao, atividadeDAO);
+        insereAtividade("Coordenador de contratos e de convênios de cooperação institucional nacional ","4", 3, atividadeDeExtensao, atividadeDAO);
+        insereAtividade("Participante de projeto de extensão/cultura cadastrado na PROEC (total máximo a ser considerado neste item são 15 pontos) ","5", 3, atividadeDeExtensao, atividadeDAO);
+        insereAtividade("Curso de extensão ministrado com 20 ou mais horas (total máximo a ser considerado neste item são 15 pontos) ","6", 5, atividadeDeExtensao, atividadeDAO);
+        insereAtividade("Curso de extensão ministrado com menos de 20 horas (total máximo a ser considerado neste item são 10 pontos) ","7", 2, atividadeDeExtensao, atividadeDAO);
+        insereAtividade("Evento internacional (total máximo a ser considerado neste item são 15 pontos) ","8.1", 5, atividadeDeExtensao, atividadeDAO);
+        insereAtividade("Evento nacional (total máximo a ser considerado neste item são 12 pontos) ","8.2", 4, atividadeDeExtensao, atividadeDAO);
+        insereAtividade("Evento regional ou local (total máximo a ser considerado neste item são 9 pontos) ","8.3", 3, atividadeDeExtensao, atividadeDAO);
+        insereAtividade("Presidente ","9.1", 4, atividadeDeExtensao, atividadeDAO);
+        insereAtividade("Comissão organizadora ","8.2", 2, atividadeDeExtensao, atividadeDAO);
+        insereAtividade("Presidente ","10.1", 6, atividadeDeExtensao, atividadeDAO);
+        insereAtividade("Comissão organizadora ","10.2", 3, atividadeDeExtensao, atividadeDAO);
+        insereAtividade("Presidente ","11.1", 8, atividadeDeExtensao, atividadeDAO);
+        insereAtividade("Comissão organizadora ","11.2", 4, atividadeDeExtensao, atividadeDAO);
+        insereAtividade("Presidente ","12.1", 10, atividadeDeExtensao, atividadeDAO);
+        insereAtividade("Comissão organizadora ","12.2", 5, atividadeDeExtensao, atividadeDAO);
+        
     }
 
     public static void insereTipoAtividadesAdministrativasEDeRepresentacao(TipoAtividadeDAO tipoAtividadeDAO, AtividadeDAO atividadeDAO) {
