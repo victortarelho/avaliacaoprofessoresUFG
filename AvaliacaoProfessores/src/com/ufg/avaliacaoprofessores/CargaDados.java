@@ -312,15 +312,72 @@ public class CargaDados {
 
     public static void insereTipoOutrasAtividades(TipoAtividadeDAO tipoAtividadeDAO, AtividadeDAO atividadeDAO) {
         TipoAtividade outrasAtividades = new TipoAtividade("OUTRAS ATIVIDADES", "V");
-
         TipoAtividade atividadesAcademicasOrientacao = new TipoAtividade("Atividades Acadêmicas - Orientação", "V-1");
         atividadesAcademicasOrientacao.setTipoAtividadePai(outrasAtividades);
-
+        insereAtividade("Aluno orientado em tese de doutorado defendida e aprovada","1", 20, atividadesAcademicasOrientacao, atividadeDAO);
+        insereAtividade("Aluno co-orientado em tese de doutorado defendida e aprovada","2", 7, atividadesAcademicasOrientacao, atividadeDAO);
+        insereAtividade("Aluno orientado em tese de doutorado em andamento","3", 10, atividadesAcademicasOrientacao, atividadeDAO);
+        insereAtividade("Aluno co-orientado em tese de doutorado em andamento","4", 4, atividadesAcademicasOrientacao, atividadeDAO);
+        insereAtividade("Aluno orientado em dissertação de mestrado defendida e aprovada","5", 15, atividadesAcademicasOrientacao, atividadeDAO);
+        insereAtividade("Aluno co-orientado em dissertação de mestrado defendida e aprovada","6", 5, atividadesAcademicasOrientacao, atividadeDAO);
+        insereAtividade("Aluno orientado em dissertação de mestrado em andamento","7", 8, atividadesAcademicasOrientacao, atividadeDAO);
+        insereAtividade("Aluno co-orientado em dissertação de mestrado em andamento","8", 3, atividadesAcademicasOrientacao, atividadeDAO);
+        insereAtividade("Aluno orientado em monografia de especialização aprovada (máximo de 24 pontos)","9", 8, atividadesAcademicasOrientacao, atividadeDAO);
+        insereAtividade("Aluno orientado em monografia de especialização em andamento (total máximo a ser considerado neste item são 12 pontos)","10", 4, atividadesAcademicasOrientacao, atividadeDAO);
+        insereAtividade("Aluno orientado em residência médica ou em residência multiprofissional em saúde","11", 5, atividadesAcademicasOrientacao, atividadeDAO);
+        insereAtividade("Aluno orientado em estágio supervisionado","12", 3, atividadesAcademicasOrientacao, atividadeDAO);
+        insereAtividade("Aluno orientado em projeto de final de curso","13", 3, atividadesAcademicasOrientacao, atividadeDAO);
+        insereAtividade("Aluno de outra IFE orientado em tese de doutorado defendida e aprovada","14", 6, atividadesAcademicasOrientacao, atividadeDAO);
+        insereAtividade("Aluno de outra IFE co-orientado em tese de doutorado defendida e aprovada","15", 3, atividadesAcademicasOrientacao, atividadeDAO);
+        insereAtividade("Aluno de outra IFE orientado em tese de doutorado em andamento","16", 3, atividadesAcademicasOrientacao, atividadeDAO);
+        insereAtividade("Aluno de outra IFE co-orientado em tese de doutorado em andamento","17", 2, atividadesAcademicasOrientacao, atividadeDAO);
+        insereAtividade("Aluno de outra IFE orientado em dissertação de mestrado defendida e aprovada","18", 4, atividadesAcademicasOrientacao, atividadeDAO);
+        insereAtividade("Aluno de outra IFE co-orientado em dissertação de mestrado defendida e aprovada","19", 2, atividadesAcademicasOrientacao, atividadeDAO);
+        insereAtividade("Aluno de outra IFE orientado em dissertação de mestrado em andamento","20", 2, atividadesAcademicasOrientacao, atividadeDAO);
+        insereAtividade("Aluno de outra IFE co-orientado em dissertação de mestrado em andamento","21", 1, atividadesAcademicasOrientacao, atividadeDAO);
+        insereAtividade("Aluno orientado em programa de iniciação científica (PIBIC/PIVIC/PROLICEN/PICME-OBMEP)","22", 6, atividadesAcademicasOrientacao, atividadeDAO);
+        insereAtividade("Aluno orientado em programa de iniciação científica júnior","23", 5, atividadesAcademicasOrientacao, atividadeDAO);
+        insereAtividade("Aluno orientado em programa especial de treinamento (PET)","24", 5, atividadesAcademicasOrientacao, atividadeDAO);
+        insereAtividade("Aluno orientado com bolsa de DTI, PIBIT, AT, Jovens Talentos e similares","25", 5, atividadesAcademicasOrientacao, atividadeDAO);
+        insereAtividade("Aluno orientado com bolsa de licenciatura (PIBID e similares)","26", 5, atividadesAcademicasOrientacao, atividadeDAO);
+        insereAtividade("Aluno orientado com bolsa extensão/cultura/ensino","27", 5, atividadesAcademicasOrientacao, atividadeDAO);
+        insereAtividade("Aluno orientado em projetos de extensão/cultura/ensino sem bolsa","28", 3, atividadesAcademicasOrientacao, atividadeDAO);
+        insereAtividade("Aluno orientado com bolsa PROCOM ou similar, vinculada a projeto de pesquisa/extensão/ensino","29", 5, atividadesAcademicasOrientacao, atividadeDAO);
+        insereAtividade("Aluno orientado em programa de monitoria","30", 3, atividadesAcademicasOrientacao, atividadeDAO);
+        insereAtividade("Aluno orientado em atividade não curricular com bolsa","31", 2, atividadesAcademicasOrientacao, atividadeDAO);
+        insereAtividade("Aluno orientado em atividade não curricular sem bolsa","32", 1, atividadesAcademicasOrientacao, atividadeDAO);
+        insereAtividade("Pesquisador supervisionado em estágio de pós-doutoramento (PRODOC,PNPD, DCR, entre outros)","33", 8, atividadesAcademicasOrientacao, atividadeDAO);
+        insereAtividade("Aluno orientado em Prática como Componente Curricular (PCC)","34", 1, atividadesAcademicasOrientacao, atividadeDAO);
+        
         TipoAtividade atividadesAcademicasBancasECursos = new TipoAtividade("Atividades Acadêmicas – Bancas e Cursos ", "V-2");
         atividadesAcademicasBancasECursos.setTipoAtividadePai(outrasAtividades);
-
+        insereAtividade("Na instituição","1.1",4,atividadesAcademicasBancasECursos,atividadeDAO);
+        insereAtividade("Em outra instituição","1.2",6,atividadesAcademicasBancasECursos,atividadeDAO);
+        insereAtividade("Membro de banca de concurso para docente substituto","2",2,atividadesAcademicasBancasECursos,atividadeDAO);
+        insereAtividade("Na instituição","3.1",4,atividadesAcademicasBancasECursos,atividadeDAO);
+        insereAtividade("Em outra instituição","3.2",6,atividadesAcademicasBancasECursos,atividadeDAO);
+        insereAtividade("Na instituição","4.1",6,atividadesAcademicasBancasECursos,atividadeDAO);
+        insereAtividade("Em outra instituição","4.2",8,atividadesAcademicasBancasECursos,atividadeDAO);
+        insereAtividade("Na instituição","5.1",3,atividadesAcademicasBancasECursos,atividadeDAO);
+        insereAtividade("Em outra instituição","5.2",4,atividadesAcademicasBancasECursos,atividadeDAO);
+        insereAtividade("Na instituição","6.1",5,atividadesAcademicasBancasECursos,atividadeDAO);
+        insereAtividade("Em outra instituição","6.2",6,atividadesAcademicasBancasECursos,atividadeDAO);
+        insereAtividade("Membro de banca de defesa de monografia, projeto final de curso e outros tipos de bancas (total máximo a ser considerado neste item são 10 pontos)","7",2,atividadesAcademicasBancasECursos,atividadeDAO);
+        insereAtividade("Concursos internacionais","8.1",8,atividadesAcademicasBancasECursos,atividadeDAO);
+        insereAtividade("Concursos nacionais","8.2",6,atividadesAcademicasBancasECursos,atividadeDAO);
+        insereAtividade("Cursos, palestras ou treinamento não curricular ministrados para docentes, funcionários ou alunos da UFG","9",2,atividadesAcademicasBancasECursos,atividadeDAO);
+        insereAtividade("Coordenador de projeto institucional de intercâmbio internacional","10",10,atividadesAcademicasBancasECursos,atividadeDAO);
+        
+        
         TipoAtividade atividadesDeAprendizadoEAperfeicoamento = new TipoAtividade("Atividades de Aprendizado e Aperfeiçoamento", "V-3");
         atividadesDeAprendizadoEAperfeicoamento.setTipoAtividadePai(outrasAtividades);
+        insereAtividade("Docente regularmente matriculado em curso de doutorado com relatórios de pós-graduação aprovados (pontuação por mês de curso)","1",12,atividadesDeAprendizadoEAperfeicoamento,atividadeDAO);
+        insereAtividade("Estágio Pós-Doutoral ou Estágio Sênior (pontuação por mês de estágio)","2",12,atividadesDeAprendizadoEAperfeicoamento,atividadeDAO);
+        insereAtividade("Docente em licença para capacitação (Artigo 87, Lei N.8112) (pontuação por mês de licença)","3",12,atividadesDeAprendizadoEAperfeicoamento,atividadeDAO);
+        insereAtividade("Curso de aperfeiçoamento realizado com carga horária superior a 40 horas","4",3,atividadesDeAprendizadoEAperfeicoamento,atividadeDAO);
+        insereAtividade("Curso de aperfeiçoamento realizado com carga horária inferior a 40 horas","5",1,atividadesDeAprendizadoEAperfeicoamento,atividadeDAO);
+        insereAtividade("Participação em Congressos, Seminários, Encontros, Jornadas etc. (total máximo a ser considerado neste item são 3 pontos)","6",1,atividadesDeAprendizadoEAperfeicoamento,atividadeDAO);
+
     }
     
     public static void insereAtividade(String nome, String codigo, float pontuacao, TipoAtividade tipo, AtividadeDAO atividadeDAO){
