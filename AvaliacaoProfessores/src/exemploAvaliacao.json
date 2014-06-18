@@ -1,0 +1,14 @@
+{
+	"listaAvaliacoes":[
+		{"professor":{"idProfessor":1,"nomeProfessor":"Nome1"},
+		 "listaAtividades":[
+			{"idAtividadeEMultiplicador":"1-10"}
+		 ]
+		},
+		{"professor":{"idProfessor":2,"nomeProfessor":"Nome2"},
+		 "listaAtividades":[
+			{"idAtividadeEMultiplicador":"2-08"}
+		 ]
+		}
+	]
+}
