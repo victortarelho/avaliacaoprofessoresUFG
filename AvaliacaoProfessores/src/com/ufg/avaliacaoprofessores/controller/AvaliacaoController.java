@@ -6,6 +6,8 @@
 
 package com.ufg.avaliacaoprofessores.controller;
 
+import com.ufg.avaliacaoprofessores.business.AvaliacaoBusiness;
+import java.io.File;
 import javax.swing.JFrame;
 
 /**
@@ -14,9 +16,26 @@ import javax.swing.JFrame;
  */
 public class AvaliacaoController extends GenericController{
 
+    AvaliacaoBusiness avaliacaoBusiness;
+
+    public AvaliacaoController() {
+        avaliacaoBusiness = new AvaliacaoBusiness();
+    }
+    
+    
+    
     @Override
     public void validaCadastro(JFrame viewCadastro) {
         //implementar validacao dos campos
-        throw new UnsupportedOperationException("Not supported yet.");
+//        throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
+    public void validaJson(File arquivo){
+        //http://json-schema.org/examples.html
+    }
+    
+    public void consomeJson(File arquivo){
+        avaliacaoBusiness.consomeJson(arquivo);
+        //http://json-schema.org/examples.html
     }
 }

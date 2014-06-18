@@ -1,3 +1,5 @@
+package com.ufg.avaliacaoprofessores.vo;
+
 
 import java.util.List;
 
@@ -11,24 +13,24 @@ import java.util.List;
  *
  * @author Bruno
  */
-public class AvaliacaoProfessor {
+public class AvaliacaoProfessorVO {
     
-     private Professor professor;
-     private List<Atividade> listaAtividades;
+     private ProfessorVO professor;
+     private List<AtividadeVO> listaAtividades;
 
-    public Professor getProfessor() {
+    public ProfessorVO getProfessor() {
         return professor;
     }
 
-    public void setProfessor(Professor professor) {
+    public void setProfessor(ProfessorVO professor) {
         this.professor = professor;
     }
 
-    public List<Atividade> getListaAtividades() {
+    public List<AtividadeVO> getListaAtividades() {
         return listaAtividades;
     }
 
-    public void setListaAtividades(List<Atividade> listaAtividades) {
+    public void setListaAtividades(List<AtividadeVO> listaAtividades) {
         this.listaAtividades = listaAtividades;
     }
 

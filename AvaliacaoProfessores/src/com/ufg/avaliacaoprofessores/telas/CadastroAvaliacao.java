@@ -16,7 +16,8 @@ import javax.swing.JOptionPane;
 public class CadastroAvaliacao extends javax.swing.JFrame {
 
     private AvaliacaoController controller;
-    
+    private File arquivo;
+
     /**
      * Creates new form CadastroAvaliacao
      */
@@ -95,20 +96,20 @@ public class CadastroAvaliacao extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void realizarAvaliacaoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_realizarAvaliacaoBtnActionPerformed
-        controller.validaCadastro(this);
+           controller.validaJson(arquivo);
+           controller.consomeJson(arquivo);
     }//GEN-LAST:event_realizarAvaliacaoBtnActionPerformed
 
     private void buscar_arq_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscar_arq_btActionPerformed
         JFileChooser fc = new JFileChooser();
         int res = fc.showOpenDialog(null);
-                    
-                    if(res == JFileChooser.APPROVE_OPTION){
-                        File arquivo = fc.getSelectedFile();  
-                        JOptionPane.showMessageDialog(null, "Voce escolheu o arquivo: " + arquivo.getName());
-                    }
-                    else{
-                        JOptionPane.showMessageDialog(null, "Voce nao selecionou nenhum arquivo."); 
-                }
+
+        if (res == JFileChooser.APPROVE_OPTION) {
+            arquivo = fc.getSelectedFile();
+            JOptionPane.showMessageDialog(null, "Voce escolheu o arquivo: " + arquivo.getName());
+        } else {
+            JOptionPane.showMessageDialog(null, "Voce nao selecionou nenhum arquivo.");
+        }
     }//GEN-LAST:event_buscar_arq_btActionPerformed
 
     /**

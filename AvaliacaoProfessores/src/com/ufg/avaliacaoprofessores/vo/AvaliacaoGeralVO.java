@@ -1,3 +1,5 @@
+package com.ufg.avaliacaoprofessores.vo;
+
 
 import java.util.List;
 
@@ -11,14 +13,14 @@ import java.util.List;
  *
  * @author Bruno
  */
- public class AvaliacaoGeral{
-        private List<AvaliacaoProfessor> listaAvaliacoes;
+ public class AvaliacaoGeralVO{
+        private List<AvaliacaoProfessorVO> listaAvaliacoes;
 
-        public List<AvaliacaoProfessor> getListaAvaliacoes() {
+        public List<AvaliacaoProfessorVO> getListaAvaliacoes() {
             return listaAvaliacoes;
         }
 
-        public void setListaAvaliacoes(List<AvaliacaoProfessor> listaAvaliacoes) {
+        public void setListaAvaliacoes(List<AvaliacaoProfessorVO> listaAvaliacoes) {
             this.listaAvaliacoes = listaAvaliacoes;
         }
 

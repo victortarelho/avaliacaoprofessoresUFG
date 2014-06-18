@@ -2,12 +2,13 @@
 	"listaAvaliacoes":[
 		{"professor":{"idProfessor":1,"nomeProfessor":"Nome1"},
 		 "listaAtividades":[
-			{"idAtividadeEMultiplicador":"1-10"}
+			{"idAtividade":1,"informacaoExtra":"10"}
 		 ]
 		},
 		{"professor":{"idProfessor":2,"nomeProfessor":"Nome2"},
 		 "listaAtividades":[
-			{"idAtividadeEMultiplicador":"2-08"}
+			{"idAtividade":2,"informacaoExtra":"08"},
+                        {"idAtividade":3,"informacaoExtra":"09"}
 		 ]
 		}
 	]
