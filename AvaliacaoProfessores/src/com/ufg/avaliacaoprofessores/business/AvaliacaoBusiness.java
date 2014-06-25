@@ -6,7 +6,12 @@
 
 package com.ufg.avaliacaoprofessores.business;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.ufg.avaliacaoprofessores.vo.AvaliacaoGeralVO;
 import java.io.File;
+import java.io.InputStreamReader;
+import java.io.Reader;
 
 /**
  *
@@ -15,6 +20,15 @@ import java.io.File;
 public class AvaliacaoBusiness {
     
     public void consomeJson(File arquivo){
-        //implementar mapeamento entre o json e os VO
+
+       try {
+           Reader reader = new InputStreamReader(AvaliacaoBusiness.class.getResourceAsStream("/exemploAvaliacao.json"), "UTF-8");
+           Gson gson = new GsonBuilder().create();
+           AvaliacaoGeralVO avaliacao = gson.fromJson(reader, AvaliacaoGeralVO.class);
+           System.out.println(avaliacao);
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+       
     }
 }
