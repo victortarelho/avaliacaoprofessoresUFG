@@ -4,6 +4,16 @@
  */
 package com.ufg.avaliacaoprofessores.telas;
 
+import com.ufg.avaliacaoprofessores.bean.Atividade;
+import com.ufg.avaliacaoprofessores.bean.TipoAtividade;
+import com.ufg.avaliacaoprofessores.controller.AtividadeController;
+import com.ufg.avaliacaoprofessores.dao.TipoAtividadeDAO;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author victor.tarelho
@@ -13,8 +23,19 @@ public class CadastroAtividade extends javax.swing.JFrame {
     /**
      * Creates new form CadastroAtividade
      */
-    public CadastroAtividade() {
+    public CadastroAtividade() throws Exception {
         initComponents();
+        TipoAtividadeDAO tipoAtividadeDao = new TipoAtividadeDAO();
+        List listTipoAtividade = new ArrayList();
+        listTipoAtividade = tipoAtividadeDao.listar();
+        for (Iterator it = listTipoAtividade.iterator(); it.hasNext();) {
+            TipoAtividade object = (TipoAtividade)it.next();
+            
+            tipoAtividadeCombo.addItem(object.getNome());
+//            tipoAtividadeCombo.add
+        }
+
+        
     }
 
     /**
@@ -34,6 +55,8 @@ public class CadastroAtividade extends javax.swing.JFrame {
         desc_ativ_txt = new javax.swing.JTextField();
         max_pont_ativ_txt = new javax.swing.JTextField();
         salvar_ativ_bt = new javax.swing.JButton();
+        tipoAtividadeCombo = new javax.swing.JComboBox();
+        mas_pont_ativ_lbl1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -41,17 +64,32 @@ public class CadastroAtividade extends javax.swing.JFrame {
 
         id_ativ_lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         id_ativ_lbl.setText("ID");
-        id_ativ_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        id_ativ_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         desc_ativ_lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         desc_ativ_lbl.setText("Descrição");
-        desc_ativ_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        desc_ativ_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         mas_pont_ativ_lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         mas_pont_ativ_lbl.setText("Máx. Pontos");
-        mas_pont_ativ_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        mas_pont_ativ_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         salvar_ativ_bt.setText("Salvar");
+        salvar_ativ_bt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salvar_ativ_btActionPerformed(evt);
+            }
+        });
+
+        tipoAtividadeCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tipoAtividadeComboActionPerformed(evt);
+            }
+        });
+
+        mas_pont_ativ_lbl1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        mas_pont_ativ_lbl1.setText("Tipo Ativ.");
+        mas_pont_ativ_lbl1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -60,23 +98,25 @@ public class CadastroAtividade extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 133, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(142, 142, 142))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(mas_pont_ativ_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(mas_pont_ativ_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
                             .addComponent(desc_ativ_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(id_ativ_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(id_ativ_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(mas_pont_ativ_lbl1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(id_ativ_txt)
                             .addComponent(desc_ativ_txt)
-                            .addComponent(max_pont_ativ_txt))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 133, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addGap(142, 142, 142))))
+                            .addComponent(max_pont_ativ_txt)
+                            .addComponent(tipoAtividadeCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())))
             .addGroup(layout.createSequentialGroup()
-                .addGap(164, 164, 164)
+                .addGap(156, 156, 156)
                 .addComponent(salvar_ativ_bt)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -97,12 +137,32 @@ public class CadastroAtividade extends javax.swing.JFrame {
                     .addComponent(mas_pont_ativ_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(max_pont_ativ_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tipoAtividadeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(mas_pont_ativ_lbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addComponent(salvar_ativ_bt)
-                .addGap(0, 42, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void salvar_ativ_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvar_ativ_btActionPerformed
+        AtividadeController avaliacaoController = new AtividadeController();
+        Atividade atividadeBean = new Atividade();
+        atividadeBean.setId(Long.parseLong(id_ativ_txt.getText()));
+        atividadeBean.setDescricao(desc_ativ_txt.getText());
+        atividadeBean.setPontos(Long.parseLong(max_pont_ativ_txt.getText()));
+        
+        atividadeBean.setTipoAtividade((TipoAtividade)tipoAtividadeCombo.getSelectedItem());
+        avaliacaoController.validaCadastro(atividadeBean);
+    // TODO add your handling code here:
+    }//GEN-LAST:event_salvar_ativ_btActionPerformed
+
+    private void tipoAtividadeComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoAtividadeComboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tipoAtividadeComboActionPerformed
 
     /**
      * @param args the command line arguments
@@ -134,9 +194,15 @@ public class CadastroAtividade extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                CadastroAtividade cadastroAtividade = new CadastroAtividade();
-                cadastroAtividade.setVisible(true);
-                cadastroAtividade.setLocationRelativeTo(null);
+                CadastroAtividade cadastroAtividade;
+                try {
+                    cadastroAtividade = new CadastroAtividade();
+                    cadastroAtividade.setVisible(true);
+                    cadastroAtividade.setLocationRelativeTo(null);
+                } catch (Exception ex) {
+                    Logger.getLogger(CadastroAtividade.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
             }
         });
     }
@@ -147,7 +213,9 @@ public class CadastroAtividade extends javax.swing.JFrame {
     private javax.swing.JTextField id_ativ_txt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel mas_pont_ativ_lbl;
+    private javax.swing.JLabel mas_pont_ativ_lbl1;
     private javax.swing.JTextField max_pont_ativ_txt;
     private javax.swing.JButton salvar_ativ_bt;
+    private javax.swing.JComboBox tipoAtividadeCombo;
     // End of variables declaration//GEN-END:variables
 }

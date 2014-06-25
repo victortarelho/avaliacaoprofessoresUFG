@@ -14,7 +14,7 @@
       <property name="hibernate.connection.password" value="root"/>
       <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/avaliacaoProfessores"/>
       <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
-      <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+      <property name="hibernate.hbm2ddl.auto" value="update"/>
     </properties>
   </persistence-unit>
 </persistence>

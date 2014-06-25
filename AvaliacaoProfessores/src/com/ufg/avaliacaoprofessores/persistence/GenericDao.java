@@ -27,6 +27,7 @@ public abstract class GenericDao implements Serializable, DataAccessInteface {
             transaction.commit();
         } catch (Exception e) {
             transaction.rollback();
+            e.printStackTrace();
             throw new AvaliacaoDaoException("Problema ao armazenar dado.");
         } finally {
             session.close();

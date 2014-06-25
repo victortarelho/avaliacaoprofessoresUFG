@@ -9,6 +9,8 @@ package com.ufg.avaliacaoprofessores.dao;
 import com.ufg.avaliacaoprofessores.bean.TipoAtividade;
 import com.ufg.avaliacaoprofessores.exception.AvaliacaoDaoException;
 import com.ufg.avaliacaoprofessores.persistence.GenericDao;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -31,4 +33,13 @@ public class TipoAtividadeDAO extends GenericDao {
             e.printStackTrace();
         }
     }
+        public List listar() throws Exception {
+        List lista = new ArrayList();
+        try {
+            lista =  super.listar(TipoAtividade.class);
+        } catch (AvaliacaoDaoException e) {
+            e.printStackTrace();
+        }
+        return lista;
+     }
 }
