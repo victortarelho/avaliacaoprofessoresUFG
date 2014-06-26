@@ -4,16 +4,8 @@ package com.ufg.avaliacaoprofessores.vo;
  * @author Bruno
  */
 public class ItemAvaliacaoVO {
-    private Long idAtividade;
+    private String codigo;
     private String informacaoExtra;
-
-    public Long getIdAtividade() {
-        return idAtividade;
-    }
-
-    public void setIdAtividade(Long idAtividade) {
-        this.idAtividade = idAtividade;
-    }
 
     public String getInformacaoExtra() {
         return informacaoExtra;
@@ -22,5 +14,12 @@ public class ItemAvaliacaoVO {
     public void setInformacaoExtra(String informacaoExtra) {
         this.informacaoExtra = informacaoExtra;
     }
-    
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
 }

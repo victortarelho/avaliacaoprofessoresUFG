@@ -11,6 +11,7 @@ import com.ufg.avaliacaoprofessores.bean.AvaliacaoDocente;
 import com.ufg.avaliacaoprofessores.bean.ItemAvaliacao;
 import com.ufg.avaliacaoprofessores.vo.AvaliacaoGeralVO;
 import com.ufg.avaliacaoprofessores.vo.AvaliacaoProfessorVO;
+import com.ufg.avaliacaoprofessores.vo.ItemAvaliacaoVO;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -22,6 +23,7 @@ public class BeanPopulate {
     
     public void popularBeans(AvaliacaoGeralVO avaliacaoGeralVO){
         
+        
         Avaliacao avaliacao = new Avaliacao();
         avaliacao.setDataAvaliacao(Calendar.getInstance());
         avaliacao.setResolucao(avaliacaoGeralVO.getResolucao());
@@ -30,6 +32,10 @@ public class BeanPopulate {
             AvaliacaoDocente avaliacaoDocente = new AvaliacaoDocente();
             avaliacaoDocente.setAvaliacao(avaliacao);
             avaliacaoDocente.setItensAvaliacao(new ArrayList<ItemAvaliacao>());
+            
+            for(ItemAvaliacaoVO itemAvaliacaoVO :  avaliacaoProfessorVO.getListaAtividades()){
+                ItemAvaliacao itemAvaliacao = new ItemAvaliacao();
+            }
         }
     }
 }
