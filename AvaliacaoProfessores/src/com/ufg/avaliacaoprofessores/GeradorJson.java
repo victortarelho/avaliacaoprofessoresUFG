@@ -38,7 +38,7 @@ public class GeradorJson {
         av1.setProfessor(p1);
         List<ItemAvaliacaoVO> listaAtividadesAv1 = new ArrayList<ItemAvaliacaoVO>();
         ItemAvaliacaoVO atividade1 = new ItemAvaliacaoVO();
-        atividade1.setIdAtividade(1l);
+        atividade1.setCodigoAtividade("1");
         atividade1.setInformacaoExtra("10");
         listaAtividadesAv1.add(atividade1);
         av1.setListaAtividades(listaAtividadesAv1);
@@ -52,10 +52,10 @@ public class GeradorJson {
         av2.setProfessor(p2);
         List<ItemAvaliacaoVO> listaAtividadesAv2 = new ArrayList<ItemAvaliacaoVO>();
         ItemAvaliacaoVO atividade2 = new ItemAvaliacaoVO();
-        atividade2.setIdAtividade(2l);
+        atividade2.setCodigoAtividade("2");
         atividade2.setInformacaoExtra("08");
         ItemAvaliacaoVO atividade3 = new ItemAvaliacaoVO();
-        atividade3.setIdAtividade(3l);
+        atividade3.setCodigoAtividade("3");
         atividade3.setInformacaoExtra("09");
         listaAtividadesAv2.add(atividade2);
         listaAtividadesAv2.add(atividade3);
