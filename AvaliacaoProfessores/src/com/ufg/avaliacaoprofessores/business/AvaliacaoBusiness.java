@@ -8,11 +8,14 @@ package com.ufg.avaliacaoprofessores.business;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.ufg.avaliacaoprofessores.bean.AvaliacaoDocente;
+import com.ufg.avaliacaoprofessores.util.BeanPopulate;
 import com.ufg.avaliacaoprofessores.vo.AvaliacaoGeralVO;
 import java.io.File;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -23,13 +26,14 @@ import java.util.logging.Logger;
 public class AvaliacaoBusiness {
 
     public void consomeJson(File arquivo) {
+        AvaliacaoGeralVO avaliacao = null;
         try {
-            AvaliacaoGeralVO avaliacao = carregaAvaliacao(arquivo);
-            System.out.println();
-            //itim lindo
+            avaliacao = carregaAvaliacao(arquivo);
         } catch (UnsupportedEncodingException ex) {
             Logger.getLogger(AvaliacaoBusiness.class.getName()).log(Level.SEVERE, null, ex);
         }
+        BeanPopulate beanPopulate = new BeanPopulate(avaliacao);
+        List<AvaliacaoDocente> listaAvaliacaoDocente = beanPopulate.getListaAvaliacaoDocente();
         
     }
 

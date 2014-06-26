@@ -16,6 +16,7 @@ import com.ufg.avaliacaoprofessores.vo.AvaliacaoProfessorVO;
 import com.ufg.avaliacaoprofessores.vo.ItemAvaliacaoVO;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -24,22 +25,39 @@ import java.util.Map;
  */
 public class BeanPopulate {
     
-    AtividadeDAO atividadeDAO;
-    Map<String, Atividade> atividades;
-    
-    public BeanPopulate(){
+    private AtividadeDAO atividadeDAO;
+    private Map<Long, Atividade> atividades;
+    private List<AvaliacaoDocente> listaAvaliacaoDocente = new ArrayList<AvaliacaoDocente>();
+
+    public Map<Long, Atividade> getAtividades() {
+        return atividades;
+    }
+
+    public void setAtividades(Map<Long, Atividade> atividades) {
+        this.atividades = atividades;
+    }
+
+    public List<AvaliacaoDocente> getListaAvaliacaoDocente() {
+        return listaAvaliacaoDocente;
+    }
+
+    public void setListaAvaliacaoDocente(List<AvaliacaoDocente> listaAvaliacaoDocente) {
+        this.listaAvaliacaoDocente = listaAvaliacaoDocente;
+    }
+
+    public BeanPopulate(AvaliacaoGeralVO avaliacaoGeralVO){
         this.atividadeDAO = new AtividadeDAO();
-        
         
         try {
             this.atividades = atividadeDAO.getMapaAtividades();
+            popularBeans(avaliacaoGeralVO);
         } catch (Exception e) {
             System.out.println("Erro ao montar mapa de atividades");
             e.printStackTrace();
         }
     }
     
-    public void popularBeans(AvaliacaoGeralVO avaliacaoGeralVO){
+    private void popularBeans(AvaliacaoGeralVO avaliacaoGeralVO){
         
         Avaliacao avaliacao = new Avaliacao();
         avaliacao.setDataAvaliacao(Calendar.getInstance());
@@ -58,6 +76,7 @@ public class BeanPopulate {
                     itemAvaliacao.setHas(new Integer(itemAvaliacaoVO.getHas()));
                 }
             }
+            listaAvaliacaoDocente.add(avaliacaoDocente);
         }
     }
 }

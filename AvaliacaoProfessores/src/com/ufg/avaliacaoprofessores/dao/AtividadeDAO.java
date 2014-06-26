@@ -40,13 +40,13 @@ public class AtividadeDAO extends GenericDao{
         return lista;
      }
     
-    public Map<String, Atividade> getMapaAtividades() throws Exception {
+    public Map<Long, Atividade> getMapaAtividades() throws Exception {
         
         List<Atividade> lista = listar();
         
-        Map<String, Atividade> atividades = new HashMap<String, Atividade>();
+        Map<Long, Atividade> atividades = new HashMap<Long, Atividade>();
         for(Atividade atividade : lista){
-            atividades.put(atividade.getCodigo(), atividade);
+            atividades.put(atividade.getId(), atividade);
         }
         
         return atividades;
