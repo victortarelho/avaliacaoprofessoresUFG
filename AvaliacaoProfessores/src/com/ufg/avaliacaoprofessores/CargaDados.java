@@ -46,6 +46,11 @@ public class CargaDados {
         tipoAtividadeDAO.salvar(posGraduacaoStrictu);
 
         insereAtividade("Aulas presenciais na graduação*", "1", 10, graduacao, atividadeDAO);
+        insereAtividade("Aulas do ensino a distância na graduação", "2", 10, graduacao, atividadeDAO);
+        
+        insereAtividade("Aulas presenciais na pós-graduação", "1", 10, posGraduacaoStrictu, atividadeDAO);
+        insereAtividade("Aulas do ensino a distância na pós-graduação", "2", 10, posGraduacaoStrictu, atividadeDAO);
+        
     }
 
     public static void insereTipoProducaoIntelectual(TipoAtividadeDAO tipoAtividadeDAO, AtividadeDAO atividadeDAO) {
