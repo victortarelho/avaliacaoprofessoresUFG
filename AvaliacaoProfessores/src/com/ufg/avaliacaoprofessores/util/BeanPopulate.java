@@ -54,8 +54,8 @@ public class BeanPopulate {
                 ItemAvaliacao itemAvaliacao = new ItemAvaliacao();
                 itemAvaliacao.setAtividade(atividades.get(itemAvaliacaoVO.getCodigoAtividade()));
                 
-                if(itemAvaliacaoVO.getInformacaoExtra() != null && !itemAvaliacaoVO.getInformacaoExtra().equals("")){
-                    itemAvaliacao.setHas(new Integer(itemAvaliacaoVO.getInformacaoExtra()));
+                if(itemAvaliacaoVO.getHas() != null && !itemAvaliacaoVO.getHas().equals("")){
+                    itemAvaliacao.setHas(new Integer(itemAvaliacaoVO.getHas()));
                 }
             }
         }

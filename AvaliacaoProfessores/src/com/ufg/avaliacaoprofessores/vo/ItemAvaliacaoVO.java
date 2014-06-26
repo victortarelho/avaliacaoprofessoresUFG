@@ -5,14 +5,14 @@ package com.ufg.avaliacaoprofessores.vo;
  */
 public class ItemAvaliacaoVO {
     private String codigoAtividade;
-    private String informacaoExtra;
+    private String has;
 
-    public String getInformacaoExtra() {
-        return informacaoExtra;
+    public String getHas() {
+        return has;
     }
 
-    public void setInformacaoExtra(String informacaoExtra) {
-        this.informacaoExtra = informacaoExtra;
+    public void setHas(String has) {
+        this.has = has;
     }
 
     public String getCodigoAtividade() {

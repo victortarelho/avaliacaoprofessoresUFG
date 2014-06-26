@@ -25,7 +25,7 @@ public class AvaliacaoBusiness {
     public void consomeJson(File arquivo) {
         try {
             AvaliacaoGeralVO avaliacao = carregaAvaliacao(arquivo);
-            //itim lindo
+            System.out.println();
             //itim lindo
         } catch (UnsupportedEncodingException ex) {
             Logger.getLogger(AvaliacaoBusiness.class.getName()).log(Level.SEVERE, null, ex);
