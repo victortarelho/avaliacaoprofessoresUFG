@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.ufg.avaliacaoprofessores.business;
 
 import com.google.gson.Gson;
@@ -12,23 +11,23 @@ import com.ufg.avaliacaoprofessores.vo.AvaliacaoGeralVO;
 import java.io.File;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.io.UnsupportedEncodingException;
 
 /**
  *
  * @author Bruno
  */
 public class AvaliacaoBusiness {
-    
-    public void consomeJson(File arquivo){
 
-       try {
-           Reader reader = new InputStreamReader(AvaliacaoBusiness.class.getResourceAsStream("/exemploAvaliacao.json"), "UTF-8");
-           Gson gson = new GsonBuilder().create();
-           AvaliacaoGeralVO avaliacao = gson.fromJson(reader, AvaliacaoGeralVO.class);
-           System.out.println(avaliacao);
-        } catch(Exception e){
-            e.printStackTrace();
-        }
-       
+    public void consomeJson(File arquivo) throws UnsupportedEncodingException {
+        AvaliacaoGeralVO avaliacao = carregaAvaliacao(arquivo);
+        //fazer reflexao dessas infos pros beans do projeto
+        
+    }
+
+    private AvaliacaoGeralVO carregaAvaliacao(File arquivo) throws UnsupportedEncodingException {
+        Reader reader = new InputStreamReader(AvaliacaoBusiness.class.getResourceAsStream("/exemploAvaliacao.json"), "UTF-8");
+        Gson gson = new GsonBuilder().create();
+        return gson.fromJson(reader, AvaliacaoGeralVO.class);
     }
 }
