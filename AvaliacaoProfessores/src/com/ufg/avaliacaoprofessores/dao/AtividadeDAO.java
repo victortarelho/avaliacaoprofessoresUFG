@@ -1,16 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package com.ufg.avaliacaoprofessores.dao;
 
 import com.ufg.avaliacaoprofessores.bean.Atividade;
 import com.ufg.avaliacaoprofessores.exception.AvaliacaoDaoException;
 import com.ufg.avaliacaoprofessores.persistence.GenericDao;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -34,8 +30,8 @@ public class AtividadeDAO extends GenericDao{
         }
     }
     
-    public List listar() throws Exception {
-        List lista = new ArrayList();
+    public List<Atividade> listar() throws Exception {
+        List<Atividade> lista = new ArrayList<Atividade>();
         try {
             lista =  super.listar(Atividade.class);
         } catch (AvaliacaoDaoException e) {
@@ -43,4 +39,16 @@ public class AtividadeDAO extends GenericDao{
         }
         return lista;
      }
+    
+    public Map<Long, Atividade> getMapaAtividades() throws Exception {
+        
+        List<Atividade> lista = listar();
+        
+        Map<Long, Atividade> atividades = new HashMap<Long, Atividade>();
+        for(Atividade atividade : lista){
+            atividades.put(atividade.getId(), atividade);
+        }
+        
+        return atividades;
+    }
 }
