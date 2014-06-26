@@ -18,8 +18,6 @@ public class ItemAvaliacao implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String nome;
-    private float pontos;
     private int has;
 
     @ManyToOne
@@ -44,22 +42,6 @@ public class ItemAvaliacao implements Serializable {
 
     public void setAvaliacao(AvaliacaoDocente avaliacao) {
         this.avaliacao = avaliacao;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public float getPontos() {
-        return pontos;
-    }
-
-    public void setPontos(float pontos) {
-        this.pontos = pontos;
     }
 
     public int getHas() {

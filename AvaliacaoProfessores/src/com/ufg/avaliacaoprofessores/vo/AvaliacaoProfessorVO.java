@@ -16,7 +16,7 @@ import java.util.List;
 public class AvaliacaoProfessorVO {
     
      private ProfessorVO professor;
-     private List<AtividadeVO> listaAtividades;
+     private List<ItemAvaliacaoVO> listaAtividades;
 
     public ProfessorVO getProfessor() {
         return professor;
@@ -26,11 +26,11 @@ public class AvaliacaoProfessorVO {
         this.professor = professor;
     }
 
-    public List<AtividadeVO> getListaAtividades() {
+    public List<ItemAvaliacaoVO> getListaAtividades() {
         return listaAtividades;
     }
 
-    public void setListaAtividades(List<AtividadeVO> listaAtividades) {
+    public void setListaAtividades(List<ItemAvaliacaoVO> listaAtividades) {
         this.listaAtividades = listaAtividades;
     }
 
