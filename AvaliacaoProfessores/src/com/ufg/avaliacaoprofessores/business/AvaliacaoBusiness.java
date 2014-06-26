@@ -34,7 +34,7 @@ public class AvaliacaoBusiness {
     }
 
     private AvaliacaoGeralVO carregaAvaliacao(File arquivo) throws UnsupportedEncodingException {
-        Reader reader = new InputStreamReader(AvaliacaoBusiness.class.getResourceAsStream("/exemploAvaliacao.json"), "UTF-8");
+        Reader reader = new InputStreamReader(AvaliacaoBusiness.class.getResourceAsStream("/testeJsonGrande.json"), "UTF-8");
         Gson gson = new GsonBuilder().create();
         return gson.fromJson(reader, AvaliacaoGeralVO.class);
     }

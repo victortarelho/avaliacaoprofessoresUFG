@@ -52,7 +52,7 @@ public class BeanPopulate {
             
             for(ItemAvaliacaoVO itemAvaliacaoVO :  avaliacaoProfessorVO.getListaAtividades()){
                 ItemAvaliacao itemAvaliacao = new ItemAvaliacao();
-                itemAvaliacao.setAtividade(atividades.get(itemAvaliacaoVO.getCodigoAtividade()));
+                itemAvaliacao.setAtividade(atividades.get(itemAvaliacaoVO.getIdAtividade()));
                 
                 if(itemAvaliacaoVO.getHas() != null && !itemAvaliacaoVO.getHas().equals("")){
                     itemAvaliacao.setHas(new Integer(itemAvaliacaoVO.getHas()));

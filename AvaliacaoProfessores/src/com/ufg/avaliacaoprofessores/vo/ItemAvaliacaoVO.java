@@ -4,7 +4,7 @@ package com.ufg.avaliacaoprofessores.vo;
  * @author Bruno
  */
 public class ItemAvaliacaoVO {
-    private String codigoAtividade;
+    private Integer idAtividade;
     private String has;
 
     public String getHas() {
@@ -15,11 +15,11 @@ public class ItemAvaliacaoVO {
         this.has = has;
     }
 
-    public String getCodigoAtividade() {
-        return codigoAtividade;
+    public Integer getIdAtividade() {
+        return idAtividade;
     }
 
-    public void setCodigoAtividade(String codigoAtividade) {
-        this.codigoAtividade = codigoAtividade;
+    public void setIdAtividade(Integer codigoAtividade) {
+        this.idAtividade = codigoAtividade;
     }
 }

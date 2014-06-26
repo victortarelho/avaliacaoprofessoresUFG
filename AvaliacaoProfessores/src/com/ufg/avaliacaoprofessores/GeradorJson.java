@@ -76,10 +76,10 @@ public class GeradorJson {
             List<ItemAvaliacaoVO> listaAtividadesAv3 = new ArrayList<ItemAvaliacaoVO>();
             for (int j = 0; j < 50; j++) {
                 ItemAvaliacaoVO atividade4 = new ItemAvaliacaoVO();
-                atividade4.setCodigoAtividade(i+""+j);
+                atividade4.setIdAtividade(i+j+3);
                 ItemAvaliacaoVO atividade5 = new ItemAvaliacaoVO();
-                atividade5.setCodigoAtividade("3"+i+""+j);
-                atividade5.setHas("09");
+                atividade5.setIdAtividade(i+j);
+                atividade5.setHas("20");
                 listaAtividadesAv3.add(atividade4);
                 listaAtividadesAv3.add(atividade5); 
                 av3.setListaAtividades(listaAtividadesAv3);
@@ -107,6 +107,6 @@ public class GeradorJson {
         writer.println(json);
         writer.close();
         
-        System.out.println(json);
+        System.out.println("Fim!");
     }
 }
