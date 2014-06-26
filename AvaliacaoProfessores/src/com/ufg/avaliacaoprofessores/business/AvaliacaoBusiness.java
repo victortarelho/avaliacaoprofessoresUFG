@@ -22,7 +22,6 @@ public class AvaliacaoBusiness {
     public void consomeJson(File arquivo) throws UnsupportedEncodingException {
         AvaliacaoGeralVO avaliacao = carregaAvaliacao(arquivo);
         //fazer reflexao dessas infos pros beans do projeto
-        //itim lindo
         
     }
 
