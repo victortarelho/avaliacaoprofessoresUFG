@@ -13,6 +13,8 @@ import java.io.File;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.UnsupportedEncodingException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -20,10 +22,14 @@ import java.io.UnsupportedEncodingException;
  */
 public class AvaliacaoBusiness {
 
-    public void consomeJson(File arquivo) throws UnsupportedEncodingException {
-        AvaliacaoGeralVO avaliacao = carregaAvaliacao(arquivo);
-        //fazer reflexao dessas infos pros beans do projeto
-        //itim lindo
+    public void consomeJson(File arquivo) {
+        try {
+            AvaliacaoGeralVO avaliacao = carregaAvaliacao(arquivo);
+            //itim lindo
+            //itim lindo
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(AvaliacaoBusiness.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
 
