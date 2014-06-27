@@ -8,9 +8,13 @@ package com.ufg.avaliacaoprofessores.business;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.ufg.avaliacaoprofessores.bean.Avaliacao;
 import com.ufg.avaliacaoprofessores.bean.AvaliacaoDocente;
 import com.ufg.avaliacaoprofessores.bean.Docente;
+import com.ufg.avaliacaoprofessores.bean.ItemAvaliacao;
+import com.ufg.avaliacaoprofessores.dao.AvaliacaoDAO;
 import com.ufg.avaliacaoprofessores.dao.DocenteDAO;
+import com.ufg.avaliacaoprofessores.dao.ItemAvaliacaoDAO;
 import com.ufg.avaliacaoprofessores.util.BeanPopulate;
 import com.ufg.avaliacaoprofessores.vo.AvaliacaoGeralVO;
 import java.io.File;
@@ -38,6 +42,7 @@ public class AvaliacaoBusiness {
         BeanPopulate beanPopulate = new BeanPopulate(avaliacao);
         List<AvaliacaoDocente> listaAvaliacaoDocente = beanPopulate.getListaAvaliacaoDocente();
         persisteDocentes(listaAvaliacaoDocente);
+        persisteAvaliacao(listaAvaliacaoDocente.get(0).getAvaliacao());
         persisteItemAvaliacao(listaAvaliacaoDocente);
         System.out.println("Fim!");
         
@@ -64,6 +69,21 @@ public class AvaliacaoBusiness {
     }
     
     private void persisteItemAvaliacao(List<AvaliacaoDocente> listaAvaliacaoDocente){
-        //persistir os itens de avaliacao - Italo - faz em bloco igual eu, metodo salvaEmBloco no docenteDao
+        ItemAvaliacaoDAO itemAvaliacaoDao = new ItemAvaliacaoDAO();
+        List<ItemAvaliacao> listaDocentes= getListaItemAvaliacao(listaAvaliacaoDocente);
+//        itemAvaliacaoDao.salvaEmBloco(listaDocentes);
+    }
+    
+    private List<ItemAvaliacao> getListaItemAvaliacao(List<AvaliacaoDocente> listaAvaliacaoDocente) {
+        List<ItemAvaliacao> listaItemAvaliacao = new ArrayList<ItemAvaliacao>();
+        for (AvaliacaoDocente avaliacaoDocente : listaAvaliacaoDocente) {
+//            listaItemAvaliacao.add(avaliacaoDocente.getDocente().get);
+        }
+        return listaItemAvaliacao;
+    }
+    
+    private void persisteAvaliacao(Avaliacao avaliacao){
+        AvaliacaoDAO avaliacaoDao = new AvaliacaoDAO();
+        avaliacaoDao.salvar(avaliacao);
     }
 }
