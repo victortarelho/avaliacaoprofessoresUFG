@@ -53,7 +53,6 @@ public class ThreadPopulaBean implements Runnable{
     @Override
     public void run() {
         for (AvaliacaoProfessorVO avaliacaoProfessorVO : lista) {
-            System.out.println(avaliacaoProfessorVO.getProfessor().getNomeProfessor());
             AvaliacaoDocente avaliacaoDocente = new AvaliacaoDocente();
             avaliacaoDocente.setAvaliacao(avaliacao);
             avaliacaoDocente.setItensAvaliacao(new ArrayList<ItemAvaliacao>());

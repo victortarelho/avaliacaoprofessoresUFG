@@ -26,8 +26,9 @@ public class BeanPopulate {
 
     private AtividadeDAO atividadeDAO;
     private Map<Long, Atividade> atividades;
-    public static List<AvaliacaoDocente> listaAvaliacaoDocente = 
-            Collections.synchronizedList(new ArrayList<AvaliacaoDocente>());
+    private Avaliacao avaliacao;
+    public static List<AvaliacaoDocente> listaAvaliacaoDocente
+            = (new ArrayList<AvaliacaoDocente>());
 
     public Map<Long, Atividade> getAtividades() {
         return atividades;
@@ -39,6 +40,22 @@ public class BeanPopulate {
 
     public List<AvaliacaoDocente> getListaAvaliacaoDocente() {
         return listaAvaliacaoDocente;
+    }
+
+    public AtividadeDAO getAtividadeDAO() {
+        return atividadeDAO;
+    }
+
+    public void setAtividadeDAO(AtividadeDAO atividadeDAO) {
+        this.atividadeDAO = atividadeDAO;
+    }
+
+    public Avaliacao getAvaliacao() {
+        return avaliacao;
+    }
+
+    public void setAvaliacao(Avaliacao avaliacao) {
+        this.avaliacao = avaliacao;
     }
 
     public void setListaAvaliacaoDocente(List<AvaliacaoDocente> listaAvaliacaoDocente) {
@@ -61,20 +78,26 @@ public class BeanPopulate {
 
         List<AvaliacaoProfessorVO> lista1 = avaliacaoGeralVO.getListaAvaliacoes().subList(0, 5000);
         List<AvaliacaoProfessorVO> lista2 = avaliacaoGeralVO.getListaAvaliacoes().subList(5001, 9999);
-        
-        Avaliacao avaliacao = new Avaliacao();
+
+        this.avaliacao = new Avaliacao();
         avaliacao.setDataAvaliacao(Calendar.getInstance());
         avaliacaoGeralVO.setResolucao("32/2013");
         avaliacao.setResolucao(avaliacaoGeralVO.getResolucao());
-        
+
         ThreadPopulaBean t1 = new ThreadPopulaBean(lista1, avaliacao, atividades);
         Thread treadPopulaBean1 = new Thread(t1);
         treadPopulaBean1.start();
-        
+
         ThreadPopulaBean t2 = new ThreadPopulaBean(lista2, avaliacao, atividades);
         Thread treadPopulaBean2 = new Thread(t2);
         treadPopulaBean2.start();
 
+        try {
+            treadPopulaBean1.join();
+            treadPopulaBean2.join();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
-    
+
 }

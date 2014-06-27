@@ -10,6 +10,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.ufg.avaliacaoprofessores.bean.AvaliacaoDocente;
 import com.ufg.avaliacaoprofessores.bean.Docente;
+import com.ufg.avaliacaoprofessores.dao.AvaliacaoDAO;
+import com.ufg.avaliacaoprofessores.dao.AvaliacaoDocenteDAO;
 import com.ufg.avaliacaoprofessores.dao.DocenteDAO;
 import com.ufg.avaliacaoprofessores.util.BeanPopulate;
 import com.ufg.avaliacaoprofessores.vo.AvaliacaoGeralVO;
@@ -21,12 +23,23 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.plaf.synth.SynthDesktopIconUI;
 
 /**
  *
  * @author Bruno
  */
 public class AvaliacaoBusiness {
+    
+    AvaliacaoDAO avaliacaoDao;
+    AvaliacaoDocenteDAO avaliacaoDocenteDao;
+    DocenteDAO docenteDao;
+    
+    public AvaliacaoBusiness(){
+        this.avaliacaoDao = new AvaliacaoDAO();
+        this.avaliacaoDocenteDao = new AvaliacaoDocenteDAO();
+        this.docenteDao = new DocenteDAO();
+    }
 
     public void consomeJson(File arquivo) {
         AvaliacaoGeralVO avaliacao = null;
@@ -37,10 +50,28 @@ public class AvaliacaoBusiness {
         }
         BeanPopulate beanPopulate = new BeanPopulate(avaliacao);
         List<AvaliacaoDocente> listaAvaliacaoDocente = beanPopulate.getListaAvaliacaoDocente();
+        
+        System.out.println("Salvando Avaliação..");
+        avaliacaoDao.salvar(beanPopulate.getAvaliacao());
+        System.out.println("Avaliação salva.. id: " + beanPopulate.getAvaliacao().getId());
+        
+        for(AvaliacaoDocente avaliacaoDocente : listaAvaliacaoDocente){
+            System.out.println("Salvando Docente: " + avaliacaoDocente.getDocente().getNome());
+            docenteDao.salvar(avaliacaoDocente.getDocente());
+            System.out.println("Docente salvo.. id:" + avaliacaoDocente.getDocente().getId());
+            
+            System.out.println("Salvando Avaliação do Docente: ");
+            avaliacaoDocente.setAvaliacao(beanPopulate.getAvaliacao());
+            avaliacaoDocenteDao.salvar(avaliacaoDocente);
+            System.out.println("Avaliação do docente salva... id:" + avaliacaoDocente.getId());
+            /**
+             * PERSISTIR ITENS AVALIACAO EM BLOCO
+             * avaliacaoDocente.getItensAvaliacao()
+             */     
+        }
+        
         persisteDocentes(listaAvaliacaoDocente);
         persisteItemAvaliacao(listaAvaliacaoDocente);
-        System.out.println("Fim!");
-        
     }
 
     private AvaliacaoGeralVO carregaAvaliacao(File arquivo) throws UnsupportedEncodingException {
