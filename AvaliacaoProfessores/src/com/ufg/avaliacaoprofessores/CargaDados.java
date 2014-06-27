@@ -47,17 +47,19 @@ public class CargaDados {
 
         insereAtividade("Aulas presenciais na graduação*", "1", 10, graduacao, atividadeDAO);
         insereAtividade("Aulas do ensino a distância na graduação", "2", 10, graduacao, atividadeDAO);
-        
+
         insereAtividade("Aulas presenciais na pós-graduação", "1", 10, posGraduacaoStrictu, atividadeDAO);
         insereAtividade("Aulas do ensino a distância na pós-graduação", "2", 10, posGraduacaoStrictu, atividadeDAO);
-        
+
     }
 
     public static void insereTipoProducaoIntelectual(TipoAtividadeDAO tipoAtividadeDAO, AtividadeDAO atividadeDAO) {
         TipoAtividade producaoIntelectual = new TipoAtividade("PRODUÇÃO INTELECTUAL", "II");
+        tipoAtividadeDAO.salvar(producaoIntelectual);
 
         TipoAtividade producaoCientifica = new TipoAtividade("Produção Científica", "II-1");
         producaoCientifica.setTipoAtividadePai(producaoIntelectual);
+        tipoAtividadeDAO.salvar(producaoCientifica);
 
         insereAtividade("Artigo completo ou texto literário publicado em periódico Com classificação no Qualis/CAPES ", "1.1", 20, producaoCientifica, atividadeDAO);
         insereAtividade("Artigo completo ou texto literário publicado em periódico Não sujeito à classificação no Qualis/CAPES ", "1.2", 10, producaoCientifica, atividadeDAO);
@@ -88,6 +90,7 @@ public class CargaDados {
 
         TipoAtividade producaoArtistica = new TipoAtividade("Produção Artística e Cultural", "II-2");
         producaoArtistica.setTipoAtividadePai(producaoIntelectual);
+        tipoAtividadeDAO.salvar(producaoArtistica);
 
         insereAtividade("Criação, produção e direção de filmes, vídeos, discos, audiovisuais, coreografias, peças teatrais, óperas ou musicais, ou musicais apresentados em eventos Locais ou regionais ", "1.1", 10, producaoArtistica, atividadeDAO);
         insereAtividade("Criação, produção e direção de filmes, vídeos, discos, audiovisuais, coreografias, peças teatrais, óperas ou musicais, ou musicais apresentados em eventos Nacionais ", "1.2", 15, producaoArtistica, atividadeDAO);
@@ -116,6 +119,7 @@ public class CargaDados {
 
         TipoAtividade producaoTecnica = new TipoAtividade("Produção Técnica e Tecnológica ", "II-3");
         producaoTecnica.setTipoAtividadePai(producaoIntelectual);
+        tipoAtividadeDAO.salvar(producaoTecnica);
 
         insereAtividade("Desenvolvimento de programa de computador (software) com registro no INPI ou com ampla disponibilização em ambientes de software livre ", "1", 20, producaoTecnica, atividadeDAO);
         insereAtividade("Desenvolvimento de software com divulgação em periódicos indexados e com corpo editorial ou em anais de congresso científico ", "2", 10, producaoTecnica, atividadeDAO);
@@ -126,12 +130,12 @@ public class CargaDados {
         insereAtividade("Desenvolvimento e registro no INPI de processo de indicação geográfica ", "7", 20, producaoTecnica, atividadeDAO);
         insereAtividade("Desenvolvimento e registro no INPI de marcas ", "8", 5, producaoTecnica, atividadeDAO);
         insereAtividade("Participação em comitê editorial de periódicos especializados indexados e de editoras universitárias ", "9", 10, producaoTecnica, atividadeDAO);
+        insereAtividade("Projeto, parecer ou relatório técnico realizado em consultoria ou assessoria oficializada por convite, convênio, contrato ou designação Projeto ou Relatório Técnico com anotação de responsabilidade técnica (ART) ou registro de responsabilidade técnica (RRT) ", "12.3", 20, producaoTecnica, atividadeDAO);
+        insereAtividade("Projeto, parecer ou relatório técnico realizado em consultoria ou assessoria oficializada por convite, convênio, contrato ou designação Projeto ou Relatório Técnico sem anotação de responsabilidade técnica (ART) ou registro de responsabilidade técnica (RRT) ", "12.4", 10, producaoTecnica, atividadeDAO);
         insereAtividade("Parecer de consultoria ad hoc em comitês de avaliação de concursos e editais de publicação de livros de editoras com corpo editorial ", "10", 3, producaoTecnica, atividadeDAO);
         insereAtividade("Parecer de consultoria ad hoc para periódicos especializados com corpo editorial ou para instituições de fomento à pesquisa ou para livros de editoras com corpo editorial ", "11", 3, producaoTecnica, atividadeDAO);
         insereAtividade("Projeto, parecer ou relatório técnico realizado em consultoria ou assessoria oficializada por convite, convênio, contrato ou designação Parecer com anotação de responsabilidade técnica (ART) ou registro de responsabilidade técnica (RRT) ", "12.1", 10, producaoTecnica, atividadeDAO);
         insereAtividade("Projeto, parecer ou relatório técnico realizado em consultoria ou assessoria oficializada por convite, convênio, contrato ou designação Parecer sem anotação de responsabilidade técnica (ART) ou registro de responsabilidade técnica (RRT) ", "12.2", 5, producaoTecnica, atividadeDAO);
-        insereAtividade("Projeto, parecer ou relatório técnico realizado em consultoria ou assessoria oficializada por convite, convênio, contrato ou designação Projeto ou Relatório Técnico com anotação de responsabilidade técnica (ART) ou registro de responsabilidade técnica (RRT) ", "12.3", 20, producaoTecnica, atividadeDAO);
-        insereAtividade("Projeto, parecer ou relatório técnico realizado em consultoria ou assessoria oficializada por convite, convênio, contrato ou designação Projeto ou Relatório Técnico sem anotação de responsabilidade técnica (ART) ou registro de responsabilidade técnica (RRT) ", "12.4", 10, producaoTecnica, atividadeDAO);
         insereAtividade("Anais, Manuais, catálogos, boletins, com ficha bibliográfica (organizador / redator) ", "13", 5, producaoTecnica, atividadeDAO);
         insereAtividade("Produção e publicação de mapas, cartas ou similares ", "14", 10, producaoTecnica, atividadeDAO);
         insereAtividade("Desenvolvimento de maquete ", "15", 5, producaoTecnica, atividadeDAO);
@@ -143,6 +147,7 @@ public class CargaDados {
 
         TipoAtividade outroTipoProducao = new TipoAtividade("Outro Tipo de Produção ", "II-4");
         outroTipoProducao.setTipoAtividadePai(producaoIntelectual);
+        tipoAtividadeDAO.salvar(outroTipoProducao);
 
         insereAtividade("Artigos de opinião veiculados em jornais e revistas (eletrônico ou impresso) ", "1", 1, outroTipoProducao, atividadeDAO);
         insereAtividade("Texto ou material didático para uso institucional (não fracionados e com ampla divulgação) ", "2", 2, outroTipoProducao, atividadeDAO);
@@ -155,9 +160,11 @@ public class CargaDados {
 
     public static void insereTipoAtividadePesquisaExtensao(TipoAtividadeDAO tipoAtividadeDAO, AtividadeDAO atividadeDAO) {
         TipoAtividade atividadePesquisaExtensao = new TipoAtividade("ATIVIDADES DE PESQUISA E EXTENSÃO", "III");
+        tipoAtividadeDAO.salvar(atividadePesquisaExtensao);
 
         TipoAtividade atividadeDeCoordenacaoDePesquisa = new TipoAtividade("Atividades de Coordenação de Pesquisa", "III-1");
         atividadeDeCoordenacaoDePesquisa.setTipoAtividadePai(atividadePesquisaExtensao);
+        tipoAtividadeDAO.salvar(atividadeDeCoordenacaoDePesquisa);
 
         insereAtividade("Coordenador de projeto conjuntos de pesquisa e cooperação científica (tipo PRODOC, PROCAD, PNPD, entre outros) e de cursos MINTER e DINTER aprovados por órgãos oficiais de fomento ", "1", 10, atividadeDeCoordenacaoDePesquisa, atividadeDAO);
         insereAtividade("Coordenador de projeto de pesquisa aprovado com comprovação de financiamento (exceto bolsas) ", "2", 10, atividadeDeCoordenacaoDePesquisa, atividadeDAO);
@@ -165,6 +172,7 @@ public class CargaDados {
 
         TipoAtividade atividadeDeExtensao = new TipoAtividade("Atividades de Extensão", "III-2");
         atividadeDeExtensao.setTipoAtividadePai(atividadePesquisaExtensao);
+        tipoAtividadeDAO.salvar(atividadeDeExtensao);
 
         insereAtividade("Coordenador de projeto de extensão aprovado com comprovação de financiamento (exceto bolsas) ", "1", 10, atividadeDeExtensao, atividadeDAO);
         insereAtividade("Coordenador de projeto ou programa de extensão/cultura cadastrado na PROEC (total máximo a ser considerado neste item são 15 pontos) ", "2", 5, atividadeDeExtensao, atividadeDAO);
@@ -189,9 +197,11 @@ public class CargaDados {
 
     public static void insereTipoAtividadesAdministrativasEDeRepresentacao(TipoAtividadeDAO tipoAtividadeDAO, AtividadeDAO atividadeDAO) {
         TipoAtividade atividadesAdministrativasEDeRepresentacao = new TipoAtividade("ATIVIDADES ADMINISTRATIVAS E DE REPRESENTAÇÃO", "IV");
+        tipoAtividadeDAO.salvar(atividadesAdministrativasEDeRepresentacao);
 
         TipoAtividade direcaoEFuncaoGratificada = new TipoAtividade("Direção e Função Gratificada", "IV-1");
         direcaoEFuncaoGratificada.setTipoAtividadePai(atividadesAdministrativasEDeRepresentacao);
+        tipoAtividadeDAO.salvar(direcaoEFuncaoGratificada);
 
         insereAtividade("Reitor ou Vice-Reitor ou Pró-Reitor", "1", 14, direcaoEFuncaoGratificada, atividadeDAO);
 
@@ -221,6 +231,7 @@ public class CargaDados {
 
         TipoAtividade atividadesAdministrativas = new TipoAtividade("Atividades Administrativas", "IV-2");
         atividadesAdministrativas.setTipoAtividadePai(atividadesAdministrativasEDeRepresentacao);
+        tipoAtividadeDAO.salvar(atividadesAdministrativas);
 
         insereAtividade("Coordenador de projeto institucional com financiamento ou de contratos e convênio com plano de trabalho aprovado", "1", 5, atividadesAdministrativas, atividadeDAO);
 
@@ -234,6 +245,7 @@ public class CargaDados {
 
         TipoAtividade outrasAtividadesAdministrativas = new TipoAtividade("Outras Atividades Administrativas", "IV-3");
         outrasAtividadesAdministrativas.setTipoAtividadePai(atividadesAdministrativasEDeRepresentacao);
+        tipoAtividadeDAO.salvar(outrasAtividadesAdministrativas);
 
         insereAtividade("Presidente da CPPD", "1", 7, outrasAtividadesAdministrativas, atividadeDAO);
 
@@ -263,6 +275,7 @@ public class CargaDados {
 
         TipoAtividade atividadesDeRepresentacaoForaDaUFG = new TipoAtividade("Atividades de Representação Fora da UFG", "IV-4");
         atividadesDeRepresentacaoForaDaUFG.setTipoAtividadePai(atividadesAdministrativasEDeRepresentacao);
+        tipoAtividadeDAO.salvar(atividadesDeRepresentacaoForaDaUFG);
 
         insereAtividade("Representante titular em conselho de classe profissional com carga horária igual ou superior a 150 horas", "1", 10, atividadesDeRepresentacaoForaDaUFG, atividadeDAO);
 
@@ -280,8 +293,12 @@ public class CargaDados {
 
     public static void insereTipoOutrasAtividades(TipoAtividadeDAO tipoAtividadeDAO, AtividadeDAO atividadeDAO) {
         TipoAtividade outrasAtividades = new TipoAtividade("OUTRAS ATIVIDADES", "V");
+        tipoAtividadeDAO.salvar(outrasAtividades);
+        
         TipoAtividade atividadesAcademicasOrientacao = new TipoAtividade("Atividades Acadêmicas - Orientação", "V-1");
         atividadesAcademicasOrientacao.setTipoAtividadePai(outrasAtividades);
+        tipoAtividadeDAO.salvar(atividadesAcademicasOrientacao);
+
         insereAtividade("Aluno orientado em tese de doutorado defendida e aprovada", "1", 20, atividadesAcademicasOrientacao, atividadeDAO);
         insereAtividade("Aluno co-orientado em tese de doutorado defendida e aprovada", "2", 7, atividadesAcademicasOrientacao, atividadeDAO);
         insereAtividade("Aluno orientado em tese de doutorado em andamento", "3", 10, atividadesAcademicasOrientacao, atividadeDAO);
@@ -319,6 +336,8 @@ public class CargaDados {
 
         TipoAtividade atividadesAcademicasBancasECursos = new TipoAtividade("Atividades Acadêmicas – Bancas e Cursos ", "V-2");
         atividadesAcademicasBancasECursos.setTipoAtividadePai(outrasAtividades);
+        tipoAtividadeDAO.salvar(atividadesAcademicasBancasECursos);
+
         insereAtividade("Na instituição", "1.1", 4, atividadesAcademicasBancasECursos, atividadeDAO);
         insereAtividade("Em outra instituição", "1.2", 6, atividadesAcademicasBancasECursos, atividadeDAO);
         insereAtividade("Membro de banca de concurso para docente substituto", "2", 2, atividadesAcademicasBancasECursos, atividadeDAO);
@@ -338,6 +357,8 @@ public class CargaDados {
 
         TipoAtividade atividadesDeAprendizadoEAperfeicoamento = new TipoAtividade("Atividades de Aprendizado e Aperfeiçoamento", "V-3");
         atividadesDeAprendizadoEAperfeicoamento.setTipoAtividadePai(outrasAtividades);
+        tipoAtividadeDAO.salvar(atividadesDeAprendizadoEAperfeicoamento);
+
         insereAtividade("Docente regularmente matriculado em curso de doutorado com relatórios de pós-graduação aprovados (pontuação por mês de curso)", "1", 12, atividadesDeAprendizadoEAperfeicoamento, atividadeDAO);
         insereAtividade("Estágio Pós-Doutoral ou Estágio Sênior (pontuação por mês de estágio)", "2", 12, atividadesDeAprendizadoEAperfeicoamento, atividadeDAO);
         insereAtividade("Docente em licença para capacitação (Artigo 87, Lei N.8112) (pontuação por mês de licença)", "3", 12, atividadesDeAprendizadoEAperfeicoamento, atividadeDAO);

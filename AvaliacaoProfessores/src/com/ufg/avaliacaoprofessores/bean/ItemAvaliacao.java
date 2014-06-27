@@ -19,6 +19,8 @@ public class ItemAvaliacao implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private int has;
+    
+    private Float pontos;
 
     @ManyToOne
     @JoinColumn(name = "id_atividade", nullable = false)
@@ -58,5 +60,13 @@ public class ItemAvaliacao implements Serializable {
 
     public void setAtividade(Atividade atividade) {
         this.atividade = atividade;
+    }
+
+    public Float getPontos() {
+        return pontos;
+    }
+
+    public void setPontos(Float pontos) {
+        this.pontos = pontos;
     }
 }

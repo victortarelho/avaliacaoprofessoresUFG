@@ -7,6 +7,7 @@
 package com.ufg.avaliacaoprofessores.bean;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -26,6 +27,8 @@ public class Atividade implements Serializable{
     private Long id;
     private String codigo;
     private float pontos;
+    
+    @Column(name = "descricao",nullable = true,length = 3000)
     private String descricao;
     
     @ManyToOne(fetch = FetchType.EAGER)

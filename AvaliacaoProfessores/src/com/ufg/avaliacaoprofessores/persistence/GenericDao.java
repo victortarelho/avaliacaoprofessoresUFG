@@ -23,7 +23,6 @@ public abstract class GenericDao implements Serializable, DataAccessInteface {
         Transaction transaction = session.beginTransaction();
         try {
             session.saveOrUpdate(object);
-            session.flush();
             transaction.commit();
         } catch (Exception e) {
             transaction.rollback();
