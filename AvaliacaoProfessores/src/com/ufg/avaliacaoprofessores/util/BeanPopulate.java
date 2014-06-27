@@ -10,6 +10,7 @@ import com.ufg.avaliacaoprofessores.bean.Avaliacao;
 import com.ufg.avaliacaoprofessores.bean.AvaliacaoDocente;
 import com.ufg.avaliacaoprofessores.bean.ItemAvaliacao;
 import com.ufg.avaliacaoprofessores.dao.AtividadeDAO;
+import com.ufg.avaliacaoprofessores.thread.ThreadPopulaBean;
 import com.ufg.avaliacaoprofessores.vo.AvaliacaoGeralVO;
 import com.ufg.avaliacaoprofessores.vo.AvaliacaoProfessorVO;
 import com.ufg.avaliacaoprofessores.vo.ItemAvaliacaoVO;
@@ -26,7 +27,7 @@ public class BeanPopulate {
 
     private AtividadeDAO atividadeDAO;
     private Map<Long, Atividade> atividades;
-    private List<AvaliacaoDocente> listaAvaliacaoDocente = new ArrayList<AvaliacaoDocente>();
+    public static List<AvaliacaoDocente> listaAvaliacaoDocente = new ArrayList<AvaliacaoDocente>();
 
     public Map<Long, Atividade> getAtividades() {
         return atividades;
@@ -58,28 +59,22 @@ public class BeanPopulate {
 
     private void popularBeans(AvaliacaoGeralVO avaliacaoGeralVO) {
 
+        List<AvaliacaoProfessorVO> lista1 = avaliacaoGeralVO.getListaAvaliacoes().subList(0, 5000);
+        List<AvaliacaoProfessorVO> lista2 = avaliacaoGeralVO.getListaAvaliacoes().subList(5001, 9999);
+        
         Avaliacao avaliacao = new Avaliacao();
         avaliacao.setDataAvaliacao(Calendar.getInstance());
+        avaliacaoGeralVO.setResolucao("32/2013");
         avaliacao.setResolucao(avaliacaoGeralVO.getResolucao());
+        
+        ThreadPopulaBean t1 = new ThreadPopulaBean(lista1, avaliacao, atividades);
+        Thread treadPopulaBean1 = new Thread(t1);
+        treadPopulaBean1.start();
+        
+        ThreadPopulaBean t2 = new ThreadPopulaBean(lista2, avaliacao, atividades);
+        Thread treadPopulaBean2 = new Thread(t2);
+        treadPopulaBean2.start();
 
-        for (AvaliacaoProfessorVO avaliacaoProfessorVO : avaliacaoGeralVO.getListaAvaliacoes()) {
-            System.out.println(avaliacaoProfessorVO.getProfessor().getNomeProfessor());
-            AvaliacaoDocente avaliacaoDocente = new AvaliacaoDocente();
-            avaliacaoDocente.setAvaliacao(avaliacao);
-            avaliacaoDocente.setItensAvaliacao(new ArrayList<ItemAvaliacao>());
-
-            for (ItemAvaliacaoVO itemAvaliacaoVO : avaliacaoProfessorVO.getListaAtividades()) {
-                ItemAvaliacao itemAvaliacao = new ItemAvaliacao();
-                itemAvaliacao.setAtividade(atividades.get(itemAvaliacaoVO.getIdAtividade()));
-
-                if (itemAvaliacaoVO.getHas() != null && !itemAvaliacaoVO.getHas().equals("")) {
-                    itemAvaliacao.setHas(new Integer(itemAvaliacaoVO.getHas()));
-                    itemAvaliacao.setPontos(itemAvaliacao.getAtividade().getPontos() * itemAvaliacao.getHas());
-                } else {
-                    itemAvaliacao.setPontos(itemAvaliacao.getAtividade().getPontos());
-                }
-            }
-            listaAvaliacaoDocente.add(avaliacaoDocente);
-        }
     }
+    
 }

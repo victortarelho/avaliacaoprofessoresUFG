@@ -34,58 +34,27 @@ public class GeradorJson {
         AvaliacaoGeralVO avaliacao = new AvaliacaoGeralVO();
 
         List<AvaliacaoProfessorVO> listaAvaliacoes = new ArrayList<AvaliacaoProfessorVO>();
-
-        //avaliacao 1
-//        AvaliacaoProfessorVO av1 = new AvaliacaoProfessorVO();
-//        ProfessorVO p1 = new ProfessorVO();
-//        p1.setIdProfessor(1);
-//        p1.setNomeProfessor("Nome1");
-//        av1.setProfessor(p1);
-//        List<ItemAvaliacaoVO> listaAtividadesAv1 = new ArrayList<ItemAvaliacaoVO>();
-//        ItemAvaliacaoVO atividade1 = new ItemAvaliacaoVO();
-//        atividade1.setCodigoAtividade("1");
-//        atividade1.setHas("10");
-//        listaAtividadesAv1.add(atividade1);
-//        av1.setListaAtividades(listaAtividadesAv1);
-//        listaAvaliacoes.add(av1);
-//
-//        //avaliacao 2
-//        AvaliacaoProfessorVO av2 = new AvaliacaoProfessorVO();
-//        ProfessorVO p2 = new ProfessorVO();
-//        p2.setIdProfessor(2);
-//        p2.setNomeProfessor("Nome2");
-//        av2.setProfessor(p2);
-//        List<ItemAvaliacaoVO> listaAtividadesAv2 = new ArrayList<ItemAvaliacaoVO>();
-//        ItemAvaliacaoVO atividade2 = new ItemAvaliacaoVO();
-//        atividade2.setCodigoAtividade("2");
-//        atividade2.setHas("08");
-//        ItemAvaliacaoVO atividade3 = new ItemAvaliacaoVO();
-//        atividade3.setCodigoAtividade("3");
-//        atividade3.setHas("09");
-//        listaAtividadesAv2.add(atividade2);
-//        listaAtividadesAv2.add(atividade3);
-//        av2.setListaAtividades(listaAtividadesAv2);
-//        listaAvaliacoes.add(av2);
         
         for (int i = 0; i < 10000; i++) {
-            AvaliacaoProfessorVO av3 = new AvaliacaoProfessorVO();
-            ProfessorVO p3 = new ProfessorVO();
-            p3.setIdProfessor(i);
-            p3.setNomeProfessor("Nome"+i);
-            av3.setProfessor(p3);
-            List<ItemAvaliacaoVO> listaAtividadesAv3 = new ArrayList<ItemAvaliacaoVO>();
+            int k = i + 1;
+            AvaliacaoProfessorVO av1 = new AvaliacaoProfessorVO();
+            ProfessorVO prof1 = new ProfessorVO();
+            prof1.setIdProfessor(k);
+            prof1.setNomeProfessor("Nome"+k);
+            av1.setProfessor(prof1);
+            List<ItemAvaliacaoVO> listaAtividadesAv = new ArrayList<ItemAvaliacaoVO>();
             for (int j = 0; j < 50; j++) {
                 ItemAvaliacaoVO atividade4 = new ItemAvaliacaoVO();
-                atividade4.setIdAtividade(i+j+3);
-                ItemAvaliacaoVO atividade5 = new ItemAvaliacaoVO();
-                atividade5.setIdAtividade(i+j);
-                atividade5.setHas("20");
-                listaAtividadesAv3.add(atividade4);
-                listaAtividadesAv3.add(atividade5); 
-                av3.setListaAtividades(listaAtividadesAv3);
+                int idAtividade = (int)(Math.random() * ((100 - 1) + 1));
+                atividade4.setIdAtividade(idAtividade);
+                if(idAtividade <= 4 && idAtividade > 0){
+                    atividade4.setHas("20");
+                }
+                listaAtividadesAv.add(atividade4);
+                av1.setListaAtividades(listaAtividadesAv);
             }
 
-            listaAvaliacoes.add(av3);
+            listaAvaliacoes.add(av1);
         }
 
         avaliacao.setListaAvaliacoes(listaAvaliacoes);
