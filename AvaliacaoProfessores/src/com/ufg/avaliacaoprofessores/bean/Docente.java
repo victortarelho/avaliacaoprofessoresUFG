@@ -24,13 +24,13 @@ public class Docente implements Serializable {
     @Column(name = "nome", nullable = false, length=100)
     private String nome;
 
-    @Column(name = "matricula", nullable = false)
+    @Column(name = "matricula", nullable = true)
     private long matricula;
 
-    @Column(name = "regime", nullable = false, length=100)
+    @Column(name = "regime", nullable = true, length=100)
     private String regime;
 
-    @Column(name = "unidade", nullable = false, length=100)
+    @Column(name = "unidade", nullable = true, length=100)
     private String unidade;
     
     public Long getId() {

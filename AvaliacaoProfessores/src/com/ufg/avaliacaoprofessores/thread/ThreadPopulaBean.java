@@ -9,6 +9,7 @@ package com.ufg.avaliacaoprofessores.thread;
 import com.ufg.avaliacaoprofessores.bean.Atividade;
 import com.ufg.avaliacaoprofessores.bean.Avaliacao;
 import com.ufg.avaliacaoprofessores.bean.AvaliacaoDocente;
+import com.ufg.avaliacaoprofessores.bean.Docente;
 import com.ufg.avaliacaoprofessores.bean.ItemAvaliacao;
 import com.ufg.avaliacaoprofessores.util.BeanPopulate;
 import com.ufg.avaliacaoprofessores.vo.AvaliacaoProfessorVO;
@@ -57,6 +58,10 @@ public class ThreadPopulaBean implements Runnable{
             avaliacaoDocente.setAvaliacao(avaliacao);
             avaliacaoDocente.setItensAvaliacao(new ArrayList<ItemAvaliacao>());
 
+            Docente docente = new Docente();
+            docente.setNome(avaliacaoProfessorVO.getProfessor().getNomeProfessor());
+            avaliacaoDocente.setDocente(docente);
+            
             for (ItemAvaliacaoVO itemAvaliacaoVO : avaliacaoProfessorVO.getListaAtividades()) {
                 ItemAvaliacao itemAvaliacao = new ItemAvaliacao();
                 if(atividades.get(Long.parseLong(itemAvaliacaoVO.getIdAtividade().toString())) != null){
