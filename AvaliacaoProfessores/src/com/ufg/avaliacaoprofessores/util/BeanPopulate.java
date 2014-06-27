@@ -8,14 +8,13 @@ package com.ufg.avaliacaoprofessores.util;
 import com.ufg.avaliacaoprofessores.bean.Atividade;
 import com.ufg.avaliacaoprofessores.bean.Avaliacao;
 import com.ufg.avaliacaoprofessores.bean.AvaliacaoDocente;
-import com.ufg.avaliacaoprofessores.bean.ItemAvaliacao;
 import com.ufg.avaliacaoprofessores.dao.AtividadeDAO;
 import com.ufg.avaliacaoprofessores.thread.ThreadPopulaBean;
 import com.ufg.avaliacaoprofessores.vo.AvaliacaoGeralVO;
 import com.ufg.avaliacaoprofessores.vo.AvaliacaoProfessorVO;
-import com.ufg.avaliacaoprofessores.vo.ItemAvaliacaoVO;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -27,7 +26,8 @@ public class BeanPopulate {
 
     private AtividadeDAO atividadeDAO;
     private Map<Long, Atividade> atividades;
-    public static List<AvaliacaoDocente> listaAvaliacaoDocente = new ArrayList<AvaliacaoDocente>();
+    public static List<AvaliacaoDocente> listaAvaliacaoDocente = 
+            Collections.synchronizedList(new ArrayList<AvaliacaoDocente>());
 
     public Map<Long, Atividade> getAtividades() {
         return atividades;
