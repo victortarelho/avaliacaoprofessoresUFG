@@ -38,6 +38,7 @@ public class AvaliacaoBusiness {
         BeanPopulate beanPopulate = new BeanPopulate(avaliacao);
         List<AvaliacaoDocente> listaAvaliacaoDocente = beanPopulate.getListaAvaliacaoDocente();
         persisteDocentes(listaAvaliacaoDocente);
+        persisteItemAvaliacao(listaAvaliacaoDocente);
         System.out.println("Fim!");
         
     }
@@ -60,5 +61,9 @@ public class AvaliacaoBusiness {
             listaDocentes.add(avaliacaoDocente.getDocente());
         }
         return listaDocentes;
+    }
+    
+    private void persisteItemAvaliacao(List<AvaliacaoDocente> listaAvaliacaoDocente){
+        //persistir os itens de avaliacao - Italo - faz em bloco igual eu, metodo salvaEmBloco no docenteDao
     }
 }
