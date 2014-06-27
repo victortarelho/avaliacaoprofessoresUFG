@@ -34,6 +34,7 @@ public class AvaliacaoBusiness {
         }
         BeanPopulate beanPopulate = new BeanPopulate(avaliacao);
         List<AvaliacaoDocente> listaAvaliacaoDocente = beanPopulate.getListaAvaliacaoDocente();
+        persisteAvaliacaoDocente(listaAvaliacaoDocente);
         
     }
 
@@ -41,5 +42,9 @@ public class AvaliacaoBusiness {
         Reader reader = new InputStreamReader(AvaliacaoBusiness.class.getResourceAsStream("/testeJsonGrande.json"), "UTF-8");
         Gson gson = new GsonBuilder().create();
         return gson.fromJson(reader, AvaliacaoGeralVO.class);
+    }
+    
+    private void persisteAvaliacaoDocente(List<AvaliacaoDocente> listaAvaliacaoDocente){
+        
     }
 }
