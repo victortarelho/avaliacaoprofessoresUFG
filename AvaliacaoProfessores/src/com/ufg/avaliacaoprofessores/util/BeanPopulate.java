@@ -14,6 +14,7 @@ import com.ufg.avaliacaoprofessores.vo.AvaliacaoGeralVO;
 import com.ufg.avaliacaoprofessores.vo.AvaliacaoProfessorVO;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -27,7 +28,7 @@ public class BeanPopulate {
     private Map<Long, Atividade> atividades;
     private Avaliacao avaliacao;
     public static List<AvaliacaoDocente> listaAvaliacaoDocente
-            = (new ArrayList<AvaliacaoDocente>());
+            = Collections.synchronizedList(new ArrayList<AvaliacaoDocente>());
 
     public Map<Long, Atividade> getAtividades() {
         return atividades;

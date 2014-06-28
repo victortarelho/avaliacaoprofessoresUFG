@@ -15,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 /**
  * @author Mario
@@ -38,6 +39,21 @@ public class AvaliacaoDocente implements Serializable {
     private Docente docente;
     
     private float pontuacaoTotal;
+    
+    @Transient
+    Float pontuacaoAtividadeDeEnsino = new Float(0.0);
+    
+    @Transient
+    Float pontuacaoAtividadeProducaoIntelectual = new Float(0.0);
+    
+    @Transient
+    Float pontuacaoAtividadePesquisa = new Float(0.0);
+    
+    @Transient
+    Float pontuacaoAtividadeAdministrativa = new Float(0.0);
+    
+    @Transient
+    Float pontuacaoAtividadeOutras = new Float(0.0);
     
     public List<ItemAvaliacao> getItensAvaliacao() {
         return itensAvaliacao;
@@ -78,4 +94,45 @@ public class AvaliacaoDocente implements Serializable {
     public void setAvaliacao(Avaliacao avaliacao) {
         this.avaliacao = avaliacao;
     }
+
+    public Float getPontuacaoAtividadeDeEnsino() {
+        return pontuacaoAtividadeDeEnsino;
+    }
+
+    public void setPontuacaoAtividadeDeEnsino(Float pontuacaoAtividadeDeEnsino) {
+        this.pontuacaoAtividadeDeEnsino = pontuacaoAtividadeDeEnsino;
+    }
+
+    public Float getPontuacaoAtividadeProducaoIntelectual() {
+        return pontuacaoAtividadeProducaoIntelectual;
+    }
+
+    public void setPontuacaoAtividadeProducaoIntelectual(Float pontuacaoAtividadeProducaoIntelectual) {
+        this.pontuacaoAtividadeProducaoIntelectual = pontuacaoAtividadeProducaoIntelectual;
+    }
+
+    public Float getPontuacaoAtividadePesquisa() {
+        return pontuacaoAtividadePesquisa;
+    }
+
+    public void setPontuacaoAtividadePesquisa(Float pontuacaoAtividadePesquisa) {
+        this.pontuacaoAtividadePesquisa = pontuacaoAtividadePesquisa;
+    }
+
+    public Float getPontuacaoAtividadeAdministrativa() {
+        return pontuacaoAtividadeAdministrativa;
+    }
+
+    public void setPontuacaoAtividadeAdministrativa(Float pontuacaoAtividadeAdministrativa) {
+        this.pontuacaoAtividadeAdministrativa = pontuacaoAtividadeAdministrativa;
+    }
+
+    public Float getPontuacaoAtividadeOutras() {
+        return pontuacaoAtividadeOutras;
+    }
+
+    public void setPontuacaoAtividadeOutras(Float pontuacaoAtividadeOutras) {
+        this.pontuacaoAtividadeOutras = pontuacaoAtividadeOutras;
+    }
+
 }

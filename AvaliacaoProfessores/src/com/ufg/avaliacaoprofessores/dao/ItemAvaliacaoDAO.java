@@ -72,7 +72,7 @@ public class ItemAvaliacaoDAO extends GenericDao {
                 pStatement.addBatch();
 
                 i++;
-                if (i % 100 == 0) {
+                if (i % 200 == 0) {
                     pStatement.executeBatch();
                     pStatement.clearBatch();
                     connection.commit();
