@@ -13,6 +13,7 @@ import com.ufg.avaliacaoprofessores.bean.Docente;
 import com.ufg.avaliacaoprofessores.dao.AvaliacaoDAO;
 import com.ufg.avaliacaoprofessores.dao.AvaliacaoDocenteDAO;
 import com.ufg.avaliacaoprofessores.dao.DocenteDAO;
+import com.ufg.avaliacaoprofessores.dao.ItemAvaliacaoDAO;
 import com.ufg.avaliacaoprofessores.util.BeanPopulate;
 import com.ufg.avaliacaoprofessores.vo.AvaliacaoGeralVO;
 import java.io.File;
@@ -23,7 +24,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.plaf.synth.SynthDesktopIconUI;
 
 /**
  *
@@ -34,11 +34,13 @@ public class AvaliacaoBusiness {
     AvaliacaoDAO avaliacaoDao;
     AvaliacaoDocenteDAO avaliacaoDocenteDao;
     DocenteDAO docenteDao;
+    ItemAvaliacaoDAO itemAvaliacaoDao;
     
     public AvaliacaoBusiness(){
         this.avaliacaoDao = new AvaliacaoDAO();
         this.avaliacaoDocenteDao = new AvaliacaoDocenteDAO();
         this.docenteDao = new DocenteDAO();
+        this.itemAvaliacaoDao = new ItemAvaliacaoDAO();
     }
 
     public void consomeJson(File arquivo) {
@@ -64,13 +66,12 @@ public class AvaliacaoBusiness {
             avaliacaoDocente.setAvaliacao(beanPopulate.getAvaliacao());
             avaliacaoDocenteDao.salvar(avaliacaoDocente);
             System.out.println("Avaliação do docente salva... id:" + avaliacaoDocente.getId());
-            /**
-             * PERSISTIR ITENS AVALIACAO EM BLOCO
-             * avaliacaoDocente.getItensAvaliacao()
-             */     
+            
+            System.out.println("Salvando itens avaliacao do professor... Qtd: "+ avaliacaoDocente.getItensAvaliacao().size());
+            itemAvaliacaoDao.salvaEmBloco(avaliacaoDocente.getItensAvaliacao(), avaliacaoDocente.getId());
+            System.out.println("Itens da avaliacao do professor salvos... ");
         }
         
-        persisteDocentes(listaAvaliacaoDocente);
         persisteItemAvaliacao(listaAvaliacaoDocente);
     }
 
@@ -78,12 +79,6 @@ public class AvaliacaoBusiness {
         Reader reader = new InputStreamReader(AvaliacaoBusiness.class.getResourceAsStream("/testeJson2.json"), "UTF-8");
         Gson gson = new GsonBuilder().create();
         return gson.fromJson(reader, AvaliacaoGeralVO.class);
-    }
-    
-    private void persisteDocentes(List<AvaliacaoDocente> listaAvaliacaoDocente){
-        DocenteDAO docenteDao = new DocenteDAO();
-        List<Docente> listaDocentes= getListaDocentes(listaAvaliacaoDocente);
-        docenteDao.salvaEmBloco(listaDocentes);
     }
 
     private List<Docente> getListaDocentes(List<AvaliacaoDocente> listaAvaliacaoDocente) {
@@ -95,6 +90,6 @@ public class AvaliacaoBusiness {
     }
     
     private void persisteItemAvaliacao(List<AvaliacaoDocente> listaAvaliacaoDocente){
-        //persistir os itens de avaliacao - Italo - faz em bloco igual eu, metodo salvaEmBloco no docenteDao
+        //persistir os itens de avaliacao - Bruno - faz em bloco igual eu, metodo salvaEmBloco no docenteDao
     }
 }

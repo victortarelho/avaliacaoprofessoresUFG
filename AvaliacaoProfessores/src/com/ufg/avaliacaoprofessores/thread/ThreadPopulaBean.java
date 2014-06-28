@@ -72,6 +72,7 @@ public class ThreadPopulaBean implements Runnable{
                     } else {
                         itemAvaliacao.setPontos(itemAvaliacao.getAtividade().getPontos());
                     }
+                    avaliacaoDocente.getItensAvaliacao().add(itemAvaliacao);
                 }
             }
             BeanPopulate.listaAvaliacaoDocente.add(avaliacaoDocente);
