@@ -4,6 +4,11 @@
  */
 package com.ufg.avaliacaoprofessores.telas;
 
+import com.ufg.avaliacaoprofessores.bean.Docente;
+import com.ufg.avaliacaoprofessores.controller.DocenteController;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author victor.tarelho
@@ -31,11 +36,11 @@ public class CadastroDocente extends javax.swing.JFrame {
         mat_doc_lbl = new javax.swing.JLabel();
         unid_dep_doc_lbl = new javax.swing.JLabel();
         regime_doc_lbl = new javax.swing.JLabel();
-        nome_doc_txt = new javax.swing.JTextField();
         mat_doc_txt = new javax.swing.JTextField();
         unid_dep_doc_txt = new javax.swing.JTextField();
         regime_doc_txt = new javax.swing.JTextField();
         salvar_doc_bt = new javax.swing.JButton();
+        nome_doc_txt = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -43,24 +48,29 @@ public class CadastroDocente extends javax.swing.JFrame {
 
         nome_doc_lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         nome_doc_lbl.setText("Nome");
-        nome_doc_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        nome_doc_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         nome_doc_lbl.setMaximumSize(new java.awt.Dimension(47, 18));
         nome_doc_lbl.setMinimumSize(new java.awt.Dimension(47, 18));
         nome_doc_lbl.setPreferredSize(new java.awt.Dimension(47, 18));
 
         mat_doc_lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         mat_doc_lbl.setText("Matrícula");
-        mat_doc_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        mat_doc_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         unid_dep_doc_lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         unid_dep_doc_lbl.setText("Unidade/Dep.");
-        unid_dep_doc_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        unid_dep_doc_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         regime_doc_lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         regime_doc_lbl.setText("Regime");
-        regime_doc_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        regime_doc_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         salvar_doc_bt.setText("Salvar");
+        salvar_doc_bt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salvar_doc_btActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -77,10 +87,10 @@ public class CadastroDocente extends javax.swing.JFrame {
                             .addComponent(regime_doc_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nome_doc_txt)
                             .addComponent(mat_doc_txt)
                             .addComponent(unid_dep_doc_txt)
-                            .addComponent(regime_doc_txt))
+                            .addComponent(regime_doc_txt)
+                            .addComponent(nome_doc_txt))
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 135, Short.MAX_VALUE)
@@ -96,11 +106,9 @@ public class CadastroDocente extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(nome_doc_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(nome_doc_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nome_doc_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nome_doc_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(mat_doc_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -120,6 +128,18 @@ public class CadastroDocente extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void salvar_doc_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvar_doc_btActionPerformed
+        // TODO add your handling code here:
+        DocenteController docenteController = new DocenteController();
+        Docente docenteBean = new Docente();
+        docenteBean.setNome(nome_doc_txt.getText());
+        docenteBean.setMatricula(Long.parseLong(mat_doc_txt.getText()));
+        docenteBean.setUnidade(unid_dep_doc_txt.getText());
+        docenteBean.setRegime(regime_doc_txt.getText());
+        
+        docenteController.validaCadastro(docenteBean);
+    }//GEN-LAST:event_salvar_doc_btActionPerformed
 
     /**
      * @param args the command line arguments
@@ -151,9 +171,15 @@ public class CadastroDocente extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                CadastroDocente cadastroDocente = new CadastroDocente();
-                cadastroDocente.setVisible(true);
-                cadastroDocente.setLocationRelativeTo(null);
+                CadastroDocente cadastroDocente;
+                try {
+                    cadastroDocente = new CadastroDocente();
+                    cadastroDocente.setVisible(true);
+                    cadastroDocente.setLocationRelativeTo(null);
+                } catch (Exception ex) {
+                    Logger.getLogger(CadastroDocente.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
             }
         });
     }
