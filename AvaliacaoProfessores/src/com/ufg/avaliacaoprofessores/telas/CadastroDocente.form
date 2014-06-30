@@ -49,10 +49,12 @@
                   </Group>
               </Group>
           </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="164" max="-2" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
               <Component id="salvar_doc_bt" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="sair_docente_bt" min="-2" pref="63" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -81,8 +83,11 @@
                   <Component id="regime_doc_lbl" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="salvar_doc_bt" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="11" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="salvar_doc_bt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="sair_docente_bt" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="0" pref="10" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -161,6 +166,14 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="nome_doc_txt">
+    </Component>
+    <Component class="javax.swing.JButton" name="sair_docente_bt">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Sair"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sair_docente_btActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
