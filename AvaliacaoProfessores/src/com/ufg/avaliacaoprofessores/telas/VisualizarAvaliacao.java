@@ -178,6 +178,7 @@ public class VisualizarAvaliacao extends javax.swing.JFrame {
     private void sair_visua_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sair_visua_btActionPerformed
         TelaInicial telaIncial = new TelaInicial();
         telaIncial.setVisible(true);
+        telaIncial.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_sair_visua_btActionPerformed
 

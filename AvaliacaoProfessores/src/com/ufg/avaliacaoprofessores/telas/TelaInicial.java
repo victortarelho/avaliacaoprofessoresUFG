@@ -105,6 +105,7 @@ public class TelaInicial extends javax.swing.JFrame {
         try {
             CadastroAtividade cadastroAtividade = new CadastroAtividade();
             cadastroAtividade.setVisible(true);
+            cadastroAtividade.setLocationRelativeTo(null);
         } catch (Exception ex) {
             Logger.getLogger(TelaInicial.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -114,23 +115,26 @@ public class TelaInicial extends javax.swing.JFrame {
     private void cad_docente_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cad_docente_btActionPerformed
         CadastroDocente cadastroDocente = new CadastroDocente();
         cadastroDocente.setVisible(true);
+        cadastroDocente.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_cad_docente_btActionPerformed
 
     private void realiza_avaliacao_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_realiza_avaliacao_btActionPerformed
         CadastroAvaliacao cadastroAvalicao = new CadastroAvaliacao();
         cadastroAvalicao.setVisible(true);
+        cadastroAvalicao.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_realiza_avaliacao_btActionPerformed
 
     private void visualiza_avaliacao_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visualiza_avaliacao_btActionPerformed
         VisualizaAvaliacaoGeral visualizaAvaliacao = new VisualizaAvaliacaoGeral();
         visualizaAvaliacao.setVisible(true);
+        visualizaAvaliacao.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_visualiza_avaliacao_btActionPerformed
 
     private void fecha_sistema_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fecha_sistema_btActionPerformed
-        this.dispose();
+        System.exit(0);
     }//GEN-LAST:event_fecha_sistema_btActionPerformed
 
     public static void main(String args[]) {

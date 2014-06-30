@@ -139,6 +139,7 @@ public class CadastroDocente extends javax.swing.JFrame {
         this.setVisible(false);
         TelaInicial telaInicial = new TelaInicial();
         telaInicial.setVisible(true);
+        telaInicial.setLocationRelativeTo(null);
     }//GEN-LAST:event_sair_docente_btActionPerformed
 
     public static void main(String args[]) {

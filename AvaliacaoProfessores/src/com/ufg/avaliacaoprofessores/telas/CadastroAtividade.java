@@ -140,7 +140,6 @@ public class CadastroAtividade extends javax.swing.JFrame {
         atividadeBean.setId(Long.parseLong(id_ativ_txt.getText()));
         atividadeBean.setDescricao(desc_ativ_txt.getText());
         atividadeBean.setPontos(Long.parseLong(max_pont_ativ_txt.getText()));
-        
         atividadeBean.setTipoAtividade((TipoAtividade)tipoAtividadeCombo.getSelectedItem());
         avaliacaoController.validaCadastro(atividadeBean);
     }//GEN-LAST:event_salvar_ativ_btActionPerformed
@@ -149,6 +148,7 @@ public class CadastroAtividade extends javax.swing.JFrame {
         this.setVisible(false);
         TelaInicial telaInicial = new TelaInicial();
         telaInicial.setVisible(true);
+        telaInicial.setLocationRelativeTo(null);
     }//GEN-LAST:event_salvar_ativ_bt1ActionPerformed
 
     public static void main(String args[]) {
