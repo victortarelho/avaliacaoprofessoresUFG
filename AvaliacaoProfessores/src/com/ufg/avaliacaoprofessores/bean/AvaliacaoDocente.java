@@ -79,7 +79,7 @@ public class AvaliacaoDocente implements Serializable {
         this.id = id;
     }
 
-    public float getPontuacaoTotal() {
+    public Float getPontuacaoTotal() {
         return pontuacaoTotal;
     }
 

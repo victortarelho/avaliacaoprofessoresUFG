@@ -8,12 +8,12 @@ package com.ufg.avaliacaoprofessores.business;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.ufg.avaliacaoprofessores.bean.AvaliacaoDocente;
-import com.ufg.avaliacaoprofessores.bean.Docente;
-import com.ufg.avaliacaoprofessores.bean.ItemAvaliacao;
 import com.ufg.avaliacaoprofessores.dao.AvaliacaoDAO;
 import com.ufg.avaliacaoprofessores.dao.AvaliacaoDocenteDAO;
 import com.ufg.avaliacaoprofessores.dao.DocenteDAO;
 import com.ufg.avaliacaoprofessores.dao.ItemAvaliacaoDAO;
+import com.ufg.avaliacaoprofessores.telas.VisualizaAvaliacaoGeral;
+import com.ufg.avaliacaoprofessores.thread.ThreadCalculaPontuacao;
 import com.ufg.avaliacaoprofessores.util.BeanPopulate;
 import com.ufg.avaliacaoprofessores.vo.AvaliacaoGeralVO;
 import java.io.File;
@@ -21,6 +21,7 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,11 +32,12 @@ import java.util.logging.Logger;
  */
 public class AvaliacaoBusiness {
 
-    AvaliacaoDAO avaliacaoDao;
-    AvaliacaoDocenteDAO avaliacaoDocenteDao;
-    DocenteDAO docenteDao;
-    ItemAvaliacaoDAO itemAvaliacaoDao;
-    List<AvaliacaoDocente> listaAvaliacaoDocenteFinal = new ArrayList<AvaliacaoDocente>();
+    private AvaliacaoDAO avaliacaoDao;
+    private AvaliacaoDocenteDAO avaliacaoDocenteDao;
+    private DocenteDAO docenteDao;
+    private ItemAvaliacaoDAO itemAvaliacaoDao;
+    public static List<AvaliacaoDocente> listaAvaliacaoDocenteFinal = 
+            Collections.synchronizedList(new ArrayList<AvaliacaoDocente>());
 
     public AvaliacaoBusiness() {
         this.avaliacaoDao = new AvaliacaoDAO();
@@ -92,55 +94,30 @@ public class AvaliacaoBusiness {
     }
 
     private void calculaPontuacao(List<AvaliacaoDocente> listaAvaliacaoDocente) {
-        for (AvaliacaoDocente avaliacaoDocente : listaAvaliacaoDocente) {
-            Docente docente = avaliacaoDocente.getDocente();
-            List<ItemAvaliacao> listaItemAvaliacao = avaliacaoDocente.getItensAvaliacao();
-            Float pontuacaoTotal = new Float(0.0);
-            Float pontuacaoAtividadeDeEnsino = new Float(0.0);
-            Float pontuacaoAtividadeProducaoIntelectual = new Float(0.0);
-            Float pontuacaoAtividadePesquisa = new Float(0.0);
-            Float pontuacaoAtividadeAdministrativa = new Float(0.0);
-            Float pontuacaoAtividadeOutras = new Float(0.0);
-            for (ItemAvaliacao itemAvaliacao : listaItemAvaliacao) {
-                if (itemAvaliacao.getHas() != 0) {
-                    if(itemAvaliacao.getAtividade().getTipoAtividade().getTipoAtividadePai().getNome().equalsIgnoreCase("ATIVIDADES DE ENSINO")){
-                        pontuacaoAtividadeDeEnsino += (itemAvaliacao.getPontos() * itemAvaliacao.getHas());
-                    } else if(itemAvaliacao.getAtividade().getTipoAtividade().getTipoAtividadePai().getNome().equalsIgnoreCase("PRODUÇÃO INTELECTUAL")){
-                        pontuacaoAtividadeProducaoIntelectual += (itemAvaliacao.getPontos() * itemAvaliacao.getHas());
-                    } else if(itemAvaliacao.getAtividade().getTipoAtividade().getTipoAtividadePai().getNome().equalsIgnoreCase("ATIVIDADES DE PESQUISA E EXTENSÃO")){
-                        pontuacaoAtividadePesquisa += (itemAvaliacao.getPontos() * itemAvaliacao.getHas());
-                    } else if(itemAvaliacao.getAtividade().getTipoAtividade().getTipoAtividadePai().getNome().equalsIgnoreCase("ATIVIDADES ADMINISTRATIVAS E DE REPRESENTAÇÃO")){
-                        pontuacaoAtividadeAdministrativa += (itemAvaliacao.getPontos() * itemAvaliacao.getHas());
-                    } else if(itemAvaliacao.getAtividade().getTipoAtividade().getTipoAtividadePai().getNome().equalsIgnoreCase("OUTRAS ATIVIDADES")){
-                        pontuacaoAtividadeOutras += (itemAvaliacao.getPontos() * itemAvaliacao.getHas());
-                    }
-                } else {
-                    if(itemAvaliacao.getAtividade().getTipoAtividade().getTipoAtividadePai().getNome().equalsIgnoreCase("ATIVIDADES DE ENSINO")){
-                        pontuacaoAtividadeDeEnsino += itemAvaliacao.getPontos();
-                    } else if(itemAvaliacao.getAtividade().getTipoAtividade().getTipoAtividadePai().getNome().equalsIgnoreCase("PRODUÇÃO INTELECTUAL")){
-                        pontuacaoAtividadeProducaoIntelectual += itemAvaliacao.getPontos();
-                    } else if(itemAvaliacao.getAtividade().getTipoAtividade().getTipoAtividadePai().getNome().equalsIgnoreCase("ATIVIDADES DE PESQUISA E EXTENSÃO")){
-                        pontuacaoAtividadePesquisa += itemAvaliacao.getPontos();
-                    } else if(itemAvaliacao.getAtividade().getTipoAtividade().getTipoAtividadePai().getNome().equalsIgnoreCase("ATIVIDADES ADMINISTRATIVAS E DE REPRESENTAÇÃO")){
-                        pontuacaoAtividadeAdministrativa += itemAvaliacao.getPontos();
-                    } else if(itemAvaliacao.getAtividade().getTipoAtividade().getTipoAtividadePai().getNome().equalsIgnoreCase("OUTRAS ATIVIDADES")){
-                        pontuacaoAtividadeOutras += itemAvaliacao.getPontos();
-                    }
-                }
-            }
-            pontuacaoTotal = pontuacaoAtividadeDeEnsino + pontuacaoAtividadeProducaoIntelectual + 
-                    pontuacaoAtividadePesquisa + pontuacaoAtividadeAdministrativa + pontuacaoAtividadeOutras;
-            
-            avaliacaoDocente.setPontuacaoAtividadeAdministrativa(pontuacaoAtividadeAdministrativa);
-            avaliacaoDocente.setPontuacaoAtividadeDeEnsino(pontuacaoAtividadeDeEnsino);
-            avaliacaoDocente.setPontuacaoAtividadeOutras(pontuacaoAtividadeOutras);
-            avaliacaoDocente.setPontuacaoAtividadePesquisa(pontuacaoAtividadePesquisa);
-            avaliacaoDocente.setPontuacaoAtividadeProducaoIntelectual(pontuacaoAtividadeProducaoIntelectual);
-            avaliacaoDocente.setPontuacaoTotal(pontuacaoTotal);
-            listaAvaliacaoDocenteFinal.add(avaliacaoDocente);
-            
-            System.out.println("Docente " + docente.getNome() + ": pontuacao = " + pontuacaoTotal);
+        
+        List<AvaliacaoDocente> lista1 = listaAvaliacaoDocente.subList(0, 5000);
+        List<AvaliacaoDocente> lista2 = listaAvaliacaoDocente.subList(5001, listaAvaliacaoDocente.size());
+
+        ThreadCalculaPontuacao t1 = new ThreadCalculaPontuacao(lista1);
+        Thread treadCalcula1 = new Thread(t1);
+        treadCalcula1.start();
+
+        ThreadCalculaPontuacao t2 = new ThreadCalculaPontuacao(lista2);
+        Thread treadCalcula2 = new Thread(t2);
+        treadCalcula2.start();
+
+        try {
+            treadCalcula1.join();
+            treadCalcula2.join();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        
+        System.out.println("Total avaliacoes:" + listaAvaliacaoDocenteFinal.size());
+        VisualizaAvaliacaoGeral jFrame = new VisualizaAvaliacaoGeral();
+        jFrame.carregaListaAvaliacoes(listaAvaliacaoDocenteFinal);
+        jFrame.setVisible(true);
+        
     }
 
 }

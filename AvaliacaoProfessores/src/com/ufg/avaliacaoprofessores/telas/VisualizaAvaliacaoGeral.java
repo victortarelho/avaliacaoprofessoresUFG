@@ -4,6 +4,10 @@
  */
 package com.ufg.avaliacaoprofessores.telas;
 
+import com.ufg.avaliacaoprofessores.bean.AvaliacaoDocente;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Victor
@@ -108,4 +112,26 @@ public class VisualizaAvaliacaoGeral extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+
+    public void carregaListaAvaliacoes(List<AvaliacaoDocente> listaAvaliacaoDocenteFinal) {
+        DefaultTableModel model = new DefaultTableModel(
+                new Object[][]{},
+                new String[]{
+                    "Docente", "Atividades de Ensino", "Produção Intelectual",
+                    "Pesquisa e Extensão", "Administrativas e de Representação", "Outras Atividades", "Total"
+                });
+        jTable1.setModel(model);
+        for (AvaliacaoDocente avaliacaoDocente : listaAvaliacaoDocenteFinal) {
+            Object[] linha = new Object[7];
+            linha[0] = avaliacaoDocente.getDocente().getNome();
+            linha[1] = avaliacaoDocente.getPontuacaoAtividadeDeEnsino().toString();
+            linha[2] = avaliacaoDocente.getPontuacaoAtividadeProducaoIntelectual().toString();
+            linha[3] = avaliacaoDocente.getPontuacaoAtividadePesquisa().toString();
+            linha[4] = avaliacaoDocente.getPontuacaoAtividadeAdministrativa().toString();
+            linha[5] = avaliacaoDocente.getPontuacaoAtividadeOutras().toString();
+            linha[6] = avaliacaoDocente.getPontuacaoTotal().toString();
+            model.addRow(linha);
+        }
+    }
+
 }
