@@ -4,6 +4,7 @@ import com.ufg.avaliacaoprofessores.bean.Docente;
 import com.ufg.avaliacaoprofessores.controller.DocenteController;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JTextField;
 
 public class CadastroDocente extends javax.swing.JFrame {
 
@@ -127,12 +128,8 @@ public class CadastroDocente extends javax.swing.JFrame {
 
     private void salvar_doc_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvar_doc_btActionPerformed
         DocenteController docenteController = new DocenteController();
-        Docente docenteBean = new Docente();
-        docenteBean.setNome(nome_doc_txt.getText());
-        docenteBean.setMatricula(Long.parseLong(mat_doc_txt.getText()));
-        docenteBean.setUnidade(unid_dep_doc_txt.getText());
-        docenteBean.setRegime(regime_doc_txt.getText());
-        docenteController.validaCadastro(docenteBean);
+        docenteController.validaCadastro(this);
+        docenteController.insereDocente();
     }//GEN-LAST:event_salvar_doc_btActionPerformed
 
     private void sair_docente_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sair_docente_btActionPerformed
@@ -173,6 +170,41 @@ public class CadastroDocente extends javax.swing.JFrame {
             }
         });
     }
+
+    public JTextField getMat_doc_txt() {
+        return mat_doc_txt;
+    }
+
+    public void setMat_doc_txt(JTextField mat_doc_txt) {
+        this.mat_doc_txt = mat_doc_txt;
+    }
+
+    public JTextField getNome_doc_txt() {
+        return nome_doc_txt;
+    }
+
+    public void setNome_doc_txt(JTextField nome_doc_txt) {
+        this.nome_doc_txt = nome_doc_txt;
+    }
+
+    public JTextField getRegime_doc_txt() {
+        return regime_doc_txt;
+    }
+
+    public void setRegime_doc_txt(JTextField regime_doc_txt) {
+        this.regime_doc_txt = regime_doc_txt;
+    }
+
+    public JTextField getUnid_dep_doc_txt() {
+        return unid_dep_doc_txt;
+    }
+
+    public void setUnid_dep_doc_txt(JTextField unid_dep_doc_txt) {
+        this.unid_dep_doc_txt = unid_dep_doc_txt;
+    }
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel mat_doc_lbl;

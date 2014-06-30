@@ -34,7 +34,11 @@ public class AvaliacaoController extends GenericController{
         //http://json-schema.org/examples.html
     }
     
-    public void consomeJson(File arquivo){
-        avaliacaoBusiness.consomeJson(arquivo);
+    public void persisteJson(File arquivo){
+        avaliacaoBusiness.persisteJson(arquivo);
+    }
+    
+    public void realizaAvaliacaoJson(File arquivo){
+        avaliacaoBusiness.realizaAvaliacaoJson(arquivo);
     }
 }

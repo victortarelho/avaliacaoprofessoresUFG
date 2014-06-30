@@ -116,8 +116,8 @@ public class CadastroAvaliacao extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void realizarAvaliacaoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_realizarAvaliacaoBtnActionPerformed
-           controller.validaJson(arquivo);
-           controller.consomeJson(arquivo);
+        controller.validaJson(arquivo);
+        controller.persisteJson(arquivo);
     }//GEN-LAST:event_realizarAvaliacaoBtnActionPerformed
 
     private void buscar_arq_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscar_arq_btActionPerformed
@@ -133,7 +133,8 @@ public class CadastroAvaliacao extends javax.swing.JFrame {
     }//GEN-LAST:event_buscar_arq_btActionPerformed
 
     private void persistirJsonBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_persistirJsonBtnActionPerformed
-        
+        controller.validaJson(arquivo);
+        controller.persisteJson(arquivo);
     }//GEN-LAST:event_persistirJsonBtnActionPerformed
 
     private void sair_avaliacao_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sair_avaliacao_btActionPerformed

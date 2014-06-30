@@ -30,7 +30,7 @@ import java.util.logging.Logger;
  *
  * @author Bruno
  */
-public class AvaliacaoBusiness {
+public class AvaliacaoBusiness implements GenericBusiness{
 
     private AvaliacaoDAO avaliacaoDao;
     private AvaliacaoDocenteDAO avaliacaoDocenteDao;
@@ -46,7 +46,7 @@ public class AvaliacaoBusiness {
         this.itemAvaliacaoDao = new ItemAvaliacaoDAO();
     }
 
-    public void consomeJson(File arquivo) {
+    public void persisteJson(File arquivo) {
         AvaliacaoGeralVO avaliacao = null;
         try {
             avaliacao = carregaAvaliacao(arquivo);
@@ -56,7 +56,19 @@ public class AvaliacaoBusiness {
         BeanPopulate beanPopulate = new BeanPopulate(avaliacao);
         List<AvaliacaoDocente> listaAvaliacaoDocente = beanPopulate.getListaAvaliacaoDocente();
 
-//        persisteInformacoes(listaAvaliacaoDocente, beanPopulate);
+        persisteInformacoes(listaAvaliacaoDocente, beanPopulate);
+    }
+    
+    public void realizaAvaliacaoJson(File arquivo) {
+        AvaliacaoGeralVO avaliacao = null;
+        try {
+            avaliacao = carregaAvaliacao(arquivo);
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(AvaliacaoBusiness.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        BeanPopulate beanPopulate = new BeanPopulate(avaliacao);
+        List<AvaliacaoDocente> listaAvaliacaoDocente = beanPopulate.getListaAvaliacaoDocente();
+
         calculaPontuacao(listaAvaliacaoDocente);
     }
 

@@ -9,6 +9,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
 
 public class CadastroAtividade extends javax.swing.JFrame {
 
@@ -136,12 +138,8 @@ public class CadastroAtividade extends javax.swing.JFrame {
 
     private void salvar_ativ_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvar_ativ_btActionPerformed
         AtividadeController avaliacaoController = new AtividadeController();
-        Atividade atividadeBean = new Atividade();
-        atividadeBean.setId(Long.parseLong(id_ativ_txt.getText()));
-        atividadeBean.setDescricao(desc_ativ_txt.getText());
-        atividadeBean.setPontos(Long.parseLong(max_pont_ativ_txt.getText()));
-        atividadeBean.setTipoAtividade((TipoAtividade)tipoAtividadeCombo.getSelectedItem());
-        avaliacaoController.validaCadastro(atividadeBean);
+        avaliacaoController.validaCadastro(this);
+        avaliacaoController.insereAtividade();
     }//GEN-LAST:event_salvar_ativ_btActionPerformed
 
     private void salvar_ativ_bt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvar_ativ_bt1ActionPerformed
@@ -182,6 +180,39 @@ public class CadastroAtividade extends javax.swing.JFrame {
             }
         });
     }
+
+    public JTextField getDesc_ativ_txt() {
+        return desc_ativ_txt;
+    }
+
+    public void setDesc_ativ_txt(JTextField desc_ativ_txt) {
+        this.desc_ativ_txt = desc_ativ_txt;
+    }
+
+    public JTextField getId_ativ_txt() {
+        return id_ativ_txt;
+    }
+
+    public void setId_ativ_txt(JTextField id_ativ_txt) {
+        this.id_ativ_txt = id_ativ_txt;
+    }
+
+    public JTextField getMax_pont_ativ_txt() {
+        return max_pont_ativ_txt;
+    }
+
+    public void setMax_pont_ativ_txt(JTextField max_pont_ativ_txt) {
+        this.max_pont_ativ_txt = max_pont_ativ_txt;
+    }
+
+    public JComboBox getTipoAtividadeCombo() {
+        return tipoAtividadeCombo;
+    }
+
+    public void setTipoAtividadeCombo(JComboBox tipoAtividadeCombo) {
+        this.tipoAtividadeCombo = tipoAtividadeCombo;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel desc_ativ_lbl;
     private javax.swing.JTextField desc_ativ_txt;
