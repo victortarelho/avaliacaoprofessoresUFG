@@ -66,7 +66,7 @@ public class CadastroAtividade extends javax.swing.JFrame {
         mas_pont_ativ_lbl1.setText("Tipo Ativ.");
         mas_pont_ativ_lbl1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        salvar_ativ_bt1.setText("Sair");
+        salvar_ativ_bt1.setText("Voltar");
         salvar_ativ_bt1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 salvar_ativ_bt1ActionPerformed(evt);

@@ -32,11 +32,9 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                   <Component id="visualiza_avaliacao_bt" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="realiza_avaliacao_bt" max="32767" attributes="0"/>
-                      <Component id="cad_ativ_bt" alignment="0" max="32767" attributes="0"/>
-                      <Component id="cad_docente_bt" alignment="0" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="realiza_avaliacao_bt" max="32767" attributes="0"/>
+                  <Component id="cad_ativ_bt" alignment="0" max="32767" attributes="0"/>
+                  <Component id="cad_docente_bt" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>

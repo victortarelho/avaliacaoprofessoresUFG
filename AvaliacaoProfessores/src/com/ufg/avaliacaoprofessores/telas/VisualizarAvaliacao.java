@@ -41,6 +41,7 @@ public class VisualizarAvaliacao extends javax.swing.JFrame {
         proc_aval_txt = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jButton2 = new javax.swing.JButton();
+        sair_visua_bt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -83,6 +84,13 @@ public class VisualizarAvaliacao extends javax.swing.JFrame {
 
         jButton2.setText("Visualizar Avaliação");
 
+        sair_visua_bt.setText("Voltar");
+        sair_visua_bt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sair_visua_btActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -122,7 +130,11 @@ public class VisualizarAvaliacao extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(sair_visua_bt)
+                        .addGap(28, 28, 28)))
                 .addGap(141, 141, 141))
         );
         layout.setVerticalGroup(
@@ -155,11 +167,19 @@ public class VisualizarAvaliacao extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(sair_visua_bt)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void sair_visua_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sair_visua_btActionPerformed
+        TelaInicial telaIncial = new TelaInicial();
+        telaIncial.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_sair_visua_btActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,6 +231,7 @@ public class VisualizarAvaliacao extends javax.swing.JFrame {
     private javax.swing.JTextField proc_aval_txt;
     private javax.swing.JTextField regime_aval_txt;
     private javax.swing.JLabel regime_doc_aval_lbl;
+    private javax.swing.JButton sair_visua_bt;
     private javax.swing.JLabel unid_dep_doc_aval_lbl;
     private javax.swing.JTextField unid_dep_doc_aval_txt;
     // End of variables declaration//GEN-END:variables

@@ -58,7 +58,7 @@ public class CadastroAvaliacao extends javax.swing.JFrame {
             }
         });
 
-        sair_avaliacao_bt.setText("Sair");
+        sair_avaliacao_bt.setText("Voltar");
         sair_avaliacao_bt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sair_avaliacao_btActionPerformed(evt);

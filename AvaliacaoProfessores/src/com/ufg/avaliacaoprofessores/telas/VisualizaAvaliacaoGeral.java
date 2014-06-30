@@ -33,7 +33,7 @@ public class VisualizaAvaliacaoGeral extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        sair_visual_bt.setText("Sair");
+        sair_visual_bt.setText("Voltar");
         sair_visual_bt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sair_visual_btActionPerformed(evt);

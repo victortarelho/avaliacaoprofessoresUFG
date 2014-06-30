@@ -57,7 +57,7 @@ public class CadastroDocente extends javax.swing.JFrame {
             }
         });
 
-        sair_docente_bt.setText("Sair");
+        sair_docente_bt.setText("Voltar");
         sair_docente_bt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sair_docente_btActionPerformed(evt);

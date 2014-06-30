@@ -6,7 +6,6 @@ import java.util.logging.Logger;
 public class TelaInicial extends javax.swing.JFrame {
 
     public TelaInicial() {
-        setLocationRelativeTo(null);
         initComponents();
     }
 
@@ -136,12 +135,11 @@ public class TelaInicial extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(TelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaInicial().setVisible(true);
+                TelaInicial telaInicial = new TelaInicial();
+                telaInicial.setVisible(true);
+                telaInicial.setLocationRelativeTo(null);
             }
         });
     }
