@@ -31,12 +31,15 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Component id="visualiza_avaliacao_bt" max="32767" attributes="0"/>
-                  <Component id="realiza_avaliacao_bt" max="32767" attributes="0"/>
-                  <Component id="cad_ativ_bt" alignment="0" max="32767" attributes="0"/>
-                  <Component id="cad_docente_bt" alignment="0" max="32767" attributes="0"/>
+                  <Component id="fecha_sistema_bt" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="visualiza_avaliacao_bt" max="32767" attributes="0"/>
+                      <Component id="realiza_avaliacao_bt" max="32767" attributes="0"/>
+                      <Component id="cad_ativ_bt" alignment="0" max="32767" attributes="0"/>
+                      <Component id="cad_docente_bt" alignment="0" max="32767" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="16" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -54,7 +57,9 @@
               <Component id="realiza_avaliacao_bt" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="visualiza_avaliacao_bt" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="16" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="fecha_sistema_bt" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="11" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -97,6 +102,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="visualiza_avaliacao_btActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="fecha_sistema_bt">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Sair"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fecha_sistema_btActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

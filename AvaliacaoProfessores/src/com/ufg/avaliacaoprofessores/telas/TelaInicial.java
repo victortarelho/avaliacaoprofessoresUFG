@@ -19,6 +19,7 @@ public class TelaInicial extends javax.swing.JFrame {
         cad_docente_bt = new javax.swing.JButton();
         realiza_avaliacao_bt = new javax.swing.JButton();
         visualiza_avaliacao_bt = new javax.swing.JButton();
+        fecha_sistema_bt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,6 +53,13 @@ public class TelaInicial extends javax.swing.JFrame {
             }
         });
 
+        fecha_sistema_bt.setText("Sair");
+        fecha_sistema_bt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fecha_sistema_btActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -63,12 +71,13 @@ public class TelaInicial extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(visualiza_avaliacao_bt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(fecha_sistema_bt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(visualiza_avaliacao_bt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(realiza_avaliacao_bt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(cad_ativ_bt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(cad_docente_bt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,7 +93,9 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addComponent(realiza_avaliacao_bt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(visualiza_avaliacao_bt)
-                .addGap(0, 16, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(fecha_sistema_bt)
+                .addGap(0, 11, Short.MAX_VALUE))
         );
 
         pack();
@@ -118,6 +129,10 @@ public class TelaInicial extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_visualiza_avaliacao_btActionPerformed
 
+    private void fecha_sistema_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fecha_sistema_btActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_fecha_sistema_btActionPerformed
+
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -146,6 +161,7 @@ public class TelaInicial extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cad_ativ_bt;
     private javax.swing.JButton cad_docente_bt;
+    private javax.swing.JButton fecha_sistema_bt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton realiza_avaliacao_bt;
