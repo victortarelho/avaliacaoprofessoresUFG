@@ -16,9 +16,6 @@ import com.ufg.avaliacaoprofessores.dao.AtividadeDAO;
 public class AtividadeBusiness implements GenericBusiness{
     
     public void salvaAtividade(Atividade atividade){
-        System.out.println("Teste" + atividade.getId());
-        System.out.println("Teste" + atividade.getDescricao());
-        System.out.println("Teste" + atividade.getPontos());
         AtividadeDAO atividadeDao = new AtividadeDAO();
         atividadeDao.salvar(atividade);
     }

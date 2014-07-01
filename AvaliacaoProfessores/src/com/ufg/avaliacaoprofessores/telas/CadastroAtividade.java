@@ -19,9 +19,10 @@ public class CadastroAtividade extends javax.swing.JFrame {
         TipoAtividadeDAO tipoAtividadeDao = new TipoAtividadeDAO();
         List listTipoAtividade = new ArrayList();
         listTipoAtividade = tipoAtividadeDao.listar();
+        tipoAtividadeCombo.addItem("");
         for (Iterator it = listTipoAtividade.iterator(); it.hasNext();) {
             TipoAtividade object = (TipoAtividade)it.next();
-            tipoAtividadeCombo.addItem(object.getNome());
+            tipoAtividadeCombo.addItem(object.getId()+"-"+object.getNome());
         }
     }
 
@@ -139,7 +140,6 @@ public class CadastroAtividade extends javax.swing.JFrame {
     private void salvar_ativ_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvar_ativ_btActionPerformed
         AtividadeController avaliacaoController = new AtividadeController();
         avaliacaoController.validaCadastro(this);
-        avaliacaoController.insereAtividade();
     }//GEN-LAST:event_salvar_ativ_btActionPerformed
 
     private void salvar_ativ_bt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvar_ativ_bt1ActionPerformed
