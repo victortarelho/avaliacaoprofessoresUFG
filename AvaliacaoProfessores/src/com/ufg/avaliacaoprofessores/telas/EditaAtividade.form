@@ -23,38 +23,42 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="133" max="32767" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="142" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
+                      <Component id="salvar_ativ_ed_bt" min="-2" pref="70" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="voltar_ativ_ed_bt" min="-2" pref="70" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="mas_pont_ativ_lbl" alignment="0" pref="74" max="32767" attributes="0"/>
+                          <Component id="mas_pont_ativ_lbl" alignment="0" max="32767" attributes="0"/>
                           <Component id="desc_ativ_lbl" alignment="0" max="32767" attributes="0"/>
                           <Component id="id_ativ_lbl" alignment="0" max="32767" attributes="0"/>
-                          <Component id="mas_pont_ativ_lbl1" max="32767" attributes="0"/>
+                          <Component id="mas_pont_ativ_lbl1" alignment="0" min="-2" pref="74" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="id_ativ_txt" max="32767" attributes="0"/>
-                          <Component id="desc_ativ_txt" max="32767" attributes="0"/>
+                          <Component id="desc_ativ_txt" alignment="0" max="32767" attributes="0"/>
                           <Component id="max_pont_ativ_txt" alignment="0" max="32767" attributes="0"/>
                           <Component id="tipoAtividadeCombo" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="id_ativ_txt" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="selec_ativ_ed_bt" min="-2" pref="70" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="salvar_ativ_bt" min="-2" pref="70" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="voltar_ativ_bt" min="-2" pref="70" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -66,6 +70,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="id_ativ_lbl" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                   <Component id="id_ativ_txt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="selec_ativ_ed_bt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -84,10 +89,10 @@
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="salvar_ativ_bt" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="voltar_ativ_bt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="salvar_ativ_ed_bt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="voltar_ativ_ed_bt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -95,7 +100,45 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cadastro de Atividade"/>
+        <Property name="text" type="java.lang.String" value="Editar Atividade"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="salvar_ativ_ed_bt">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Salvar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="salvar_ativ_ed_btActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="max_pont_ativ_txt">
+    </Component>
+    <Component class="javax.swing.JTextField" name="desc_ativ_txt">
+    </Component>
+    <Component class="javax.swing.JButton" name="voltar_ativ_ed_bt">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Voltar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="voltar_ativ_ed_btActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="tipoAtividadeCombo">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="mas_pont_ativ_lbl1">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="Tipo Ativ."/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+            <BevelBorder/>
+          </Border>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="id_ativ_lbl">
@@ -133,42 +176,12 @@
     </Component>
     <Component class="javax.swing.JTextField" name="id_ativ_txt">
     </Component>
-    <Component class="javax.swing.JTextField" name="desc_ativ_txt">
-    </Component>
-    <Component class="javax.swing.JTextField" name="max_pont_ativ_txt">
-    </Component>
-    <Component class="javax.swing.JButton" name="salvar_ativ_bt">
+    <Component class="javax.swing.JButton" name="selec_ativ_ed_bt">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Salvar"/>
+        <Property name="text" type="java.lang.String" value="Selec."/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="salvar_ativ_btActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="tipoAtividadeCombo">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="0"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="mas_pont_ativ_lbl1">
-      <Properties>
-        <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Tipo Ativ."/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
-            <BevelBorder/>
-          </Border>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="voltar_ativ_bt">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Voltar"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="voltar_ativ_btActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="selec_ativ_ed_btActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

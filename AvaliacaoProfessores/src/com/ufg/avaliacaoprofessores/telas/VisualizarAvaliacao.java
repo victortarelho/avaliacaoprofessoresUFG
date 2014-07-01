@@ -50,33 +50,33 @@ public class VisualizarAvaliacao extends javax.swing.JFrame {
 
         nome_doc_aval_lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         nome_doc_aval_lbl.setText("Professor");
-        nome_doc_aval_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        nome_doc_aval_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
 
         mat_doc_aval_lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         mat_doc_aval_lbl.setText("Matrícula");
-        mat_doc_aval_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        mat_doc_aval_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
 
         nome_doc_aval_txt.setEditable(false);
 
         unid_dep_doc_aval_lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         unid_dep_doc_aval_lbl.setText("Unid/Depto.");
-        unid_dep_doc_aval_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        unid_dep_doc_aval_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
 
         unid_dep_doc_aval_txt.setEditable(false);
 
         periodo_aval_lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         periodo_aval_lbl.setText("Período");
-        periodo_aval_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        periodo_aval_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
 
         periodo_aval_txt.setEditable(false);
 
         proc_aval_lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         proc_aval_lbl.setText("Processo");
-        proc_aval_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        proc_aval_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
 
         regime_doc_aval_lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         regime_doc_aval_lbl.setText("Regime");
-        regime_doc_aval_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        regime_doc_aval_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
 
         regime_aval_txt.setEditable(false);
 
@@ -133,7 +133,7 @@ public class VisualizarAvaliacao extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton2)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(sair_visua_bt)
+                        .addComponent(sair_visua_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)))
                 .addGap(141, 141, 141))
         );

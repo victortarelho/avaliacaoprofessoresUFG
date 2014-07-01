@@ -23,7 +23,6 @@ public class CadastroAvaliacao extends javax.swing.JFrame {
         realizarAvaliacaoBtn = new javax.swing.JButton();
         caminhoArquivoLabel = new javax.swing.JLabel();
         buscar_arq_bt = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JSeparator();
         persistirJsonBtn = new javax.swing.JButton();
         sair_avaliacao_bt = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
@@ -42,7 +41,7 @@ public class CadastroAvaliacao extends javax.swing.JFrame {
 
         caminhoArquivoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         caminhoArquivoLabel.setText("Caminho do arquivo");
-        caminhoArquivoLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        caminhoArquivoLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
 
         buscar_arq_bt.setText("Buscar Arquivo");
         buscar_arq_bt.addActionListener(new java.awt.event.ActionListener() {
@@ -69,35 +68,34 @@ public class CadastroAvaliacao extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator1)
             .addComponent(jSeparator2)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 45, Short.MAX_VALUE)
                 .addComponent(persistirJsonBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(realizarAvaliacaoBtn)
                 .addGap(44, 44, 44))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(caminhoArquivoLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(buscar_arq_bt)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(sair_avaliacao_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(144, 144, 144))
+                .addComponent(sair_avaliacao_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(139, 139, 139))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(caminhoArquivoLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(buscar_arq_bt))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(129, 129, 129)
+                        .addComponent(jLabel1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(caminhoArquivoLabel)
                     .addComponent(buscar_arq_bt))
@@ -173,7 +171,6 @@ public class CadastroAvaliacao extends javax.swing.JFrame {
     private javax.swing.JButton buscar_arq_bt;
     private javax.swing.JLabel caminhoArquivoLabel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JButton persistirJsonBtn;
     private javax.swing.JButton realizarAvaliacaoBtn;

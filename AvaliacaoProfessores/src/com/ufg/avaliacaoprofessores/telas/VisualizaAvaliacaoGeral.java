@@ -18,6 +18,9 @@ public class VisualizaAvaliacaoGeral extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         sair_visual_bt = new javax.swing.JButton();
+        ordena_nome_bt = new javax.swing.JButton();
+        ordena_data_bt = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -40,6 +43,20 @@ public class VisualizaAvaliacaoGeral extends javax.swing.JFrame {
             }
         });
 
+        ordena_nome_bt.setText("Ordenar Por Nome");
+        ordena_nome_bt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ordena_nome_btActionPerformed(evt);
+            }
+        });
+
+        ordena_data_bt.setText("Ordenar Por Data");
+        ordena_data_bt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ordena_data_btActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -52,12 +69,20 @@ public class VisualizaAvaliacaoGeral extends javax.swing.JFrame {
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addGap(291, 291, 291))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(291, 291, 291))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(sair_visual_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(319, 319, 319))))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(sair_visual_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(324, 324, 324))
+                .addComponent(ordena_nome_bt)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ordena_data_bt)
+                .addGap(230, 230, 230))
+            .addComponent(jSeparator1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -65,6 +90,12 @@ public class VisualizaAvaliacaoGeral extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ordena_nome_bt)
+                    .addComponent(ordena_data_bt))
+                .addGap(2, 2, 2)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(sair_visual_bt)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -79,6 +110,14 @@ public class VisualizaAvaliacaoGeral extends javax.swing.JFrame {
         telaInicial.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_sair_visual_btActionPerformed
+
+    private void ordena_nome_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordena_nome_btActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ordena_nome_btActionPerformed
+
+    private void ordena_data_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordena_data_btActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ordena_data_btActionPerformed
 
     public static void main(String args[]) {
         try {
@@ -108,7 +147,10 @@ public class VisualizaAvaliacaoGeral extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JButton ordena_data_bt;
+    private javax.swing.JButton ordena_nome_bt;
     private javax.swing.JButton sair_visual_bt;
     // End of variables declaration//GEN-END:variables
 
