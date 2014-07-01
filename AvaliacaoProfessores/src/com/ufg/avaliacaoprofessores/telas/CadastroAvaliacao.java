@@ -115,7 +115,7 @@ public class CadastroAvaliacao extends javax.swing.JFrame {
 
     private void realizarAvaliacaoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_realizarAvaliacaoBtnActionPerformed
         controller.validaJson(arquivo);
-        controller.persisteJson(arquivo);
+        controller.realizaAvaliacaoJson(arquivo);
     }//GEN-LAST:event_realizarAvaliacaoBtnActionPerformed
 
     private void buscar_arq_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscar_arq_btActionPerformed
