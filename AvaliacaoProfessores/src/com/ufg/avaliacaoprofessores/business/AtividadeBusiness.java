@@ -7,7 +7,6 @@ package com.ufg.avaliacaoprofessores.business;
 
 import com.ufg.avaliacaoprofessores.bean.Atividade;
 import com.ufg.avaliacaoprofessores.dao.AtividadeDAO;
-import com.ufg.avaliacaoprofessores.dao.TipoAtividadeDAO;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

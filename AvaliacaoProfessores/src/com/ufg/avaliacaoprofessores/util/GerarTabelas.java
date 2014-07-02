@@ -1,4 +1,4 @@
-package com.ufg.avaliacaoprofessores;
+package com.ufg.avaliacaoprofessores.util;
 
 
 import javax.persistence.EntityManager;

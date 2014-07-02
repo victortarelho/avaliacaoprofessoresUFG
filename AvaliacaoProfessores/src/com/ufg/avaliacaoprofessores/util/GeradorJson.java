@@ -1,4 +1,4 @@
-package com.ufg.avaliacaoprofessores;
+package com.ufg.avaliacaoprofessores.util;
 
 import com.ufg.avaliacaoprofessores.vo.ProfessorVO;
 import com.ufg.avaliacaoprofessores.vo.AvaliacaoProfessorVO;

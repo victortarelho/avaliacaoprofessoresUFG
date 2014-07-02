@@ -17,6 +17,7 @@ public class EditaAtividade extends javax.swing.JFrame {
 
     AtividadeController controller;
     Atividade atividade;
+
     public EditaAtividade() {
         initComponents();
         controller = new AtividadeController();
@@ -29,8 +30,8 @@ public class EditaAtividade extends javax.swing.JFrame {
         }
         tipoAtividadeCombo.addItem("");
         for (Iterator it = listTipoAtividade.iterator(); it.hasNext();) {
-            TipoAtividade object = (TipoAtividade)it.next();
-            tipoAtividadeCombo.addItem(object.getId()+"-"+object.getNome());
+            TipoAtividade object = (TipoAtividade) it.next();
+            tipoAtividadeCombo.addItem(object.getId() + "-" + object.getNome());
         }
     }
 
@@ -164,7 +165,7 @@ public class EditaAtividade extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void salvar_ativ_ed_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvar_ativ_ed_btActionPerformed
-        if(atividade == null){
+        if (atividade == null) {
             JOptionPane.showMessageDialog(null, "Selecione uma atividade primeiro!");
             return;
         }
@@ -181,10 +182,20 @@ public class EditaAtividade extends javax.swing.JFrame {
     }//GEN-LAST:event_voltar_ativ_ed_btActionPerformed
 
     private void selec_ativ_ed_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selec_ativ_ed_btActionPerformed
+        if(codigo_ativ_txt == null || codigo_ativ_txt.getText().equalsIgnoreCase("")){
+            JOptionPane.showMessageDialog(null, "Digite o valor do codigo!");
+            return;
+        }
+        try{
+            Long.parseLong(codigo_ativ_txt.getText());
+        } catch (NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Digite um valor numerico para codigo!");
+            return;
+        }
         atividade = controller.restoreAtividade(Long.parseLong(codigo_ativ_txt.getText()));
         desc_ativ_txt.setText(atividade.getDescricao());
-        max_pont_ativ_txt.setText(atividade.getPontos()+"");
-        tipoAtividadeCombo.setSelectedItem(atividade.getTipoAtividade().getId()+"-"+atividade.getTipoAtividade().getNome());
+        max_pont_ativ_txt.setText(atividade.getPontos() + "");
+        tipoAtividadeCombo.setSelectedItem(atividade.getTipoAtividade().getId() + "-" + atividade.getTipoAtividade().getNome());
     }//GEN-LAST:event_selec_ativ_ed_btActionPerformed
 
     private void codigo_ativ_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codigo_ativ_txtActionPerformed
@@ -257,9 +268,8 @@ public class EditaAtividade extends javax.swing.JFrame {
     public void setTipoAtividadeCombo(JComboBox tipoAtividadeCombo) {
         this.tipoAtividadeCombo = tipoAtividadeCombo;
     }
-    
-    
-    
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField codigo_ativ_txt;
     private javax.swing.JLabel desc_ativ_lbl;

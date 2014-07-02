@@ -21,7 +21,6 @@ public class CadastroAvaliacao extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         realizarAvaliacaoBtn = new javax.swing.JButton();
-        caminhoArquivoLabel = new javax.swing.JLabel();
         buscar_arq_bt = new javax.swing.JButton();
         persistirJsonBtn = new javax.swing.JButton();
         sair_avaliacao_bt = new javax.swing.JButton();
@@ -38,10 +37,6 @@ public class CadastroAvaliacao extends javax.swing.JFrame {
                 realizarAvaliacaoBtnActionPerformed(evt);
             }
         });
-
-        caminhoArquivoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        caminhoArquivoLabel.setText("Caminho do arquivo");
-        caminhoArquivoLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         buscar_arq_bt.setText("Buscar Arquivo");
         buscar_arq_bt.addActionListener(new java.awt.event.ActionListener() {
@@ -82,9 +77,7 @@ public class CadastroAvaliacao extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(caminhoArquivoLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(119, 119, 119)
                         .addComponent(buscar_arq_bt))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(129, 129, 129)
@@ -96,9 +89,7 @@ public class CadastroAvaliacao extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
                 .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(caminhoArquivoLabel)
-                    .addComponent(buscar_arq_bt))
+                .addComponent(buscar_arq_bt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(realizarAvaliacaoBtn)
@@ -114,10 +105,30 @@ public class CadastroAvaliacao extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void realizarAvaliacaoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_realizarAvaliacaoBtnActionPerformed
+        if(arquivo == null){
+            JOptionPane.showMessageDialog(null, "Selecione um arquivo.");
+            return;
+        }
         controller.validaJson(arquivo);
         controller.realizaAvaliacaoJson(arquivo);
         this.setVisible(false);
     }//GEN-LAST:event_realizarAvaliacaoBtnActionPerformed
+
+    private void persistirJsonBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_persistirJsonBtnActionPerformed
+        if(arquivo == null){
+            JOptionPane.showMessageDialog(null, "Selecione um arquivo.");
+            return;
+        }
+        controller.validaJson(arquivo);
+        controller.persisteJson(arquivo);
+    }//GEN-LAST:event_persistirJsonBtnActionPerformed
+
+    private void sair_avaliacao_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sair_avaliacao_btActionPerformed
+        this.setVisible(false);
+        TelaInicial telaInicial = new TelaInicial();
+        telaInicial.setVisible(true);
+        telaInicial.setLocationRelativeTo(null);
+    }//GEN-LAST:event_sair_avaliacao_btActionPerformed
 
     private void buscar_arq_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscar_arq_btActionPerformed
         JFileChooser fc = new JFileChooser();
@@ -130,18 +141,6 @@ public class CadastroAvaliacao extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Voce nao selecionou nenhum arquivo.");
         }
     }//GEN-LAST:event_buscar_arq_btActionPerformed
-
-    private void persistirJsonBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_persistirJsonBtnActionPerformed
-        controller.validaJson(arquivo);
-        controller.persisteJson(arquivo);
-    }//GEN-LAST:event_persistirJsonBtnActionPerformed
-
-    private void sair_avaliacao_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sair_avaliacao_btActionPerformed
-        this.setVisible(false);
-        TelaInicial telaInicial = new TelaInicial();
-        telaInicial.setVisible(true);
-        telaInicial.setLocationRelativeTo(null);
-    }//GEN-LAST:event_sair_avaliacao_btActionPerformed
 
     public static void main(String args[]) {
         try {
@@ -170,7 +169,6 @@ public class CadastroAvaliacao extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buscar_arq_bt;
-    private javax.swing.JLabel caminhoArquivoLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JButton persistirJsonBtn;

@@ -9,6 +9,7 @@ package com.ufg.avaliacaoprofessores.controller;
 import com.ufg.avaliacaoprofessores.business.AvaliacaoBusiness;
 import java.io.File;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -36,6 +37,7 @@ public class AvaliacaoController extends GenericController{
     
     public void persisteJson(File arquivo){
         avaliacaoBusiness.persisteJson(arquivo);
+        JOptionPane.showMessageDialog(null, "JSON persistido!");
     }
     
     public void realizaAvaliacaoJson(File arquivo){

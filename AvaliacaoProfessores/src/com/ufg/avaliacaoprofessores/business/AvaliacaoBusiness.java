@@ -19,6 +19,10 @@ import com.ufg.avaliacaoprofessores.thread.ThreadCalculaPontuacao;
 import com.ufg.avaliacaoprofessores.util.BeanPopulate;
 import com.ufg.avaliacaoprofessores.vo.AvaliacaoGeralVO;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.UnsupportedEncodingException;
@@ -32,14 +36,14 @@ import java.util.logging.Logger;
  *
  * @author Bruno
  */
-public class AvaliacaoBusiness implements GenericBusiness{
+public class AvaliacaoBusiness implements GenericBusiness {
 
     private AvaliacaoDAO avaliacaoDao;
     private AvaliacaoDocenteDAO avaliacaoDocenteDao;
     private DocenteDAO docenteDao;
     private ItemAvaliacaoDAO itemAvaliacaoDao;
-    public static List<AvaliacaoDocente> listaAvaliacaoDocenteFinal = 
-            Collections.synchronizedList(new ArrayList<AvaliacaoDocente>());
+    public static List<AvaliacaoDocente> listaAvaliacaoDocenteFinal
+            = Collections.synchronizedList(new ArrayList<AvaliacaoDocente>());
 
     public AvaliacaoBusiness() {
         this.avaliacaoDao = new AvaliacaoDAO();
@@ -60,7 +64,7 @@ public class AvaliacaoBusiness implements GenericBusiness{
 
         persisteInformacoes(listaAvaliacaoDocente, beanPopulate);
     }
-    
+
     public void realizaAvaliacaoJson(File arquivo) {
         AvaliacaoGeralVO avaliacao = null;
         try {
@@ -80,13 +84,21 @@ public class AvaliacaoBusiness implements GenericBusiness{
         System.out.println("Avaliação salva.. id: " + beanPopulate.getAvaliacao().getId());
 
         for (AvaliacaoDocente avaliacaoDocente : listaAvaliacaoDocente) {
+            long matricula = 1;
+            if (avaliacaoDocente != null && avaliacaoDocente.getDocente() != null) {
+                avaliacaoDocente.getDocente().setMatricula(matricula);
+                avaliacaoDocente.getDocente().setRegime("Integral");
+                avaliacaoDocente.getDocente().setUnidade("INF");
+                matricula++;
+            }
+
             if (avaliacaoDocente != null && avaliacaoDocente.getDocente() != null) {
                 System.out.println("Salvando Docente: " + avaliacaoDocente.getDocente().getNome());
                 docenteDao.salvar(avaliacaoDocente.getDocente());
                 System.out.println("Docente salvo.. id:" + avaliacaoDocente.getDocente().getId());
             }
 
-            if (avaliacaoDocente != null && beanPopulate != null && beanPopulate.getAvaliacao() != null) {
+            if (avaliacaoDocente != null && beanPopulate.getAvaliacao() != null) {
                 System.out.println("Salvando Avaliação do Docente: ");
                 avaliacaoDocente.setAvaliacao(beanPopulate.getAvaliacao());
                 avaliacaoDocenteDao.salvar(avaliacaoDocente);
@@ -102,13 +114,22 @@ public class AvaliacaoBusiness implements GenericBusiness{
     }
 
     private AvaliacaoGeralVO carregaAvaliacao(File arquivo) throws UnsupportedEncodingException {
-        Reader reader = new InputStreamReader(AvaliacaoBusiness.class.getResourceAsStream("/testeJson2.json"), "UTF-8");
+//        Reader reader = new InputStreamReader(AvaliacaoBusiness.class.getResourceAsStream("/testeJson2.json"), "UTF-8");
+        InputStream is = null;
+        try {
+            is = new FileInputStream(arquivo.getAbsolutePath()  );
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Reader reader = new InputStreamReader(is, "UTF-8");
         Gson gson = new GsonBuilder().create();
         return gson.fromJson(reader, AvaliacaoGeralVO.class);
     }
 
     private void calculaPontuacao(List<AvaliacaoDocente> listaAvaliacaoDocente) {
-        
+
         List<AvaliacaoDocente> lista1 = listaAvaliacaoDocente.subList(0, 5000);
         List<AvaliacaoDocente> lista2 = listaAvaliacaoDocente.subList(5001, listaAvaliacaoDocente.size());
 
@@ -126,22 +147,22 @@ public class AvaliacaoBusiness implements GenericBusiness{
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
+
         System.out.println("Total avaliacoes:" + listaAvaliacaoDocenteFinal.size());
         VisualizaAvaliacaoGeral jFrame = new VisualizaAvaliacaoGeral();
         jFrame.carregaListaAvaliacoes(listaAvaliacaoDocenteFinal);
         jFrame.setVisible(true);
-        
+
     }
-    
-    public void ordenaListaPorNome(){
+
+    public void ordenaListaPorNome() {
         Collections.sort(listaAvaliacaoDocenteFinal, new AvaliacaoComparerByNomeDocente());
         VisualizaAvaliacaoGeral jFrame = new VisualizaAvaliacaoGeral();
         jFrame.carregaListaAvaliacoes(listaAvaliacaoDocenteFinal);
         jFrame.setVisible(true);
     }
 
-    public void ordenaListaPorNota(){
+    public void ordenaListaPorNota() {
         Collections.sort(listaAvaliacaoDocenteFinal, new AvaliacaoComparerByNota());
         VisualizaAvaliacaoGeral jFrame = new VisualizaAvaliacaoGeral();
         jFrame.carregaListaAvaliacoes(listaAvaliacaoDocenteFinal);
