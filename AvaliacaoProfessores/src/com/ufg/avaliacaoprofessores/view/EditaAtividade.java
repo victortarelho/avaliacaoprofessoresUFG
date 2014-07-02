@@ -193,6 +193,10 @@ public class EditaAtividade extends javax.swing.JFrame {
             return;
         }
         atividade = controller.restoreAtividade(Long.parseLong(codigo_ativ_txt.getText()));
+        if(atividade == null){
+             JOptionPane.showMessageDialog(null, "Codigo inexistente!");
+            return;
+        }
         desc_ativ_txt.setText(atividade.getDescricao());
         max_pont_ativ_txt.setText(atividade.getPontos() + "");
         tipoAtividadeCombo.setSelectedItem(atividade.getTipoAtividade().getId() + "-" + atividade.getTipoAtividade().getNome());
