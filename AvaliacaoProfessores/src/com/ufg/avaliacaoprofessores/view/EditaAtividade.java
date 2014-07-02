@@ -9,7 +9,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 public class EditaAtividade extends javax.swing.JFrame {
 
@@ -167,8 +169,8 @@ public class EditaAtividade extends javax.swing.JFrame {
             return;
         }
         AtividadeController avaliacaoController = new AtividadeController();
-        avaliacaoController.validaCadastro(this);
-        avaliacaoController.atualizaAtividade(atividade);
+        avaliacaoController.carregaParaEdicao(this);
+        avaliacaoController.atualizaAtividade();
     }//GEN-LAST:event_salvar_ativ_ed_btActionPerformed
 
     private void voltar_ativ_ed_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltar_ativ_ed_btActionPerformed
@@ -223,6 +225,41 @@ public class EditaAtividade extends javax.swing.JFrame {
             }
         });
     }
+
+    public JTextField getCodigo_ativ_txt() {
+        return codigo_ativ_txt;
+    }
+
+    public void setCodigo_ativ_txt(JTextField codigo_ativ_txt) {
+        this.codigo_ativ_txt = codigo_ativ_txt;
+    }
+
+    public JTextField getDesc_ativ_txt() {
+        return desc_ativ_txt;
+    }
+
+    public void setDesc_ativ_txt(JTextField desc_ativ_txt) {
+        this.desc_ativ_txt = desc_ativ_txt;
+    }
+
+    public JTextField getMax_pont_ativ_txt() {
+        return max_pont_ativ_txt;
+    }
+
+    public void setMax_pont_ativ_txt(JTextField max_pont_ativ_txt) {
+        this.max_pont_ativ_txt = max_pont_ativ_txt;
+    }
+
+    public JComboBox getTipoAtividadeCombo() {
+        return tipoAtividadeCombo;
+    }
+
+    public void setTipoAtividadeCombo(JComboBox tipoAtividadeCombo) {
+        this.tipoAtividadeCombo = tipoAtividadeCombo;
+    }
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField codigo_ativ_txt;
     private javax.swing.JLabel desc_ativ_lbl;

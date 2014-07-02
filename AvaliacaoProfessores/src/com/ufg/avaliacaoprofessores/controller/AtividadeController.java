@@ -4,6 +4,7 @@ import com.ufg.avaliacaoprofessores.bean.Atividade;
 import com.ufg.avaliacaoprofessores.bean.TipoAtividade;
 import com.ufg.avaliacaoprofessores.business.AtividadeBusiness;
 import com.ufg.avaliacaoprofessores.view.CadastroAtividade;
+import com.ufg.avaliacaoprofessores.view.EditaAtividade;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -38,6 +39,24 @@ public class AtividadeController extends GenericController {
         tipoAtividade.setId(Long.parseLong(idTipoAtividade));
         atividadeBean.setTipoAtividade(tipoAtividade);
     }
+    
+    public void carregaParaEdicao(JFrame janela) {
+        atividadeBean = new Atividade();
+        atividadeBean.setCodigo(((EditaAtividade)janela).getCodigo_ativ_txt().getText());
+        atividadeBean.setDescricao(((EditaAtividade)janela).getDesc_ativ_txt().getText());
+        atividadeBean.setPontos(Float.parseFloat(((EditaAtividade)janela).getMax_pont_ativ_txt().getText()));
+        String comboTipoAtivide = ((EditaAtividade)janela).getTipoAtividadeCombo().getSelectedItem().toString();
+        String idTipoAtividade = null;
+        if(comboTipoAtivide != null && comboTipoAtivide != ""){
+            idTipoAtividade = comboTipoAtivide.substring(0, comboTipoAtivide.indexOf("-"));
+        } else{
+            JOptionPane.showMessageDialog(null, "Insira um tipo de atividade!");
+            return;
+        }
+        TipoAtividade tipoAtividade = new TipoAtividade();
+        tipoAtividade.setId(Long.parseLong(idTipoAtividade));
+        atividadeBean.setTipoAtividade(tipoAtividade);
+    }
 
     public void insereAtividade(){
         atividadeBusiness.salvaAtividade(atividadeBean);
@@ -48,8 +67,8 @@ public class AtividadeController extends GenericController {
         return atividadeBusiness.restoreAtividade(idAtividade);
     }
     
-    public void atualizaAtividade(Atividade atividade){
-        
+    public void atualizaAtividade(){
+        atividadeBusiness.atualizaAtividade(atividadeBean);
+        JOptionPane.showMessageDialog(null, "Atividade atualizada com sucesso!");
     }
-
 }
