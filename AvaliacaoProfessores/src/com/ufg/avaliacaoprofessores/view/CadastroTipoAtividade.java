@@ -4,7 +4,14 @@
  */
 package com.ufg.avaliacaoprofessores.view;
 
+import com.ufg.avaliacaoprofessores.bean.TipoAtividade;
 import com.ufg.avaliacaoprofessores.controller.TipoAtividadeController;
+import com.ufg.avaliacaoprofessores.dao.TipoAtividadeDAO;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
@@ -14,8 +21,10 @@ import javax.swing.JTextField;
  */
 public class CadastroTipoAtividade extends javax.swing.JFrame {
 
-    public CadastroTipoAtividade() {
+    public CadastroTipoAtividade() throws Exception {
         initComponents();
+        TipoAtividadeController tipoAtividadeController = new TipoAtividadeController();
+        tipoAtividadeController.preencheComboTipoAtividadePai(this);
     }
 
     @SuppressWarnings("unchecked")
@@ -31,10 +40,8 @@ public class CadastroTipoAtividade extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         desc_ativ_lbl1 = new javax.swing.JLabel();
         mas_pont_ativ_lbl1 = new javax.swing.JLabel();
-        id_ativ_lbl1 = new javax.swing.JLabel();
         cod_tipo_ativ_txt = new javax.swing.JTextField();
         desc_tipo_ativ_txt = new javax.swing.JTextField();
-        id_tipo_ativ_txt = new javax.swing.JTextField();
         voltar_tipo_ativ_bt = new javax.swing.JButton();
         salvar_tipo_ativ_bt = new javax.swing.JButton();
         mas_pont_ativ_lbl2 = new javax.swing.JLabel();
@@ -64,10 +71,6 @@ public class CadastroTipoAtividade extends javax.swing.JFrame {
         mas_pont_ativ_lbl1.setText("Código");
         mas_pont_ativ_lbl1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        id_ativ_lbl1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        id_ativ_lbl1.setText("ID");
-        id_ativ_lbl1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
         voltar_tipo_ativ_bt.setText("Voltar");
         voltar_tipo_ativ_bt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,7 +97,7 @@ public class CadastroTipoAtividade extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 117, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel1)
@@ -108,11 +111,9 @@ public class CadastroTipoAtividade extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(mas_pont_ativ_lbl2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(mas_pont_ativ_lbl1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(desc_ativ_lbl1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(id_ativ_lbl1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE))
+                            .addComponent(desc_ativ_lbl1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(id_tipo_ativ_txt, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
                             .addComponent(desc_tipo_ativ_txt)
                             .addComponent(cod_tipo_ativ_txt)
                             .addComponent(atividade_pai_txt, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -122,11 +123,7 @@ public class CadastroTipoAtividade extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(id_ativ_lbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(id_tipo_ativ_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(desc_ativ_lbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(desc_tipo_ativ_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -138,11 +135,11 @@ public class CadastroTipoAtividade extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(mas_pont_ativ_lbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(atividade_pai_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(salvar_tipo_ativ_bt)
                     .addComponent(voltar_tipo_ativ_bt))
-                .addGap(23, 23, 23))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -190,7 +187,14 @@ public class CadastroTipoAtividade extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastroTipoAtividade().setVisible(true);
+                  CadastroTipoAtividade cadastroTipoAtividade;
+                try {
+                    cadastroTipoAtividade = new CadastroTipoAtividade();
+                    cadastroTipoAtividade.setVisible(true);
+                    cadastroTipoAtividade.setLocationRelativeTo(null);
+                } catch (Exception ex) {
+                    Logger.getLogger(CadastroAtividade.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -201,14 +205,6 @@ public class CadastroTipoAtividade extends javax.swing.JFrame {
 
     public void setDesc_ativ_txt(JTextField desc_tipo_ativ_txt) {
         this.desc_tipo_ativ_txt = desc_tipo_ativ_txt;
-    }
-
-    public JTextField getId_tipo_ativ_txt() {
-        return id_tipo_ativ_txt;
-    }
-
-    public void setId_tipo_ativ_txt(JTextField id_tipo_ativ_txt) {
-        this.id_tipo_ativ_txt = id_tipo_ativ_txt;
     }
 
     public JTextField getCodigo_tipo_ativ_txt() {
@@ -235,9 +231,7 @@ public class CadastroTipoAtividade extends javax.swing.JFrame {
     private javax.swing.JTextField desc_ativ_txt;
     private javax.swing.JTextField desc_tipo_ativ_txt;
     private javax.swing.JLabel id_ativ_lbl;
-    private javax.swing.JLabel id_ativ_lbl1;
     private javax.swing.JTextField id_ativ_txt;
-    private javax.swing.JTextField id_tipo_ativ_txt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel mas_pont_ativ_lbl;
     private javax.swing.JLabel mas_pont_ativ_lbl1;

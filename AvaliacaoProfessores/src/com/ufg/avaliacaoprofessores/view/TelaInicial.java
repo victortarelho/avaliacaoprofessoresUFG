@@ -196,10 +196,15 @@ public class TelaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_list_ativ_btActionPerformed
 
     private void cad_tipo_ativ_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cad_tipo_ativ_btActionPerformed
-        CadastroTipoAtividade tipoAtividade = new CadastroTipoAtividade();
-        tipoAtividade.setVisible(true);
-        tipoAtividade.setLocationRelativeTo(null);
-        this.setVisible(false);
+        CadastroTipoAtividade tipoAtividade;
+        try {
+            tipoAtividade = new CadastroTipoAtividade();
+            tipoAtividade.setVisible(true);
+            tipoAtividade.setLocationRelativeTo(null);
+            this.setVisible(false);
+        } catch (Exception ex) {
+            Logger.getLogger(TelaInicial.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_cad_tipo_ativ_btActionPerformed
 
     public static void main(String args[]) {

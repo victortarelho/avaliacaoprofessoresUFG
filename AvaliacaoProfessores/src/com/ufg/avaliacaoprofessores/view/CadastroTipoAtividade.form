@@ -68,7 +68,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="117" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
@@ -86,12 +86,10 @@
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Component id="mas_pont_ativ_lbl2" alignment="0" max="32767" attributes="0"/>
                           <Component id="mas_pont_ativ_lbl1" alignment="0" max="32767" attributes="0"/>
-                          <Component id="desc_ativ_lbl1" alignment="0" max="32767" attributes="0"/>
-                          <Component id="id_ativ_lbl1" alignment="0" pref="74" max="32767" attributes="0"/>
+                          <Component id="desc_ativ_lbl1" alignment="0" pref="74" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="id_tipo_ativ_txt" alignment="0" pref="296" max="32767" attributes="0"/>
                           <Component id="desc_tipo_ativ_txt" alignment="0" max="32767" attributes="0"/>
                           <Component id="cod_tipo_ativ_txt" alignment="0" max="32767" attributes="0"/>
                           <Component id="atividade_pai_txt" alignment="0" max="32767" attributes="0"/>
@@ -106,12 +104,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="id_ativ_lbl1" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                  <Component id="id_tipo_ativ_txt" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="desc_ativ_lbl1" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                   <Component id="desc_tipo_ativ_txt" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -126,12 +119,12 @@
                   <Component id="mas_pont_ativ_lbl2" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                   <Component id="atividade_pai_txt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="18" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="salvar_tipo_ativ_bt" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="voltar_tipo_ativ_bt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -164,22 +157,9 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="id_ativ_lbl1">
-      <Properties>
-        <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="ID"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
-            <BevelBorder/>
-          </Border>
-        </Property>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JTextField" name="cod_tipo_ativ_txt">
     </Component>
     <Component class="javax.swing.JTextField" name="desc_tipo_ativ_txt">
-    </Component>
-    <Component class="javax.swing.JTextField" name="id_tipo_ativ_txt">
     </Component>
     <Component class="javax.swing.JButton" name="voltar_tipo_ativ_bt">
       <Properties>
