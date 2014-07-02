@@ -5,6 +5,8 @@ import com.ufg.avaliacaoprofessores.bean.TipoAtividade;
 import com.ufg.avaliacaoprofessores.business.AtividadeBusiness;
 import com.ufg.avaliacaoprofessores.view.CadastroAtividade;
 import com.ufg.avaliacaoprofessores.view.EditaAtividade;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -70,5 +72,11 @@ public class AtividadeController extends GenericController {
     public void atualizaAtividade(){
         atividadeBusiness.atualizaAtividade(atividadeBean);
         JOptionPane.showMessageDialog(null, "Atividade atualizada com sucesso!");
+    }
+    
+    public List<Atividade> listarAtividades() throws Exception{
+        List <Atividade> listAtividades = new ArrayList();
+        listAtividades = atividadeBusiness.listarAtividades();
+        return listAtividades;
     }
 }

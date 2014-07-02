@@ -4,8 +4,12 @@
  */
 package com.ufg.avaliacaoprofessores.view;
 
+import com.ufg.avaliacaoprofessores.bean.Atividade;
 import com.ufg.avaliacaoprofessores.bean.TipoAtividade;
+import com.ufg.avaliacaoprofessores.controller.AtividadeController;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -17,8 +21,11 @@ public class ListaAtividades extends javax.swing.JFrame {
     /**
      * Creates new form ListaAtividades
      */
-    public ListaAtividades() {
+    public ListaAtividades() throws Exception {
         initComponents();
+        AtividadeController atividadeController = new AtividadeController();
+        List<Atividade> listAtividade = atividadeController.listarAtividades();
+        carregaListaAvaliacoes(listAtividade);
     }
 
     /**
@@ -133,8 +140,15 @@ public class ListaAtividades extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ListaAtividades().setVisible(true);
+            public void run() {               
+                ListaAtividades listaAtividade;
+                try {
+                    listaAtividade = new ListaAtividades();
+                    listaAtividade.setVisible(true);
+                    listaAtividade.setLocationRelativeTo(null);
+                } catch (Exception ex) {
+                    Logger.getLogger(ListaAtividades.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -145,18 +159,18 @@ public class ListaAtividades extends javax.swing.JFrame {
     private javax.swing.JButton sair_visual_bt;
     // End of variables declaration//GEN-END:variables
     
-    public void carregaListaAvaliacoes(List<TipoAtividade> listaAtividades) {
+    public void carregaListaAvaliacoes(List<Atividade> listaAtividades) {
         DefaultTableModel model = new DefaultTableModel(
                 new Object[][]{},
                 new String[]{
                     "ID", "Descrição", "Código","Atividade Pai"});
         jTable1.setModel(model);
-        for (TipoAtividade tipoAtividade : listaAtividades) {
+        for (Atividade tipoAtividade : listaAtividades) {
             Object[] linha = new Object[4];
             linha[0] = tipoAtividade.getId().toString();
-            linha[1] = tipoAtividade.getNome();
+            linha[1] = tipoAtividade.getDescricao();
             linha[2] = tipoAtividade.getCodigo().toString();
-            linha[3] = tipoAtividade.getTipoAtividadePai().toString();
+            linha[3] = tipoAtividade.getTipoAtividade().getNome().toString();
             model.addRow(linha);
         }
     }

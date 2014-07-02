@@ -7,6 +7,8 @@ package com.ufg.avaliacaoprofessores.business;
 
 import com.ufg.avaliacaoprofessores.bean.Atividade;
 import com.ufg.avaliacaoprofessores.dao.AtividadeDAO;
+import com.ufg.avaliacaoprofessores.dao.TipoAtividadeDAO;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -53,5 +55,17 @@ public class AtividadeBusiness implements GenericBusiness {
             atividade.setId(ativAux.getId());
             dao.salvar(atividade);
         } 
+    }
+    
+    public List<Atividade> listarAtividades() throws Exception{
+        TipoAtividadeDAO tipoAtividadeDao = new TipoAtividadeDAO();
+        List<Atividade> listAtividade = new ArrayList();
+        List<Atividade> listAtividadeResu = new ArrayList();
+        listAtividade   = dao.listar();
+        if(listAtividade!= null && !listAtividade.isEmpty())
+            for(Atividade atividade : listAtividade){
+                System.out.println(atividade.getTipoAtividade());
+            }
+            return listAtividade;
     }
 }
