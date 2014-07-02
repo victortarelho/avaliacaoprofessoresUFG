@@ -7,6 +7,7 @@ public class TelaInicial extends javax.swing.JFrame {
 
     public TelaInicial() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -18,7 +19,6 @@ public class TelaInicial extends javax.swing.JFrame {
         cad_ativ_bt = new javax.swing.JButton();
         cad_docente_bt = new javax.swing.JButton();
         realiza_avaliacao_bt = new javax.swing.JButton();
-        visualiza_avaliacao_bt = new javax.swing.JButton();
         fecha_sistema_bt = new javax.swing.JButton();
         ed_ativ_bt = new javax.swing.JButton();
         list_ativ_bt = new javax.swing.JButton();
@@ -45,17 +45,10 @@ public class TelaInicial extends javax.swing.JFrame {
             }
         });
 
-        realiza_avaliacao_bt.setText("Realizar Avaliação");
+        realiza_avaliacao_bt.setText("Avaliação");
         realiza_avaliacao_bt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 realiza_avaliacao_btActionPerformed(evt);
-            }
-        });
-
-        visualiza_avaliacao_bt.setText("Visualizar Avaliação");
-        visualiza_avaliacao_bt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                visualiza_avaliacao_btActionPerformed(evt);
             }
         });
 
@@ -92,24 +85,23 @@ public class TelaInicial extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jSeparator1)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(cad_tipo_ativ_bt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(list_ativ_bt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ed_ativ_bt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(fecha_sistema_bt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(visualiza_avaliacao_bt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(realiza_avaliacao_bt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cad_ativ_bt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cad_docente_bt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(16, Short.MAX_VALUE))
             .addComponent(jSeparator2)
             .addComponent(jSeparator3)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addComponent(jSeparator4)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cad_tipo_ativ_bt, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                    .addComponent(cad_docente_bt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(realiza_avaliacao_bt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(fecha_sistema_bt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(list_ativ_bt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ed_ativ_bt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cad_ativ_bt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,12 +126,10 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(realiza_avaliacao_bt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(visualiza_avaliacao_bt)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(fecha_sistema_bt)
-                .addGap(0, 12, Short.MAX_VALUE))
+                .addGap(0, 11, Short.MAX_VALUE))
         );
 
         pack();
@@ -169,13 +159,6 @@ public class TelaInicial extends javax.swing.JFrame {
         cadastroAvalicao.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_realiza_avaliacao_btActionPerformed
-
-    private void visualiza_avaliacao_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visualiza_avaliacao_btActionPerformed
-        VisualizaAvaliacaoGeral visualizaAvaliacao = new VisualizaAvaliacaoGeral();
-        visualizaAvaliacao.setVisible(true);
-        visualizaAvaliacao.setLocationRelativeTo(null);
-        this.setVisible(false);
-    }//GEN-LAST:event_visualiza_avaliacao_btActionPerformed
 
     private void fecha_sistema_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fecha_sistema_btActionPerformed
         System.exit(0);
@@ -233,7 +216,6 @@ public class TelaInicial extends javax.swing.JFrame {
             public void run() {
                 TelaInicial telaInicial = new TelaInicial();
                 telaInicial.setVisible(true);
-                telaInicial.setLocationRelativeTo(null);
             }
         });
     }
@@ -250,6 +232,5 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JButton list_ativ_bt;
     private javax.swing.JButton realiza_avaliacao_bt;
-    private javax.swing.JButton visualiza_avaliacao_bt;
     // End of variables declaration//GEN-END:variables
 }

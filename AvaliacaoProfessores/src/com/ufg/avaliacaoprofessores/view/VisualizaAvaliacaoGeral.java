@@ -37,7 +37,15 @@ public class VisualizaAvaliacaoGeral extends javax.swing.JFrame {
             new String [] {
                 "Docente", "Atividades de Ensino", "Produção Intelectual", "Pesquisa e Extensão", "Administrativas e de Representação", "Outras Atividades", "Total"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         sair_visual_bt.setText("Voltar");
@@ -109,9 +117,9 @@ public class VisualizaAvaliacaoGeral extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void sair_visual_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sair_visual_btActionPerformed
-        TelaInicial telaInicial = new TelaInicial();
-        telaInicial.setVisible(true);
-        telaInicial.setLocationRelativeTo(null);
+        CadastroAvaliacao cadastroAvaliacao = new CadastroAvaliacao();
+        cadastroAvaliacao.setVisible(true);
+        cadastroAvaliacao.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_sair_visual_btActionPerformed
 

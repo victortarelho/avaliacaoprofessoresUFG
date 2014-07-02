@@ -24,20 +24,6 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jSeparator1" max="32767" attributes="0"/>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Component id="cad_tipo_ativ_bt" max="32767" attributes="0"/>
-                  <Component id="list_ativ_bt" max="32767" attributes="0"/>
-                  <Component id="ed_ativ_bt" max="32767" attributes="0"/>
-                  <Component id="fecha_sistema_bt" max="32767" attributes="0"/>
-                  <Component id="visualiza_avaliacao_bt" max="32767" attributes="0"/>
-                  <Component id="realiza_avaliacao_bt" max="32767" attributes="0"/>
-                  <Component id="cad_ativ_bt" alignment="0" max="32767" attributes="0"/>
-                  <Component id="cad_docente_bt" alignment="0" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace pref="16" max="32767" attributes="0"/>
-          </Group>
           <Component id="jSeparator2" alignment="0" max="32767" attributes="0"/>
           <Component id="jSeparator3" alignment="0" max="32767" attributes="0"/>
           <Group type="102" attributes="0">
@@ -45,6 +31,19 @@
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
           <Component id="jSeparator4" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="cad_tipo_ativ_bt" pref="135" max="32767" attributes="0"/>
+                  <Component id="cad_docente_bt" max="32767" attributes="0"/>
+                  <Component id="realiza_avaliacao_bt" max="32767" attributes="0"/>
+                  <Component id="fecha_sistema_bt" max="32767" attributes="0"/>
+                  <Component id="list_ativ_bt" alignment="0" max="32767" attributes="0"/>
+                  <Component id="ed_ativ_bt" max="32767" attributes="0"/>
+                  <Component id="cad_ativ_bt" alignment="0" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -70,12 +69,10 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="realiza_avaliacao_bt" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="visualiza_avaliacao_bt" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
               <Component id="jSeparator4" min="-2" pref="2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="fecha_sistema_bt" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="11" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -106,18 +103,10 @@
     </Component>
     <Component class="javax.swing.JButton" name="realiza_avaliacao_bt">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Realizar Avalia&#xe7;&#xe3;o"/>
+        <Property name="text" type="java.lang.String" value="Avalia&#xe7;&#xe3;o"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="realiza_avaliacao_btActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="visualiza_avaliacao_bt">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Visualizar Avalia&#xe7;&#xe3;o"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="visualiza_avaliacao_btActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="fecha_sistema_bt">
