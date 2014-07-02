@@ -1,6 +1,5 @@
 package com.ufg.avaliacaoprofessores.view;
 
-import com.ufg.avaliacaoprofessores.bean.Atividade;
 import com.ufg.avaliacaoprofessores.bean.TipoAtividade;
 import com.ufg.avaliacaoprofessores.controller.AtividadeController;
 import com.ufg.avaliacaoprofessores.dao.TipoAtividadeDAO;
@@ -47,7 +46,7 @@ public class CadastroAtividade extends javax.swing.JFrame {
         jLabel1.setText("Cadastro de Atividade");
 
         id_ativ_lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        id_ativ_lbl.setText("ID");
+        id_ativ_lbl.setText("Código");
         id_ativ_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         desc_ativ_lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -140,6 +139,7 @@ public class CadastroAtividade extends javax.swing.JFrame {
     private void salvar_ativ_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvar_ativ_btActionPerformed
         AtividadeController avaliacaoController = new AtividadeController();
         avaliacaoController.validaCadastro(this);
+        avaliacaoController.insereAtividade();
     }//GEN-LAST:event_salvar_ativ_btActionPerformed
 
     private void voltar_ativ_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltar_ativ_btActionPerformed

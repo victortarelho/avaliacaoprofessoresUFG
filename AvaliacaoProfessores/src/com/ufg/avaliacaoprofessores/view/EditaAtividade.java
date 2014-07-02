@@ -1,9 +1,35 @@
 package com.ufg.avaliacaoprofessores.view;
 
+import com.ufg.avaliacaoprofessores.bean.Atividade;
+import com.ufg.avaliacaoprofessores.bean.TipoAtividade;
+import com.ufg.avaliacaoprofessores.controller.AtividadeController;
+import com.ufg.avaliacaoprofessores.dao.TipoAtividadeDAO;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 public class EditaAtividade extends javax.swing.JFrame {
 
+    AtividadeController controller;
+    Atividade atividade;
     public EditaAtividade() {
         initComponents();
+        controller = new AtividadeController();
+        TipoAtividadeDAO tipoAtividadeDao = new TipoAtividadeDAO();
+        List listTipoAtividade = new ArrayList();
+        try {
+            listTipoAtividade = tipoAtividadeDao.listar();
+        } catch (Exception ex) {
+            Logger.getLogger(EditaAtividade.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        tipoAtividadeCombo.addItem("");
+        for (Iterator it = listTipoAtividade.iterator(); it.hasNext();) {
+            TipoAtividade object = (TipoAtividade)it.next();
+            tipoAtividadeCombo.addItem(object.getId()+"-"+object.getNome());
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -20,7 +46,7 @@ public class EditaAtividade extends javax.swing.JFrame {
         id_ativ_lbl = new javax.swing.JLabel();
         desc_ativ_lbl = new javax.swing.JLabel();
         mas_pont_ativ_lbl = new javax.swing.JLabel();
-        id_ativ_txt = new javax.swing.JTextField();
+        codigo_ativ_txt = new javax.swing.JTextField();
         selec_ativ_ed_bt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -46,7 +72,7 @@ public class EditaAtividade extends javax.swing.JFrame {
         mas_pont_ativ_lbl1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         id_ativ_lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        id_ativ_lbl.setText("ID");
+        id_ativ_lbl.setText("Código");
         id_ativ_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         desc_ativ_lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -56,6 +82,12 @@ public class EditaAtividade extends javax.swing.JFrame {
         mas_pont_ativ_lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         mas_pont_ativ_lbl.setText("Máx. Pontos");
         mas_pont_ativ_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        codigo_ativ_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                codigo_ativ_txtActionPerformed(evt);
+            }
+        });
 
         selec_ativ_ed_bt.setText("Selec.");
         selec_ativ_ed_bt.addActionListener(new java.awt.event.ActionListener() {
@@ -93,7 +125,7 @@ public class EditaAtividade extends javax.swing.JFrame {
                             .addComponent(max_pont_ativ_txt)
                             .addComponent(tipoAtividadeCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(id_ativ_txt)
+                                .addComponent(codigo_ativ_txt)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(selec_ativ_ed_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
@@ -105,7 +137,7 @@ public class EditaAtividade extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(id_ativ_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(id_ativ_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(codigo_ativ_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(selec_ativ_ed_bt))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -130,7 +162,13 @@ public class EditaAtividade extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void salvar_ativ_ed_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvar_ativ_ed_btActionPerformed
-        //dar update nas informações das atividades
+        if(atividade == null){
+            JOptionPane.showMessageDialog(null, "Selecione uma atividade primeiro!");
+            return;
+        }
+        AtividadeController avaliacaoController = new AtividadeController();
+        avaliacaoController.validaCadastro(this);
+        avaliacaoController.atualizaAtividade(atividade);
     }//GEN-LAST:event_salvar_ativ_ed_btActionPerformed
 
     private void voltar_ativ_ed_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltar_ativ_ed_btActionPerformed
@@ -141,8 +179,15 @@ public class EditaAtividade extends javax.swing.JFrame {
     }//GEN-LAST:event_voltar_ativ_ed_btActionPerformed
 
     private void selec_ativ_ed_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selec_ativ_ed_btActionPerformed
-        //dar um select e buscar as demais informações
+        atividade = controller.restoreAtividade(Long.parseLong(codigo_ativ_txt.getText()));
+        desc_ativ_txt.setText(atividade.getDescricao());
+        max_pont_ativ_txt.setText(atividade.getPontos()+"");
+        tipoAtividadeCombo.setSelectedItem(atividade.getTipoAtividade().getId()+"-"+atividade.getTipoAtividade().getNome());
     }//GEN-LAST:event_selec_ativ_ed_btActionPerformed
+
+    private void codigo_ativ_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codigo_ativ_txtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_codigo_ativ_txtActionPerformed
 
     /**
      * @param args the command line arguments
@@ -179,10 +224,10 @@ public class EditaAtividade extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField codigo_ativ_txt;
     private javax.swing.JLabel desc_ativ_lbl;
     private javax.swing.JTextField desc_ativ_txt;
     private javax.swing.JLabel id_ativ_lbl;
-    private javax.swing.JTextField id_ativ_txt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel mas_pont_ativ_lbl;
     private javax.swing.JLabel mas_pont_ativ_lbl1;

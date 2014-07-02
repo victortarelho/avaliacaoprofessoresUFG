@@ -51,7 +51,7 @@
                           <Component id="max_pont_ativ_txt" alignment="0" max="32767" attributes="0"/>
                           <Component id="tipoAtividadeCombo" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="id_ativ_txt" max="32767" attributes="0"/>
+                              <Component id="codigo_ativ_txt" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="selec_ativ_ed_bt" min="-2" pref="70" max="-2" attributes="0"/>
                           </Group>
@@ -69,7 +69,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="id_ativ_lbl" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                  <Component id="id_ativ_txt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="codigo_ativ_txt" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="selec_ativ_ed_bt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -144,7 +144,7 @@
     <Component class="javax.swing.JLabel" name="id_ativ_lbl">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="ID"/>
+        <Property name="text" type="java.lang.String" value="C&#xf3;digo"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
             <BevelBorder/>
@@ -174,7 +174,10 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="id_ativ_txt">
+    <Component class="javax.swing.JTextField" name="codigo_ativ_txt">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="codigo_ativ_txtActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="selec_ativ_ed_bt">
       <Properties>

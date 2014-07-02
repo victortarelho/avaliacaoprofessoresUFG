@@ -4,7 +4,6 @@ import com.ufg.avaliacaoprofessores.bean.Atividade;
 import com.ufg.avaliacaoprofessores.bean.TipoAtividade;
 import com.ufg.avaliacaoprofessores.business.AtividadeBusiness;
 import com.ufg.avaliacaoprofessores.view.CadastroAtividade;
-import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -38,12 +37,19 @@ public class AtividadeController extends GenericController {
         TipoAtividade tipoAtividade = new TipoAtividade();
         tipoAtividade.setId(Long.parseLong(idTipoAtividade));
         atividadeBean.setTipoAtividade(tipoAtividade);
-        insereAtividade();
     }
 
     public void insereAtividade(){
         atividadeBusiness.salvaAtividade(atividadeBean);
         JOptionPane.showMessageDialog(null, "Atividade cadastrado com sucesso!");
+    }
+    
+    public Atividade restoreAtividade(Long idAtividade){
+        return atividadeBusiness.restoreAtividade(idAtividade);
+    }
+    
+    public void atualizaAtividade(Atividade atividade){
+        
     }
 
 }
