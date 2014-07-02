@@ -3,20 +3,41 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.ufg.avaliacaoprofessores.business;
 
 import com.ufg.avaliacaoprofessores.bean.Atividade;
 import com.ufg.avaliacaoprofessores.dao.AtividadeDAO;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  *
  * @author Bruno
  */
-public class AtividadeBusiness implements GenericBusiness{
-    
-    public void salvaAtividade(Atividade atividade){
-        AtividadeDAO atividadeDao = new AtividadeDAO();
-        atividadeDao.salvar(atividade);
+public class AtividadeBusiness implements GenericBusiness {
+
+    AtividadeDAO dao;
+
+    public AtividadeBusiness() {
+        dao = new AtividadeDAO();
+    }
+
+    public void salvaAtividade(Atividade atividade) {
+        dao = new AtividadeDAO();
+        dao.salvar(atividade);
+    }
+
+    public Atividade restoreAtividade(Long codigoAtividade) {
+        Map parametros = new HashMap();
+        parametros.put("codigo", codigoAtividade.toString());
+        String hql = " and bean.codigo = :codigo";
+        List<Atividade> listaAtividade = (List<Atividade>) dao.listarFiltroHql(Atividade.class, parametros, hql);
+        
+        if(!listaAtividade.isEmpty()){
+            return listaAtividade.get(0);
+        } else {
+            return null;
+        }
     }
 }
