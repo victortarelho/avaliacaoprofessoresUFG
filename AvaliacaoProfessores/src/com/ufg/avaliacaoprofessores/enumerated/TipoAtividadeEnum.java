@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package com.ufg.avaliacaoprofessores.enumerados;
+package com.ufg.avaliacaoprofessores.enumerated;
 
 /**
  *

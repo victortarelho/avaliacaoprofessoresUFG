@@ -1,6 +1,6 @@
 
-import com.ufg.avaliacaoprofessores.telas.CadastroAvaliacao;
-import com.ufg.avaliacaoprofessores.telas.TelaInicial;
+import com.ufg.avaliacaoprofessores.view.CadastroAvaliacao;
+import com.ufg.avaliacaoprofessores.view.TelaInicial;
 
 /*
  * To change this license header, choose License Headers in Project Properties.

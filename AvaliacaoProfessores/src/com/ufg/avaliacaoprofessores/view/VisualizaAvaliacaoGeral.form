@@ -123,7 +123,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="ordena_data_bt">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ordenar Por Data"/>
+        <Property name="text" type="java.lang.String" value="Ordenar Por Nota"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ordena_data_btActionPerformed"/>

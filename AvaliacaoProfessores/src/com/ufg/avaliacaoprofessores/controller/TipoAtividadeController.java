@@ -2,7 +2,7 @@ package com.ufg.avaliacaoprofessores.controller;
 
 import com.ufg.avaliacaoprofessores.bean.TipoAtividade;
 import com.ufg.avaliacaoprofessores.business.TipoAtividadeBusiness;
-import com.ufg.avaliacaoprofessores.telas.CadastroTipoAtividade;
+import com.ufg.avaliacaoprofessores.view.CadastroTipoAtividade;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 

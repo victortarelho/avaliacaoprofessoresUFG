@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.ufg.avaliacaoprofessores.telas;
+package com.ufg.avaliacaoprofessores.view;
 
 import com.ufg.avaliacaoprofessores.controller.TipoAtividadeController;
 import javax.swing.JComboBox;
@@ -42,15 +42,15 @@ public class CadastroTipoAtividade extends javax.swing.JFrame {
 
         desc_ativ_lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         desc_ativ_lbl.setText("Descrição");
-        desc_ativ_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        desc_ativ_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         mas_pont_ativ_lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         mas_pont_ativ_lbl.setText("Máx. Pontos");
-        mas_pont_ativ_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        mas_pont_ativ_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         id_ativ_lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         id_ativ_lbl.setText("ID");
-        id_ativ_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        id_ativ_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,15 +58,15 @@ public class CadastroTipoAtividade extends javax.swing.JFrame {
 
         desc_ativ_lbl1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         desc_ativ_lbl1.setText("Descrição");
-        desc_ativ_lbl1.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        desc_ativ_lbl1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         mas_pont_ativ_lbl1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         mas_pont_ativ_lbl1.setText("Código");
-        mas_pont_ativ_lbl1.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        mas_pont_ativ_lbl1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         id_ativ_lbl1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         id_ativ_lbl1.setText("ID");
-        id_ativ_lbl1.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        id_ativ_lbl1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         voltar_tipo_ativ_bt.setText("Voltar");
         voltar_tipo_ativ_bt.addActionListener(new java.awt.event.ActionListener() {
@@ -84,7 +84,7 @@ public class CadastroTipoAtividade extends javax.swing.JFrame {
 
         mas_pont_ativ_lbl2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         mas_pont_ativ_lbl2.setText("Ativ. Pai");
-        mas_pont_ativ_lbl2.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        mas_pont_ativ_lbl2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

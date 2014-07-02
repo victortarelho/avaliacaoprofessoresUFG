@@ -1,4 +1,4 @@
-package com.ufg.avaliacaoprofessores.telas;
+package com.ufg.avaliacaoprofessores.view;
 
 import com.ufg.avaliacaoprofessores.bean.Docente;
 import com.ufg.avaliacaoprofessores.controller.DocenteController;
@@ -34,22 +34,22 @@ public class CadastroDocente extends javax.swing.JFrame {
 
         nome_doc_lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         nome_doc_lbl.setText("Nome");
-        nome_doc_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        nome_doc_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         nome_doc_lbl.setMaximumSize(new java.awt.Dimension(47, 18));
         nome_doc_lbl.setMinimumSize(new java.awt.Dimension(47, 18));
         nome_doc_lbl.setPreferredSize(new java.awt.Dimension(47, 18));
 
         mat_doc_lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         mat_doc_lbl.setText("Matrícula");
-        mat_doc_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        mat_doc_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         unid_dep_doc_lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         unid_dep_doc_lbl.setText("Unidade/Dep.");
-        unid_dep_doc_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        unid_dep_doc_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         regime_doc_lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         regime_doc_lbl.setText("Regime");
-        regime_doc_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        regime_doc_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         salvar_doc_bt.setText("Salvar");
         salvar_doc_bt.addActionListener(new java.awt.event.ActionListener() {

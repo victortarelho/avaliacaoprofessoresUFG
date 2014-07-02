@@ -1,4 +1,4 @@
-package com.ufg.avaliacaoprofessores.telas;
+package com.ufg.avaliacaoprofessores.view;
 
 import com.ufg.avaliacaoprofessores.controller.AvaliacaoController;
 import java.io.File;
@@ -41,7 +41,7 @@ public class CadastroAvaliacao extends javax.swing.JFrame {
 
         caminhoArquivoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         caminhoArquivoLabel.setText("Caminho do arquivo");
-        caminhoArquivoLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        caminhoArquivoLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         buscar_arq_bt.setText("Buscar Arquivo");
         buscar_arq_bt.addActionListener(new java.awt.event.ActionListener() {

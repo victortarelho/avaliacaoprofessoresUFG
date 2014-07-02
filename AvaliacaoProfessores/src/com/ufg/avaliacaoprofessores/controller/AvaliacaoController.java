@@ -41,4 +41,14 @@ public class AvaliacaoController extends GenericController{
     public void realizaAvaliacaoJson(File arquivo){
         avaliacaoBusiness.realizaAvaliacaoJson(arquivo);
     }
+    
+    public void ordenaListaPorNome(JFrame jframe){
+        avaliacaoBusiness.ordenaListaPorNome();
+        jframe.setVisible(false);
+    }
+    
+    public void ordenaListaPorNota(JFrame jframe){
+        avaliacaoBusiness.ordenaListaPorNota();
+        jframe.setVisible(false);
+    }
 }

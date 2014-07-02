@@ -8,7 +8,7 @@ package com.ufg.avaliacaoprofessores.controller;
 
 import com.ufg.avaliacaoprofessores.bean.Docente;
 import com.ufg.avaliacaoprofessores.business.DocenteBusiness;
-import com.ufg.avaliacaoprofessores.telas.CadastroDocente;
+import com.ufg.avaliacaoprofessores.view.CadastroDocente;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 

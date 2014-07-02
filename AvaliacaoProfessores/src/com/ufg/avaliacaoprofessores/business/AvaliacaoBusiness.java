@@ -8,11 +8,13 @@ package com.ufg.avaliacaoprofessores.business;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.ufg.avaliacaoprofessores.bean.AvaliacaoDocente;
+import com.ufg.avaliacaoprofessores.comparer.AvaliacaoComparerByNota;
+import com.ufg.avaliacaoprofessores.comparer.AvaliacaoComparerByNomeDocente;
 import com.ufg.avaliacaoprofessores.dao.AvaliacaoDAO;
 import com.ufg.avaliacaoprofessores.dao.AvaliacaoDocenteDAO;
 import com.ufg.avaliacaoprofessores.dao.DocenteDAO;
 import com.ufg.avaliacaoprofessores.dao.ItemAvaliacaoDAO;
-import com.ufg.avaliacaoprofessores.telas.VisualizaAvaliacaoGeral;
+import com.ufg.avaliacaoprofessores.view.VisualizaAvaliacaoGeral;
 import com.ufg.avaliacaoprofessores.thread.ThreadCalculaPontuacao;
 import com.ufg.avaliacaoprofessores.util.BeanPopulate;
 import com.ufg.avaliacaoprofessores.vo.AvaliacaoGeralVO;
@@ -131,5 +133,18 @@ public class AvaliacaoBusiness implements GenericBusiness{
         jFrame.setVisible(true);
         
     }
+    
+    public void ordenaListaPorNome(){
+        Collections.sort(listaAvaliacaoDocenteFinal, new AvaliacaoComparerByNomeDocente());
+        VisualizaAvaliacaoGeral jFrame = new VisualizaAvaliacaoGeral();
+        jFrame.carregaListaAvaliacoes(listaAvaliacaoDocenteFinal);
+        jFrame.setVisible(true);
+    }
 
+    public void ordenaListaPorNota(){
+        Collections.sort(listaAvaliacaoDocenteFinal, new AvaliacaoComparerByNota());
+        VisualizaAvaliacaoGeral jFrame = new VisualizaAvaliacaoGeral();
+        jFrame.carregaListaAvaliacoes(listaAvaliacaoDocenteFinal);
+        jFrame.setVisible(true);
+    }
 }

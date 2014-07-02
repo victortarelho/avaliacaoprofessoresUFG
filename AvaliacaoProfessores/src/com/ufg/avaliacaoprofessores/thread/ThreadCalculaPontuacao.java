@@ -10,7 +10,7 @@ import com.ufg.avaliacaoprofessores.bean.AvaliacaoDocente;
 import com.ufg.avaliacaoprofessores.bean.Docente;
 import com.ufg.avaliacaoprofessores.bean.ItemAvaliacao;
 import com.ufg.avaliacaoprofessores.business.AvaliacaoBusiness;
-import com.ufg.avaliacaoprofessores.enumerados.TipoAtividadeEnum;
+import com.ufg.avaliacaoprofessores.enumerated.TipoAtividadeEnum;
 import java.util.List;
 
 /**

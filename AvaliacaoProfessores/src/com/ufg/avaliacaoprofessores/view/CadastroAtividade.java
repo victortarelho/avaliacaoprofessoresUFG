@@ -1,4 +1,4 @@
-package com.ufg.avaliacaoprofessores.telas;
+package com.ufg.avaliacaoprofessores.view;
 
 import com.ufg.avaliacaoprofessores.bean.Atividade;
 import com.ufg.avaliacaoprofessores.bean.TipoAtividade;
@@ -48,15 +48,15 @@ public class CadastroAtividade extends javax.swing.JFrame {
 
         id_ativ_lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         id_ativ_lbl.setText("ID");
-        id_ativ_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        id_ativ_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         desc_ativ_lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         desc_ativ_lbl.setText("Descrição");
-        desc_ativ_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        desc_ativ_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         mas_pont_ativ_lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         mas_pont_ativ_lbl.setText("Máx. Pontos");
-        mas_pont_ativ_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        mas_pont_ativ_lbl.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         salvar_ativ_bt.setText("Salvar");
         salvar_ativ_bt.addActionListener(new java.awt.event.ActionListener() {
@@ -67,7 +67,7 @@ public class CadastroAtividade extends javax.swing.JFrame {
 
         mas_pont_ativ_lbl1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         mas_pont_ativ_lbl1.setText("Tipo Ativ.");
-        mas_pont_ativ_lbl1.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        mas_pont_ativ_lbl1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         voltar_ativ_bt.setText("Voltar");
         voltar_ativ_bt.addActionListener(new java.awt.event.ActionListener() {

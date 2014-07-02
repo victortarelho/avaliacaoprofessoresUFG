@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.ufg.avaliacaoprofessores.telas;
+package com.ufg.avaliacaoprofessores.view;
 
 import com.ufg.avaliacaoprofessores.bean.TipoAtividade;
 import java.util.List;

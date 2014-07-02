@@ -1,13 +1,17 @@
-package com.ufg.avaliacaoprofessores.telas;
+package com.ufg.avaliacaoprofessores.view;
 
 import com.ufg.avaliacaoprofessores.bean.AvaliacaoDocente;
+import com.ufg.avaliacaoprofessores.controller.AvaliacaoController;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 public class VisualizaAvaliacaoGeral extends javax.swing.JFrame {
 
+    private AvaliacaoController controller;
+    
     public VisualizaAvaliacaoGeral() {
         initComponents();
+        controller = new AvaliacaoController();
     }
 
     @SuppressWarnings("unchecked")
@@ -50,7 +54,7 @@ public class VisualizaAvaliacaoGeral extends javax.swing.JFrame {
             }
         });
 
-        ordena_data_bt.setText("Ordenar Por Data");
+        ordena_data_bt.setText("Ordenar Por Nota");
         ordena_data_bt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ordena_data_btActionPerformed(evt);
@@ -112,11 +116,11 @@ public class VisualizaAvaliacaoGeral extends javax.swing.JFrame {
     }//GEN-LAST:event_sair_visual_btActionPerformed
 
     private void ordena_nome_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordena_nome_btActionPerformed
-        // TODO add your handling code here:
+        controller.ordenaListaPorNome(this);
     }//GEN-LAST:event_ordena_nome_btActionPerformed
 
     private void ordena_data_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordena_data_btActionPerformed
-        // TODO add your handling code here:
+        controller.ordenaListaPorNota(this);
     }//GEN-LAST:event_ordena_data_btActionPerformed
 
     public static void main(String args[]) {

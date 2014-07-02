@@ -1,4 +1,4 @@
-package com.ufg.avaliacaoprofessores.telas;
+package com.ufg.avaliacaoprofessores.view;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
