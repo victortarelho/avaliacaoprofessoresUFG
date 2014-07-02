@@ -40,4 +40,18 @@ public class AtividadeBusiness implements GenericBusiness {
             return null;
         }
     }
+    
+    public void atualizaAtividade(Atividade atividade){
+        Atividade ativAux = null;
+        Map parametros = new HashMap();
+        parametros.put("codigo", atividade.getCodigo().toString());
+        String hql = " and bean.codigo = :codigo";
+        List<Atividade> listaAtividade = (List<Atividade>) dao.listarFiltroHql(Atividade.class, parametros, hql);
+        
+        if(!listaAtividade.isEmpty()){
+            ativAux = listaAtividade.get(0);
+            atividade.setId(ativAux.getId());
+            dao.salvar(atividade);
+        } 
+    }
 }
