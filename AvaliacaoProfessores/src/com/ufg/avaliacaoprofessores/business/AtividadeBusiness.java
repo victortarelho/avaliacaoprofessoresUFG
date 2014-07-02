@@ -58,14 +58,8 @@ public class AtividadeBusiness implements GenericBusiness {
     }
     
     public List<Atividade> listarAtividades() throws Exception{
-        TipoAtividadeDAO tipoAtividadeDao = new TipoAtividadeDAO();
         List<Atividade> listAtividade = new ArrayList();
-        List<Atividade> listAtividadeResu = new ArrayList();
         listAtividade   = dao.listar();
-        if(listAtividade!= null && !listAtividade.isEmpty())
-            for(Atividade atividade : listAtividade){
-                System.out.println(atividade.getTipoAtividade());
-            }
-            return listAtividade;
+        return listAtividade;
     }
 }
